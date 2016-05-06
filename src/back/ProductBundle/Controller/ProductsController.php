@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Controller for Products customer.
  * 
- * @package NordnetAccountBundle
+ * @package backProductBundle
  * 
  * @author Amal Hsouna
  */

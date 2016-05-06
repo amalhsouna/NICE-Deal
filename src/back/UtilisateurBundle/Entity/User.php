@@ -1,5 +1,5 @@
 <?php
-// src/AppBundle/Entity/User.php
+// src/back\UtilisateurBundle/Entity/User.php
 
 namespace back\UtilisateurBundle\Entity;
 

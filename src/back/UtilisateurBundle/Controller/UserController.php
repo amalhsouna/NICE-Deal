@@ -4,7 +4,14 @@ namespace back\UtilisateurBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+/**
+ * Controller for User.
+ * 
+ * @package backUtilisateurBundle
+ * 
+ * @author Amal Hsouna
+ */
+class UserController extends Controller
 {
     public function indexAction()
     {
