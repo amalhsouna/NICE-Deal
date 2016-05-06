@@ -1,0 +1,11 @@
+#list of product
+back_product_homepage:
+    path:     /test/test
+    defaults: { _controller: backProductBundle:Products:index }
+    requirements:
+       _method: GET
+    
+#Add products
+back_product_add_products:
+    path:     /test/ajouter
+    defaults: { _controller: backProductBundle:Products:postProducts }

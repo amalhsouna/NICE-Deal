@@ -1,0 +1,8 @@
+parameters:
+    product.manager.client.class: back\ProductBundle\ModelManager\ProductManger
+    
+services:
+    back_product.list:
+        class: %product.manager.client.class%
+        arguments: ["@doctrine"]
+        

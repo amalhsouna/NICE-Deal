@@ -1,0 +1,8 @@
+/nbproject/* 
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+/vendor/
+/bin/
+/composer.phar
