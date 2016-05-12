@@ -1,5 +1,5 @@
 back_utilisateur:
-    resource: "@backUtilisateurBundle/Resources/config/routing.yml"
+    resource: "@backAdminBundle/Resources/config/routing.yml"
     prefix:   /
 
 back_product:
@@ -7,4 +7,4 @@ back_product:
     prefix:   /
 
 fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    resource: "@backAdminBundle/Resources/config/routing.yml"

@@ -18,7 +18,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new back\ProductBundle\backProductBundle(),
             new Entity\EcommerceBundle\EntityEcommerceBundle(),
-            new back\UtilisateurBundle\backUtilisateurBundle(),
+            new back\AdminBundle\backAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

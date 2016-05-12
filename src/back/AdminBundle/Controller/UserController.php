@@ -1,13 +1,13 @@
 <?php
 
-namespace back\UtilisateurBundle\Controller;
+namespace back\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Controller for User.
  * 
- * @package backUtilisateurBundle
+ * @package backAdminBundle
  * 
  * @author Amal Hsouna
  */
@@ -15,6 +15,6 @@ class UserController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('backUtilisateurBundle:Default:index.html.twig');
+        return $this->render('backAdminBundle:Default:index.html.twig');
     }
 }

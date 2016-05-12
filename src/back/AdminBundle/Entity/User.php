@@ -1,7 +1,7 @@
 <?php
-// src/back\UtilisateurBundle/Entity/User.php
+// src/back\AdminBundle/Entity/User.php
 
-namespace back\UtilisateurBundle\Entity;
+namespace back\AdminBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;

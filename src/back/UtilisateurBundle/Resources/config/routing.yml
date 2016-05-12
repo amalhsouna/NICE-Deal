@@ -1,3 +1,0 @@
-back_utilisateur_homepage:
-    path:     /
-    defaults: { _controller: backUtilisateurBundle:Default:index }
