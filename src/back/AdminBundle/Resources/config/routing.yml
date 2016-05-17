@@ -1,6 +1,6 @@
 back_utilisateur_homepage:
-    path:     /
-    defaults: { _controller: backAdminBundle:Default:index }
+    path:     /espace-admin
+    defaults: { _controller: backAdminBundle:User:index }
     
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
