@@ -5,7 +5,7 @@ back_product_homepage:
     requirements:
        _method: GET
     
-#Add products
-back_product_add_products:
+#Add products by admin
+back_product_admin_add_products:
     path:     /test/ajouter
     defaults: { _controller: backProductBundle:Products:postProducts }
