@@ -121,4 +121,20 @@ class Products
     {
         return $this->description;
     }
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Images", cascade={"persist"})
+     */
+    private $image;
+    // Vos autres attributs…
+
+    public function setImage(Images $image = null)
+    {
+        $this->image = $image;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
 }

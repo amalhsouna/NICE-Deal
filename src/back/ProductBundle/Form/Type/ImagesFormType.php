@@ -13,26 +13,19 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use back\ProductBundle\Form\Type\ImagesFormType;
-
 /**
  * Products form type.
  * 
  * @package backProductBundle
  * @author Amal Hsouna
  */
-class AddProductsFormType extends AbstractType
+class ImagesFormType extends AbstractType
 {
 
     /**
      * @var string
      */
     protected $class;
-    
-    /**
-     * @var ImagesFormType
-     */
-    protected $imagesFormType;
 
     /**
      * Constructor class.
@@ -40,10 +33,9 @@ class AddProductsFormType extends AbstractType
      * @param string $class  The model for handle form type.
      * @param string $method The method of rest.
      */
-    public function __construct($class, ImagesFormType $imagesFormType)
+    public function __construct($class)
     {
         $this->class  = $class;
-        $this->imagesFormType  = $imagesFormType;
     }
 
     /**
@@ -56,11 +48,7 @@ class AddProductsFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', 'text')
-                ->add('price', 'text')
-                ->add('description', 'textarea')
-                ->add('image', $this->imagesFormType ,array('data_class' => 'Entity\EcommerceBundle\Entity\Images'))
-               ;
+        $builder->add('file', 'file');
     }
 
     /**
@@ -85,6 +73,6 @@ class AddProductsFormType extends AbstractType
      */
     public function getName()
     {
-        return "test";
+        return "images_productsss";
     }
 }

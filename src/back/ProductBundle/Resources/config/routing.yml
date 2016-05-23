@@ -1,11 +1,16 @@
 #list of product
 back_product_homepage:
-    path:     /test/test
+    path:     /test
     defaults: { _controller: backProductBundle:Products:index }
     requirements:
        _method: GET
     
 #Add products by admin
 back_product_admin_add_products:
-    path:     /test/ajouter
+    path:     /espace-admin/ajouter-produits
     defaults: { _controller: backProductBundle:Products:postProducts }
+    
+#list products by admin
+back_product_admin_add_products:
+    path:     /espace-admin/list-produits
+    defaults: { _controller: backProductBundle:Products:getProducts }

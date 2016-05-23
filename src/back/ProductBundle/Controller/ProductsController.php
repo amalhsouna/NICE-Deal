@@ -25,7 +25,7 @@ class ProductsController extends Controller
     {
        $test = $this->get('back_product.list');
        $ProductsDeals = $test->getProductsDeals();
-       return $this->render('backProductBundle:Default:index.html.twig' , array('products' => $ProductsDeals));  
+       return $this->render('backProductBundle:Products:index.html.twig' , array('products' => $ProductsDeals));  
     }
     
     /**
@@ -46,7 +46,19 @@ class ProductsController extends Controller
             $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
         }
         
-        return $this->render('backProductBundle:Default:addProducts.html.twig' , array('form' => $form->createView()));    
+        return $this->render('backProductBundle:Products:addProducts.html.twig' , array('form' => $form->createView()));    
+    }
+    
+     /**
+     * Return a list of products.
+     *
+     * @return Response
+     */
+    public function getProductsAction()
+    {
+       $test = $this->get('back_product.list');
+       $ProductsDeals = $test->getProductsDeals();
+       return $this->render('backProductBundle:Products:index.html.twig' , array('products' => $ProductsDeals));  
     }
   
 }

@@ -1,8 +1,12 @@
 parameters:
     back_product.products.form.class:                    Symfony\Component\Form\Form
+    
     back_product.products.form.type.class:               back\ProductBundle\Form\Type\AddProductsFormType
     back_product.manager.handler.client.class: back\ProductBundle\Form\Handler\AddProductsFormHandler
     back_product.products.form_data_class:               Entity\EcommerceBundle\Entity\Products
+    
+    back_product.images.form.type.class:               back\ProductBundle\Form\Type\ImagesFormType
+    back_product.images.form_data_class:               Entity\EcommerceBundle\Entity\Images
     
 services:
     back_product.products.form:
@@ -13,10 +17,13 @@ services:
             - "create_products"
             - "@back_product.products.form.type"
             - ~
-            
+    back_product.images.form.type:
+        class: %back_product.images.form.type.class%
+        arguments: [%back_product.images.form_data_class%]
+           
     back_product.products.form.type:
         class: %back_product.products.form.type.class%
-        arguments: [%back_product.products.form_data_class%]
+        arguments: [%back_product.products.form_data_class%, "@back_product.images.form.type"]
             
     back_product.handler.add.products:
         class: %back_product.manager.handler.client.class%
