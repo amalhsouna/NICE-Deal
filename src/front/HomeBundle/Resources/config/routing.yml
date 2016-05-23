@@ -1,0 +1,6 @@
+#list of product
+front_product_homepage:
+    path:     /
+    defaults: { _controller: frontHomeBundle:Home:index }
+    requirements:
+       _method: GET

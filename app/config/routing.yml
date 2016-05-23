@@ -1,3 +1,8 @@
+front_home:
+    resource: "@frontHomeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 back_utilisateur:
     resource: "@backAdminBundle/Resources/config/routing.yml"
     prefix:   /

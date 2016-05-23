@@ -1,0 +1,4 @@
+services:
+#    front_home.example:
+#        class: front\HomeBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
