@@ -1,6 +1,16 @@
-#list of product
-front_product_homepage:
+#page acceuil
+front_home_homepage:
     path:     /
     defaults: { _controller: frontHomeBundle:Home:index }
     requirements:
        _method: GET
+       
+#contact page
+front_home_contact_page:
+    path:     /contact
+    defaults: { _controller: frontHomeBundle:Home:contact }
+
+#detail products page
+front_home_detail_products:
+    path:     /detail/product
+    defaults: { _controller: frontHomeBundle:Home:productDetail }

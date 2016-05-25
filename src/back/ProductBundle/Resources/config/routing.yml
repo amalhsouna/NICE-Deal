@@ -9,8 +9,28 @@ back_product_homepage:
 back_product_admin_add_products:
     path:     /espace-admin/ajouter-produits
     defaults: { _controller: backProductBundle:Products:postProducts }
+    requirements:
+       _method: POST
     
 #list products by admin
 back_product_admin_add_products:
     path:     /espace-admin/list-produits
     defaults: { _controller: backProductBundle:Products:getProducts }
+    
+#category routing    
+#list of category
+back_category_homepage:
+    path:     /liste/category
+    defaults: { _controller: backProductBundle:Category:getListCategory }
+    requirements:
+       _method: GET
+    
+#Add products by admin
+back_category_admin_add_products:
+    path:     /ajouter/category
+    defaults: { _controller: backProductBundle:Category:postProducts }
+    
+#list products by admin
+back_category_admin_add_products:
+    path:     /espace-admin/category
+    defaults: { _controller: backProductBundle:Category:getProducts }

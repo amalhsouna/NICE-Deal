@@ -14,18 +14,18 @@ use Symfony\Component\HttpFoundation\Response;
  * @author Amal Hsouna
  */
 
-class ProductsController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Return a list of products.
      *
      * @return Response
      */
-    public function indexAction()
+    public function getListCategoryAction()
     {
-       $test = $this->get('back_product.products.list');
-       $ProductsDeals = $test->getProductsDeals();
-       return $this->render('backProductBundle:Products:index.html.twig' , array('products' => $ProductsDeals));  
+       $listeCategoryManager = $this->get('back_product.category.list');
+       $ProductsDeals = $listeCategoryManager->getCategoryDeals();
+       return $this->render('backProductBundle:Products:listCategory.html.twig' , array('products' => $ProductsDeals));  
     }
     
     /**
@@ -49,16 +49,4 @@ class ProductsController extends Controller
         return $this->render('backProductBundle:Products:addProducts.html.twig' , array('form' => $form->createView()));    
     }
     
-     /**
-     * Return a list of products.
-     *
-     * @return Response
-     */
-    public function getProductsAction()
-    {
-       $test = $this->get('back_product.list');
-       $ProductsDeals = $test->getProductsDeals();
-       return $this->render('backProductBundle:Products:index.html.twig' , array('products' => $ProductsDeals));  
-    }
-  
 }

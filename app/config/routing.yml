@@ -11,5 +11,9 @@ back_product:
     resource: "@backProductBundle/Resources/config/routing.yml"
     prefix:   /
 
+front_home:
+    resource: "@frontHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
 fos_user:
     resource: "@backAdminBundle/Resources/config/routing.yml"

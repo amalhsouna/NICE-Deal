@@ -126,6 +126,7 @@ class Products
      * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Images", cascade={"persist"})
      */
     private $image;
+    
     // Vos autres attributs…
 
     public function setImage(Images $image = null)
@@ -136,5 +137,23 @@ class Products
     public function getImage()
     {
         return $this->image;
+    }
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", inversedBy="products", cascade={"persist"})
+     * @ORM\JoinTable(name="categ_id",name="id")
+     */
+    private $category;
+    
+    // Vos autres attributs…
+
+    public function setCategory(Category $category = null)
+    {
+        $this->category = $category;
+    }
+
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

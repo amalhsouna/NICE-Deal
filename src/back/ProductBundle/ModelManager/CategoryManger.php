@@ -12,7 +12,7 @@ namespace back\ProductBundle\ModelManager;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 
-class ProductManger
+class CategoryManger
 {
     public function __construct(Registry $doctrine)
     {
@@ -24,9 +24,9 @@ class ProductManger
      * return list of products
      * @throws \Exception
      */
-    public function getProductsDeals()
+    public function getCategoryDeals()
     {
-        $arboMenuRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Products');
-        return $arboMenuRepository->findAllProducts();
+        $arboMenuRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Category');
+        return $arboMenuRepository->findAllCategory();
     }
 }
