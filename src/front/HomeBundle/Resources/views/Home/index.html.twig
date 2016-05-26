@@ -1,9 +1,8 @@
 {% extends "::base.html.twig" %}
 {% block body %}
-    
-    {% include '::includesFront/topColumn.html.twig' %}
+   {% include '::includesFront/topColumn.html.twig' %}
    <body>
-    <div class="navbar-collapse collapse right" id="basket-overview">
+            <div class="navbar-collapse collapse right" id="basket-overview">
                 <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">3 items <span class="hidden-md">in cart</span></span></a>
             </div>
             <!--/.nav-collapse -->
@@ -104,22 +103,15 @@ _________________________________________________________ -->
         </div>
 
     </div>
-
-
     <!-- *** SLIDER END *** -->
 
     <div id="all">
 
-        <!-- *** ADVANTAGES ***
-_________________________________________________________ -->
+        <!-- *** ADVANTAGES ***-->
 
         <!-- *** ADVANTAGES END *** -->
 
-        <!-- *** CONTENT ***
-	    _________________________________________________________
-	    _________________________________________________________
-	    -->
-
+        <!-- *** CONTENT ***-->
         <div id="content">
             <div class="container">
 
@@ -443,7 +435,8 @@ _________________________________________________________ -->
 
             </div>
             <!-- /.container -->
-             <div id="advantages">
+    <!--advantages -->
+    <div id="advantages">
 
             <div class="container">
 
@@ -502,32 +495,25 @@ _________________________________________________________ -->
         </div>
         <!-- /#advantages -->
 
-            <!-- *** PROMO BAR ***
-_________________________________________________________ -->
-
-            <div class="bar background-image-fixed-2 no-mb color-white text-center">
-                <div class="dark-mask"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="icon icon-lg"><i class="fa fa-file-code-o"></i>
-                            </div>
-                            <h1>Do you want to see more?</h1>
-                            <p class="lead">We have prepared for you 23 different HTML pages, including 2 variations of homepage.</p>
-                            <p class="text-center">
-                                <a href="index2.html" class="btn btn-primary btn-lg">Check other homepage</a>
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- *** PROMO BAR END *** -->
-
-
          {% include '::includesFront/footer.html.twig' %}
 
         </div>
+        {% block javascripts %}
+            {{ parent() }}
+            <script>
+            $(document).ready(function() {
+              $("#owl-demo").owlCarousel({
+                autoPlay: 3000,
+                items : 4,
+                itemsDesktop : [1199,3],
+                itemsDesktopSmall : [979,3]
+              });
+
+            });
+            </script>
+            <!-- owl carousel -->
+            <script src="{{asset("bundles/frontBundle/js/owl.carousel.js")}}"></script>
+   <!-- End owl -->
+    {% endblock %}
         <!-- /#content -->
  {% endblock %}

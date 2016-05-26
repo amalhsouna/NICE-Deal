@@ -1,5 +1,15 @@
-
-
-{% for product in products %}
-    {{product.name}}
-{% endfor %}
+{% extends "::baseAdmin.html.twig" %}
+{% block body %}
+    {% include '::includes/topColumn.html.twig' %}
+    {% include '::includes/leftColumn.html.twig' %}
+    <div class="col-md-6">
+    <h3>Liste des produits</h3>
+    <table class="table table-hover">
+   
+        {% for product in products %}
+            {{product.name}}
+        {% endfor %}
+    </table>
+    </div>
+  {% include '::includes/footer.html.twig' %}
+{% endblock %}

@@ -34,43 +34,23 @@
         <link href="{{asset("bundles/frontBundle/css/custom.css")}}" rel="stylesheet">
         <link rel="shortcut icon" href="favicon.png">
 
-         <!--owl carousel css -->
-         <link href="{{asset("bundles/frontBundle/css/owl.carousel.css")}}" rel="stylesheet">
+        <!--owl carousel css -->
+        <link href="{{asset("bundles/frontBundle/css/owl.carousel.css")}}" rel="stylesheet">
         <link href="{{asset("bundles/frontBundle/css/owl.theme.css")}}" rel="stylesheet">
-        <link rel="stylesheet" href="{{asset("bundles/frontBundle/css/owl.carousel.css")}}" />
-     {% endblock %}
+        <link  href="{{asset("bundles/frontBundle/css/owl.carousel.css")}}" rel="stylesheet" />
+    {% endblock %}
 </head>
-{% block body %} {% endblock %}
-
-<!-- /#all -->
- {% block javascripts %}
-    <!-- #### JAVASCRIPT FILES ### -->
-        
-     <!-- Responsivity for older IE   -->
-    <script src="{{asset("bundles/frontBundle/js/respond.min.js")}}"></script>
-    <script src="{{asset("bundles/frontBundle/js/jquery-1.11.0.min.js")}}"></script>
-    <script src="{{asset("bundles/frontBundle/js/bootstrap.min.js")}}"></script>
-    <script src="{{asset("bundles/frontBundle/js/front.js")}}"></script>
-     
-    <script>
-    $(document).ready(function() {
-      $("#owl-demo").owlCarousel({
-        autoPlay: 3000,
-        items : 4,
-        itemsDesktop : [1199,3],
-        itemsDesktopSmall : [979,3]
-      });
-
-    });
-    </script>
-    
-
-    <!-- owl carousel -->
-    <script src="{{asset("bundles/frontBundle/js/owl.carousel.js")}}"></script>
-  
-
-     <!-- End owl -->
-  {% endblock %}
+    {% block body %} {% endblock %}
+    <!-- /#all -->
+    {% block javascripts %}
+        <!-- #### JAVASCRIPT FILES ### -->
+        <!-- Responsivity for older IE   -->
+        <script src="{{asset("bundles/frontBundle/js/respond.min.js")}}"></script>
+        <script src="{{asset("bundles/frontBundle/js/jquery-1.11.0.min.js")}}"></script>
+        <script src="{{asset("bundles/frontBundle/js/bootstrap.min.js")}}"></script>
+        <script src="{{asset("bundles/frontBundle/js/front.js")}}"></script>
+   <!-- End owl -->
+    {% endblock %}
 </body>
 
 </html>

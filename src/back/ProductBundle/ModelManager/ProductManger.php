@@ -14,6 +14,10 @@ use Doctrine\Bundle\DoctrineBundle\Registry;
 
 class ProductManger
 {
+    /**
+     * return Registry $doctrine The doctrine.
+     * 
+     */
     public function __construct(Registry $doctrine)
     {
         $this->doctrine             = $doctrine;
@@ -22,7 +26,7 @@ class ProductManger
     
     /**
      * return list of products
-     * @throws \Exception
+     * 
      */
     public function getProductsDeals()
     {

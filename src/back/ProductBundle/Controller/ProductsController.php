@@ -21,10 +21,10 @@ class ProductsController extends Controller
      *
      * @return Response
      */
-    public function indexAction()
+    public function getProductsAction()
     {
-       $test = $this->get('back_product.products.list');
-       $ProductsDeals = $test->getProductsDeals();
+       $listProducts = $this->get('back_product.products.list');
+       $ProductsDeals = $listProducts->getProductsDeals();
        return $this->render('backProductBundle:Products:index.html.twig' , array('products' => $ProductsDeals));  
     }
     
@@ -49,16 +49,5 @@ class ProductsController extends Controller
         return $this->render('backProductBundle:Products:addProducts.html.twig' , array('form' => $form->createView()));    
     }
     
-     /**
-     * Return a list of products.
-     *
-     * @return Response
-     */
-    public function getProductsAction()
-    {
-       $test = $this->get('back_product.list');
-       $ProductsDeals = $test->getProductsDeals();
-       return $this->render('backProductBundle:Products:index.html.twig' , array('products' => $ProductsDeals));  
-    }
   
 }
