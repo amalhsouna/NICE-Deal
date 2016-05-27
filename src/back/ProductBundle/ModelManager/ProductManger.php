@@ -22,6 +22,7 @@ class ProductManger
     {
         $this->doctrine             = $doctrine;
         $this->entityManagerEcommerce = $doctrine->getManager();
+        $this->productRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Products');
     }
     
     /**
@@ -32,5 +33,25 @@ class ProductManger
     {
         $arboMenuRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Products');
         return $arboMenuRepository->findAllProducts();
+    }
+    
+    /**
+     * post products
+     * 
+     */
+    public function postProductsDeals($products)
+    {
+        
+        return $this->productRepository>saveProducts($products);
+    }
+    
+    /**
+     * post products
+     * 
+     */
+    public function getProductsById($id)
+    {
+        
+        return $this->productRepository>findProductsById($id);
     }
 }

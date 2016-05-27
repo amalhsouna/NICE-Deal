@@ -49,4 +49,16 @@ class ProductsRepository extends EntityRepository
         $entityManager->persist($products);
         $entityManager->flush();
     }
+    
+    /**
+     * Finds Products by id.
+     * 
+     * @return array
+     */
+    public function findProductsById($id)
+    {
+        $products = $this->findById($id);
+
+        return $products;
+    }
 }

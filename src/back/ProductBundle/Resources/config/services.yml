@@ -3,11 +3,11 @@ parameters:
     category.manager.client.class: back\ProductBundle\ModelManager\CategoryManger
     
 services:
-    back_product.products.list:
+    back_product.manager.products:
         class: %product.manager.client.class%
         arguments: ["@doctrine"]
         
-    back_product.category.list:
+    back_product.manager.category:
         class: %category.manager.client.class%
         arguments: ["@doctrine"]
         

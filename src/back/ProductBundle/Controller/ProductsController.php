@@ -23,9 +23,9 @@ class ProductsController extends Controller
      */
     public function getProductsAction()
     {
-       $listProducts = $this->get('back_product.products.list');
+       $listProducts = $this->get('back_product.manager.products');
        $ProductsDeals = $listProducts->getProductsDeals();
-       return $this->render('backProductBundle:Products:index.html.twig' , array('products' => $ProductsDeals));  
+       return $this->render('backProductBundle:Products:listProducts.html.twig' , array('products' => $ProductsDeals));  
     }
     
     /**
@@ -47,6 +47,27 @@ class ProductsController extends Controller
         }
         
         return $this->render('backProductBundle:Products:addProducts.html.twig' , array('form' => $form->createView()));    
+    }
+    
+    /**
+     * put products.
+     *
+     * @var Request $request The current http request.
+     * 
+     * @return Response
+     */
+    public function putProductsAction($id, Request $request)
+    {
+       $form        = $this->get('back_product.products.form');
+       $formHandler = $this->get('back_product.handler.update.products');
+        
+       $processForm = $formHandler->process($id, $request); 
+        if ($processForm === true)
+        {
+            $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
+        }
+        
+        return $this->render('backProductBundle:Products:editProducts.html.twig' , array('form' => $form->createView()));    
     }
     
   

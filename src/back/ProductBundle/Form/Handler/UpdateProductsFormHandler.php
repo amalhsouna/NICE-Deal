@@ -13,16 +13,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormInterface;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 
-use Entity\EcommerceBundle\Entity\Products;
 use back\ProductBundle\ModelManager\ProductManger;
 
 /**
- * Add Products form handler.
+ * Update Products form handler.
  * 
  * @package backProductBundle
  * @author  Amal Hsouna
  */
-class AddProductsFormHandler
+class UpdateProductsFormHandler
 {
 
     /**
@@ -54,18 +53,17 @@ class AddProductsFormHandler
     /**
      * The process function for handler.
      * 
+     * @param integer $id The identifier.
      * @param Request $request The current request.
      * 
      * @return $response
      */
-    public function process(Request $request)
+    public function process($id, Request $request)
     {
-        $process  = false;
-        
-        $products = new Products();
+       $products = $this->productManger->getProductsById($id);
                 
         $this->form->setData($products);
-        if ('POST' == $request->getMethod())
+        if ('PUT' == $request->getMethod())
         {
             $this->form->handleRequest($request);
             if ($this->form->isValid())

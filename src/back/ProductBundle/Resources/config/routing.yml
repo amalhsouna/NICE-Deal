@@ -3,6 +3,13 @@ back_product_admin_add_products:
     path:     /espace-admin/ajouter-produits
     defaults: { _controller: backProductBundle:Products:postProducts }
     
+#Update products by admin
+back_product_admin_put_products:
+    path:     /espace-admin/modifier-produits/{id}
+    defaults: { _controller: backProductBundle:Products:putProducts }
+    requirements:
+       id: \d+
+    
 #list products by admin
 back_product_admin_list_products:
     path:     /espace-admin/list-produits
