@@ -12,7 +12,9 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('frontHomeBundle:Home:index.html.twig');
+        $listProducts = $this->get('back_product.manager.products');
+        $ProductsDeals = $listProducts->getProductsDeals();
+        return $this->render('frontHomeBundle:Home:index.html.twig' , array('products' => $ProductsDeals));  
     }
     
     /**
@@ -29,5 +31,16 @@ class HomeController extends Controller
     public function productDetailAction()
     {
         return $this->render('frontHomeBundle:Home:productDetail.html.twig');
+    }
+    
+    
+    /**
+     * @Route("/detail/product/{id}")
+     */
+    public function getDetailsProductsAction($id)
+    {
+       $listProducts = $this->get('back_product.manager.products');
+       $ProductsDeals = $listProducts->getProductsById($id);
+       return $this->render('frontHomeBundle:Home:productDetail.html.twig' , array('products' => $ProductsDeals));  
     }
 }

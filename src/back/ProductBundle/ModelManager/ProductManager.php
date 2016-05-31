@@ -12,7 +12,7 @@ namespace back\ProductBundle\ModelManager;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 
-class ProductManger
+class ProductManager
 {
     /**
      * return Registry $doctrine The doctrine.
@@ -20,7 +20,7 @@ class ProductManger
      */
     public function __construct(Registry $doctrine)
     {
-        $this->doctrine             = $doctrine;
+        $this->doctrine = $doctrine;
         $this->entityManagerEcommerce = $doctrine->getManager();
         $this->productRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Products');
     }
@@ -31,8 +31,7 @@ class ProductManger
      */
     public function getProductsDeals()
     {
-        $arboMenuRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Products');
-        return $arboMenuRepository->findAllProducts();
+        return $this->productRepository->findAllProducts();
     }
     
     /**
@@ -41,17 +40,15 @@ class ProductManger
      */
     public function postProductsDeals($products)
     {
-        
         return $this->productRepository>saveProducts($products);
     }
     
     /**
-     * post products
+     * get products by id
      * 
      */
     public function getProductsById($id)
     {
-        
-        return $this->productRepository>findProductsById($id);
+        return $this->productRepository->findProductsById($id);
     }
 }

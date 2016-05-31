@@ -67,8 +67,24 @@ class ProductsController extends Controller
             $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
         }
         
-        return $this->render('backProductBundle:Products:editProducts.html.twig' , array('form' => $form->createView()));    
+        return $this->render('backProductBundle:Products:editProducts.html.twig' , array(
+        'form' => $form->createView(),
+         'id' => $id
+        ));    
     }
+    
+    /**
+     * Return Details of products.
+     *
+     * @return Response
+     */
+    public function getDetailsProductsAdminAction($id)
+    {
+       $listProducts = $this->get('back_product.manager.products');
+       $ProductsDeals = $listProducts->getProductsById($id);
+       return $this->render('backProductBundle:Products:detailsProducts.html.twig' , array('products' => $ProductsDeals));  
+    }
+    
     
   
 }

@@ -13,15 +13,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use back\ProductBundle\Form\Type\ImagesFormType;
-
 /**
  * Products form type.
  * 
  * @package backProductBundle
  * @author Amal Hsouna
  */
-class AddProductsFormType extends AbstractType
+class AddCategoryFormType extends AbstractType
 {
 
     /**
@@ -30,20 +28,20 @@ class AddProductsFormType extends AbstractType
     protected $class;
     
     /**
-     * @var ImagesFormType
+     * @var string
      */
-    protected $imagesFormType;
+    protected $method;
 
     /**
      * Constructor class.
      * 
      * @param string $class  The model for handle form type.
-     * @param ImagesFormType $imagesFormType The Images Form Type.
+     * 
      */
-    public function __construct($class, ImagesFormType $imagesFormType)
+    public function __construct($class, $method)
     {
         $this->class  = $class;
-        $this->imagesFormType  = $imagesFormType;
+        $this->method  = $method;
     }
 
     /**
@@ -57,9 +55,22 @@ class AddProductsFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name', 'text')
-                ->add('price', 'text')
-                ->add('description', 'textarea')
-                ->add('image', $this->imagesFormType ,array('data_class' => 'Entity\EcommerceBundle\Entity\Images'));
+                ->setMethod($this->method);
+    }
+    
+    /**
+     * Sets options as model for current form type.
+     * 
+     * @param OptionsResolverInterface $resolver The resolver instance.
+     * 
+     * @return void
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array('data_class' => $this->class,
+            'csrf_protection'    => false,
+            'cascade_validation' => true)
+        );
     }
 
     /**
@@ -69,6 +80,6 @@ class AddProductsFormType extends AbstractType
      */
     public function getName()
     {
-        return "products_form";
+        return "category_form";
     }
 }

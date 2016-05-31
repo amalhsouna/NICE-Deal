@@ -13,4 +13,4 @@ front_home_contact_page:
 #detail products page
 front_home_detail_products:
     path:     /detail/product
-    defaults: { _controller: frontHomeBundle:Home:productDetail }
+    defaults: { _controller: frontHomeBundle:Home:getDetailsProducts }

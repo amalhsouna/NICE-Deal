@@ -13,16 +13,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormInterface;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 
-use Entity\EcommerceBundle\Entity\Products;
-use back\ProductBundle\ModelManager\ProductManager;
+use Entity\EcommerceBundle\Entity\Category;
+use back\ProductBundle\ModelManager\CategoryManager;
 
 /**
- * Add Products form handler.
+ * Add Category form handler.
  * 
  * @package backProductBundle
  * @author  Amal Hsouna
  */
-class AddProductsFormHandler
+class AddCategoryFormHandler
 {
 
     /**
@@ -31,20 +31,21 @@ class AddProductsFormHandler
     protected $form;
     
     /**
-     * @var ProductManager
+     * @var CategoryManager
      */
-    protected $productManager;
+    protected $categoryManager;
 
     /**
      * Constructor class.
      * 
-     * @param ProductManager      $productManager  The Product Manager.
+     * @param Registry           $doctrine  The doctrine.
+     * @param FormInterface      $form  The form interface.
+     * @param CategoryManager    $categoryManager  The Category Manger.
      */
-    public function __construct(FormInterface $form, ProductManager $productManager)
+    public function __construct(FormInterface $form, CategoryManager $categoryManager)
     {   
         $this->form = $form;
-        $this->productManager = $productManager;
-       
+        $this->categoryManager = $categoryManager;
     }
 
     /**
@@ -58,16 +59,16 @@ class AddProductsFormHandler
     {
         $process  = false;
         
-        $products = new Products();
+        $category = new Category();
                 
-        $this->form->setData($products);
+        $this->form->setData($category);
         if ('POST' == $request->getMethod())
         {
             $this->form->handleRequest($request);
             if ($this->form->isValid())
             {
-                $this->productManager->saveProducts($products);
-                return $process;
+                $this->categoryManager->saveCategory($category);
+                return $process = true;
             }
         }
         return $process;

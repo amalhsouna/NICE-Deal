@@ -60,7 +60,7 @@ class UpdateProductsFormHandler
      */
     public function process($id, Request $request)
     {
-       $products = $this->productManger->getProductsById($id);
+        $products = $this->productManger->getProductsById($id);
                 
         $this->form->setData($products);
         if ('PUT' == $request->getMethod())
@@ -68,10 +68,12 @@ class UpdateProductsFormHandler
             $this->form->handleRequest($request);
             if ($this->form->isValid())
             {
-                return $this->productManger->saveProducts($products);
+                 $this->productManger->saveProducts($products);
+                 return true;
+                
             }
         }
-        return false;
+        return $this->form->setData($products);
          
     }
 

@@ -1,6 +1,6 @@
 parameters:
-    product.manager.client.class: back\ProductBundle\ModelManager\ProductManger
-    category.manager.client.class: back\ProductBundle\ModelManager\CategoryManger
+    product.manager.client.class: back\ProductBundle\ModelManager\ProductManager
+    category.manager.client.class: back\ProductBundle\ModelManager\CategoryManager
     
 services:
     back_product.manager.products:
