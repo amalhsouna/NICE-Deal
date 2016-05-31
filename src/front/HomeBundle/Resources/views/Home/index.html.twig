@@ -125,11 +125,15 @@ _________________________________________________________ -->
 
                     <div class="row products">
                         {% for product in products %}    
-                        <div class="col-md-3 col-sm-4">
+                        <div class="col-md-4 col-sm-4">
                             <div class="product">
                                 <div class="image">
                                     <a href="detail.html">
-                                        <img src="#" alt="" class="img-responsive image1">
+                                    {% if (product.image) %}
+                                        <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive image1">
+                                    {% else %}
+                                          <img src="http://placehold.it/360x240" alt="">
+                                    {% endif %}
                                     </a>
                                     <div class="quick-view-button">
                                         <a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-default btn-sm">Aperçu rapide</a>
@@ -141,6 +145,7 @@ _________________________________________________________ -->
                                     <p class="price">{{product.price}} D</p>
                                 </div>
                                 <!-- /.text -->
+                                <div class="more_link"><a href="/index.php/deals/554-maison_helene_vous_propose_une_epilation_totale_assortie_dun_moment_de_relaxation.html">Voir Deal</a></div>
                             </div>
                             <!-- /.product -->
                         </div>

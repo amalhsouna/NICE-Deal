@@ -127,7 +127,7 @@ class Images
 
         // On réinitialise les valeurs des attributs url et alt
         $this->url = null;
-          $this->alt = null;
+        $this->alt = null;
       }
     }
 
@@ -144,7 +144,7 @@ class Images
 
       // Le nom du fichier est son id, on doit juste stocker également son extension
       // Pour faire propre, on devrait renommer cet attribut en « extension », plutôt que « url »
-      $this->url = $this->file->guessExtension();
+      $this->url = $this->file->getClientOriginalName();
 
       // Et on génère l'attribut alt de la balise <img>, à la valeur du nom du fichier sur le PC de l'internaute
       $this->alt = $this->file->getClientOriginalName();
@@ -171,11 +171,11 @@ class Images
 
       // On déplace le fichier envoyé dans le répertoire de notre choix
       $this->file->move(
-        $this->getUploadRootDir(), // Le répertoire de destination
-        $this->id.'.'.$this->url   // Le nom du fichier à créer, ici « id.extension »
+      $this->getUploadRootDir(), // Le répertoire de destination
+      $this->id.'.'.$this->url   // Le nom du fichier à créer, ici « id.extension »
       );
     }
-
+    
     /**
      * @ORM\PreRemove()
      */
