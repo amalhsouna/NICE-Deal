@@ -39,3 +39,22 @@ body{padding-top:100px}body.no-padding{padding-top:0}a,button{-webkit-transition
    width: 50%;
    margin: 0 auto; 
 }   
+ 
+ .more_link{
+    display: inline-block;
+    padding: 13px 24px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: #5ed4c9;
+ }
+ .more_link a{
+     color:#fff;
+ }

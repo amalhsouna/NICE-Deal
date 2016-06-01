@@ -41,6 +41,13 @@ class Products
      * @ORM\Column(name="description", type="text")
      */
     private $description;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="creation_date", type="date")
+     */
+    private $creationDate;
 
 
     /**
@@ -52,7 +59,17 @@ class Products
     {
         return $this->id;
     }
-
+    
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+    
     /**
      * Set name
      *
@@ -65,17 +82,17 @@ class Products
 
         return $this;
     }
-
+    
     /**
-     * Get name
+     * Get price
      *
-     * @return string 
+     * @return float 
      */
-    public function getName()
+    public function getPrice()
     {
-        return $this->name;
+        return $this->price;
     }
-
+    
     /**
      * Set price
      *
@@ -88,17 +105,17 @@ class Products
 
         return $this;
     }
-
+    
     /**
-     * Get price
+     * Get description
      *
-     * @return float 
+     * @return string 
      */
-    public function getPrice()
+    public function getDescription()
     {
-        return $this->price;
+        return $this->description;
     }
-
+    
     /**
      * Set description
      *
@@ -113,13 +130,22 @@ class Products
     }
 
     /**
-     * Get description
+     * Get creationDate
      *
-     * @return string 
+     * @return Date 
      */
-    public function getDescription()
-    {
-        return $this->description;
+    function getCreationDate() {
+        return $this->creationDate;
+    }
+    
+    /**
+     * Set creationDate
+     *
+     * @param DateTime $creationDate
+     * @return Products
+     */
+    function setCreationDate($creationDate) {
+        $this->creationDate = $creationDate;
     }
     
     /**
@@ -139,6 +165,7 @@ class Products
         return $this->image;
     }
     
+    
     /**
      * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", inversedBy="products", cascade={"persist"})
      * @ORM\JoinTable(name="categ_id",name="id")
@@ -156,4 +183,8 @@ class Products
     {
         return $this->category;
     }
+    
+    
+
+
 }

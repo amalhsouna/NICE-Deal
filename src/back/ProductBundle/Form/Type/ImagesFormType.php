@@ -73,6 +73,6 @@ class ImagesFormType extends AbstractType
      */
     public function getName()
     {
-        return "images_productsss";
+        return "images_products";
     }
 }

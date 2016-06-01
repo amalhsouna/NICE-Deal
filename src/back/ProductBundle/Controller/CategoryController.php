@@ -23,9 +23,9 @@ class CategoryController extends Controller
      */
     public function getListCategoryAction()
     {
-       $listeCategoryManager = $this->get('back_product.category.list');
-       $ProductsDeals = $listeCategoryManager->getCategoryDeals();
-       return $this->render('backProductBundle:Products:listCategory.html.twig' , array('products' => $ProductsDeals));  
+       $listeCategoryManager = $this->get('back_product.manager.category');
+       $categoryList = $listeCategoryManager->getCategoryDeals();
+       return $this->render('backProductBundle:Products:listCategory.html.twig' , array('category' => $categoryList));  
     }
     
     /**
@@ -35,10 +35,10 @@ class CategoryController extends Controller
      * 
      * @return Response
      */
-    public function postProductsAction(Request $request)
+    public function postCategoryAction(Request $request)
     {
-       $form        = $this->get('back_product.products.form');
-       $formHandler = $this->get('back_product.handler.add.products');
+       $form        = $this->get('back_product.category.form');
+       $formHandler = $this->get('back_product.handler.add.category');
         
        $processForm = $formHandler->process($request); 
         if ($processForm === true)
@@ -46,7 +46,7 @@ class CategoryController extends Controller
             $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
         }
         
-        return $this->render('backProductBundle:Products:addProducts.html.twig' , array('form' => $form->createView()));    
+        return $this->render('backProductBundle:Products:addCategory.html.twig' , array('form' => $form->createView()));    
     }
     
 }

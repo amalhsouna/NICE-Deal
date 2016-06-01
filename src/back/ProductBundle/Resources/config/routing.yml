@@ -1,32 +1,38 @@
-#Add products by admin
+#Add products
 back_product_admin_add_products:
     path:     /espace-admin/ajouter-produits
     defaults: { _controller: backProductBundle:Products:postProducts }
     
-#Update products by admin
+#Update products 
 back_product_admin_put_products:
     path:     /espace-admin/modifier-produits/{id}
     defaults: { _controller: backProductBundle:Products:putProducts }
     requirements:
        id: \d+
-    
 #list products by admin
 back_product_admin_list_products:
     path:     /espace-admin/list-produits
     defaults: { _controller: backProductBundle:Products:getProducts }
     
+#details products
+back_product_admin_details_products:
+    path:     /espace-admin/{id}/details-produits
+    defaults: { _controller: backProductBundle:Products:getDetailsProductsAdmin }
+    
+
+    
 #category routing    
 #list of category
-back_category_homepage:
+back_category_list_category:
     path:     /liste/category
     defaults: { _controller: backProductBundle:Category:getListCategory }
     requirements:
        _method: GET
     
 #Add products by admin
-back_category_admin_add_products:
+back_category_admin_add_category:
     path:     /ajouter/category
-    defaults: { _controller: backProductBundle:Category:postProducts }
+    defaults: { _controller: backProductBundle:Category:postCategory }
     
 #list products by admin
 back_category_admin_add_products:

@@ -7,11 +7,16 @@ parameters:
     back_product.images.form.type.class: back\ProductBundle\Form\Type\ImagesFormType
     back_product.images.form_data_class: Entity\EcommerceBundle\Entity\Images
     
+    back_product.category.form.type.class: back\ProductBundle\Form\Type\AddCategoryFormType
+    back_product.category.form_data_class: Entity\EcommerceBundle\Entity\Category
+    
     #handler
     back_product.add.handler.client.class: back\ProductBundle\Form\Handler\AddProductsFormHandler
-    back_product.update.handler.client.class: back\ProductBundle\Form\Handler\AddProductsFormHandler
+    back_product.update.handler.client.class: back\ProductBundle\Form\Handler\UpdateProductsFormHandler
+    back_product.add.category.handler.client.class: back\ProductBundle\Form\Handler\AddCategoryFormHandler
     
 services:
+    #add and update products
     back_product.products.form:
         class: %back_product.products.form.class%
         factory_service: form.factory
@@ -31,11 +36,31 @@ services:
             
     back_product.handler.add.products:
         class: %back_product.add.handler.client.class%
-        arguments: ["@doctrine", "@back_product.products.form", "@back_product.manager.products"]
+        arguments: ["@back_product.products.form", "@back_product.manager.products"]
         
     back_product.handler.update.products:
         class: %back_product.update.handler.client.class%
-        arguments: ["@doctrine", "@back_product.products.form", "@back_product.manager.products"]
+        arguments: ["@back_product.products.form", "@back_product.manager.products"]
+    
+    #add and update category
+    back_product.category.form:
+        class: %back_product.category.form.type.class%
+        factory_service: form.factory
+        factory_method: createNamed
+        arguments:
+            - ~
+            - "@back_product.category.form.type"
+            - ~
+            
+    back_product.category.form.type:
+        class: %back_product.category.form.type.class%
+        arguments: 
+        - %back_product.category.form_data_class%
+        - "POST" 
+            
+            
+    back_product.handler.add.category:
+        class: %back_product.add.category.handler.client.class%
+        arguments: ["@back_product.category.form", "@back_product.manager.category"]
         
-
-
+   
