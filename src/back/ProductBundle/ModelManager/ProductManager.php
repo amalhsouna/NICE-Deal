@@ -40,7 +40,7 @@ class ProductManager
      */
     public function postProductsDeals($products)
     {
-        return $this->productRepository>saveProducts($products);
+        return $this->productRepository->saveProducts($products);
     }
     
     /**

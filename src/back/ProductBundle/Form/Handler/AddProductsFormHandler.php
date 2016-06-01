@@ -66,7 +66,7 @@ class AddProductsFormHandler
             $this->form->handleRequest($request);
             if ($this->form->isValid())
             {
-                $this->productManager->saveProducts($products);
+                $this->productManager->postProductsDeals($products);
                 return $process;
             }
         }

@@ -59,9 +59,25 @@ class AddProductsFormType extends AbstractType
         $builder->add('name', 'text')
                 ->add('price', 'text')
                 ->add('description', 'textarea')
-                ->add('image', $this->imagesFormType ,array('data_class' => 'Entity\EcommerceBundle\Entity\Images'));
+                ->add('creationDate', 'date')
+                ->add('image', $this->imagesFormType ,array('data_class' => 'Entity\EcommerceBundle\Entity\Images'))
+                ->add('save', 'submit');
     }
-
+    
+    /**
+       * Sets options as model for current form type.
+       * 
+       * @param OptionsResolverInterface $resolver The resolver instance.
+       * 
+       * @return void
+       */
+      public function setDefaultOptions(OptionsResolverInterface $resolver)
+      {
+          $resolver->setDefaults(array('data_class' => $this->class,
+              'csrf_protection'    => false,
+              'cascade_validation' => true)
+          );
+      }
     /**
      * Returns the name of the form type.
      * 
