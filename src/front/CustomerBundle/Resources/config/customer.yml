@@ -1,0 +1,26 @@
+parameters:
+    front_customer.customer.form.class: Symfony\Component\Form\Form
+    
+    front_customer.customer.form.type.class: front\CustomerBundle\Form\Type\AddCustomerFormType
+    front_customer.customer.form_data_class:  Entity\EcommerceBundle\Entity\Customer
+    
+    #handler
+    front_customer.add.handler.client.class: front\CustomerBundle\Form\Handler\AddCustomerFormHandler 
+    
+services:
+    front_customer.customer.form.type:
+        class: %front_customer.customer.form.type.class%
+        arguments: ["%front_customer.customer.form_data_class%", "@fos_user.registration.form.type"]
+        
+    front_customer.customer.form:
+        class: %front_customer.customer.form.class%
+        factory_service: form.factory
+        factory_method: createNamed
+        arguments:
+            - ~
+            - "@front_customer.customer.form.type"
+            - ~
+            
+    front_customer.handler.add.customer:
+        class: %front_customer.add.handler.client.class%
+        arguments: ["@front_customer.customer.form", "@front_customer.manager.customer"]        

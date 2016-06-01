@@ -36,3 +36,6 @@ services:
     back_product.handler.update.products:
         class: %back_product.update.handler.client.class%
         arguments: ["@doctrine", "@back_product.products.form", "@back_product.manager.products"]
+        
+
+

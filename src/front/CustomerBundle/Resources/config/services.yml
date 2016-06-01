@@ -1,0 +1,8 @@
+parameters:
+    front_customer.manager.custemr.class: front\CustomerBundle\ModelManager\CustomerManger
+    
+services:
+    front_customer.manager.customer:
+        class: %front_customer.manager.custemr.class%
+        arguments: ["@doctrine"]
+        

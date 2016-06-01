@@ -4,3 +4,38 @@ body{padding-top:100px}body.no-padding{padding-top:0}a,button{-webkit-transition
  * 
  * http://geedmo.github.com/yamm3
  */.yamm .nav,.yamm .collapse,.yamm .dropup,.yamm .dropdown{position:static}.yamm .container{position:relative}.yamm .dropdown-menu{left:auto}.yamm .nav.navbar-right .dropdown-menu{left:auto;right:0}.yamm .yamm-content{padding:20px 30px}@media (max-width:767px){.yamm .yamm-content{padding:10px 20px}}.yamm .dropdown.yamm-fw .dropdown-menu{left:0;right:0}
+ /*******logo**********/
+ span.logo {
+    font-size: 28px;
+    position: absolute;
+    top: 140px;
+    left: 84px;
+    color: #8CC63E;
+}
+ span.logo e{  
+    color: #05A8CB;
+    font-size: 18px;
+    }
+ /**********style login*******/
+ .login .card-left,.login .card-right{
+    width: 45%;
+    float:left;
+ }
+.login .card-left {
+    line-height: 400px;
+    font-size: 20px;
+    font-weight: bold;
+    border-right: 1px solid #E1E1E1;
+    margin-right: 15px;
+}
+ .register .card-right {
+    float: left;
+    width: 65%;
+}
+.register #profile-img{
+    width:20%;
+}
+.register .form-signin{
+   width: 50%;
+   margin: 0 auto; 
+}   

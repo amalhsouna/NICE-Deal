@@ -1,3 +1,7 @@
+front_customer:
+    resource: "@frontCustomerBundle/Resources/config/routing.yml"
+    prefix:   /
+
 front_home:
     resource: "@frontHomeBundle/Controller/"
     type:     annotation

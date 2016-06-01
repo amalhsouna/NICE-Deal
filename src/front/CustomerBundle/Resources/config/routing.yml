@@ -1,0 +1,21 @@
+#page acceuil
+front_customer_login_page:
+    path:     /connexion
+    defaults: { _controller: frontCustomerBundle:Customer:index }
+    requirements:
+       _method: GET
+
+#
+front_customer_register_page:
+    path:     /inscription
+    defaults: { _controller: frontCustomerBundle:Customer:postRegisterCustomer }
+    
+#contact page
+front_home_contact_page:
+    path:     /contact
+    defaults: { _controller: frontCustomerBundle:Home:contact }
+
+#detail products page
+front_home_detail_products:
+    path:     /detail/product
+    defaults: { _controller: frontCustomerBundle:Home:productDetail }
