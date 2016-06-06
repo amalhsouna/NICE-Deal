@@ -1,6 +1,5 @@
 {% extends "::base.html.twig" %}
 {% block body %}
-    
    {% include '::includesFront/topColumn.html.twig' %}
    <div id="all">
         <div id="content">
@@ -9,37 +8,56 @@
                     <ul class="breadcrumb">
                         <li><a href="#">Home</a>
                         <li>Créer votre compte</li>
-                    </ul>
-                    
+                    </ul> 
                 </div>
-                <!-- *** RIGHT COLUMN ***
-		  _________________________________________________________ -->
-                
-                <!------test form----->
-                <form method="post" enctype="multipart/form-data">
+                <!------form-register----->
+                <form method="post" enctype="multipart/form-data" class="form-register">
                 {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
                 {{ form_errors(form) }}
                 <div class="box-body">
                     <div class="form-group">
-                        {{ form_label(form.test,"Nom") }}
-                        {{ form_errors(form.test) }}
-                        {{ form_widget(form.test, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_label(form.title,"Titre") }}
+                        {{ form_errors(form.title) }}
+                        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
                     </div>
                     <div class="form-group">
-                        {{ form_label(form.user.username,"Nom") }}
+                        {{ form_label(form.lastName,"Prénom") }}
+                        {{ form_errors(form.lastName) }}
+                        {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                     <div class="form-group">
+                        {{ form_label(form.user.username,"Identifiant") }}
                         {{ form_errors(form.user.username) }}
                         {{ form_widget(form.user.username, {'attr': {'class': 'form-control'}}) }}
                     </div>
                     <div class="form-group">
-                        {{ form_label(form.user.email,"Nom") }}
+                        {{ form_label(form.address,"Adresse") }}
+                        {{ form_errors(form.address) }}
+                        {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.telephone,"Télephone") }}
+                        {{ form_errors(form.telephone) }}
+                        {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                   
+                    <div class="form-group">
+                        {{ form_label(form.user.email,"E-mail") }}
                         {{ form_errors(form.user.email) }}
                         {{ form_widget(form.user.email, {'attr': {'class': 'form-control'}}) }}
                     </div>
+                    
                     <div class="form-group">
-                        {{ form_label(form.user.username,"Nom") }}
-                        {{ form_errors(form.user.username) }}
-                        {{ form_widget(form.user.username, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_label(form.user.plainPassword.first,"Mot de passe") }}
+                        {{ form_errors(form.user.plainPassword.first) }}
+                        {{ form_widget(form.user.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
                     </div>
+                    <div class="form-group">
+                        {{ form_label(form.user.plainPassword.second,"Confirmation") }}
+                        {{ form_errors(form.user.plainPassword.second) }}
+                        {{ form_widget(form.user.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    
               
                 {{ form_end(form) }}
             </div>

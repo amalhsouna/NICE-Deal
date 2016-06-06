@@ -67,7 +67,7 @@ class AddCategoryFormHandler
             $this->form->handleRequest($request);
             if ($this->form->isValid())
             {
-                $this->categoryManager->saveCategory($category);
+                $this->categoryManager->postCategoryDeals($category);
                 return $process = true;
             }
         }

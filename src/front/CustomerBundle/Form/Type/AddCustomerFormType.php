@@ -56,7 +56,12 @@ class AddCustomerFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('test', 'text')
+        $builder->add('title', 'choice', array(
+                      'choices' => array('0' => 'M.', '1' => 'Mme'),
+                       'required' => false))
+                ->add('lastName', 'text')
+                ->add('address', 'text')
+                ->add('telephone', 'integer')
                 ->add('user', $this->registrationFormType ,array('data_class' => 'back\AdminBundle\Entity\User'))
                 ->add('save', 'submit');
     }

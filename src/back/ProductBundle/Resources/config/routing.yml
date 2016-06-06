@@ -19,8 +19,6 @@ back_product_admin_details_products:
     path:     /espace-admin/{id}/details-produits
     defaults: { _controller: backProductBundle:Products:getDetailsProductsAdmin }
     
-
-    
 #category routing    
 #list of category
 back_category_list_category:

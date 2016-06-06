@@ -26,11 +26,7 @@ class AddCategoryFormType extends AbstractType
      * @var string
      */
     protected $class;
-    
-    /**
-     * @var string
-     */
-    protected $method;
+   
 
     /**
      * Constructor class.
@@ -38,10 +34,9 @@ class AddCategoryFormType extends AbstractType
      * @param string $class  The model for handle form type.
      * 
      */
-    public function __construct($class, $method)
+    public function __construct($class)
     {
         $this->class  = $class;
-        $this->method  = $method;
     }
 
     /**
@@ -54,8 +49,7 @@ class AddCategoryFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', 'text')
-                ->setMethod($this->method);
+        $builder->add('name', 'text');
     }
     
     /**
