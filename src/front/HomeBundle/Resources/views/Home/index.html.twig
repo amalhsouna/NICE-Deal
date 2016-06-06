@@ -3,7 +3,7 @@
    {% include '::includesFront/topColumn.html.twig' %}
    <body>
             <div class="navbar-collapse collapse right" id="basket-overview">
-                <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">3 items <span class="hidden-md">in cart</span></span></a>
+                <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">0  <span class="hidden-md">panier</span></span></a>
             </div>
             <!--/.nav-collapse -->
 
@@ -11,13 +11,6 @@
                 <button type="button" class="btn navbar-btn btn-default" data-toggle="collapse" data-target="#search">
                     <span class="sr-only">Toggle search</span>
                     <i class="fa fa-search"></i>
-                </button>
-            </div>
-
-            <div class="navbar-collapse collapse right">
-                <button type="button" class="btn navbar-btn btn-default" data-toggle="modal" data-target="#login-modal">
-                    <span class="sr-only">User login</span>
-                    <i class="fa fa-users"></i>
                 </button>
             </div>
 
@@ -118,9 +111,9 @@ _________________________________________________________ -->
                 <div class="col-sm-12">
 
                     <div class="box text-center">
-                        <h3 class="text-uppercase">New summer arrivals</h3>
+                        <h3 class="text-uppercase">C'est Populaire</h3>
 
-                        <h4 class="text-muted"><span class="accent">Free shipping</span> on all</h4>
+                        <h4 class="text-muted"><span class="accent">Profit</span> meilleur prix</h4>
                     </div>
 
                     <div class="row products">
@@ -145,6 +138,11 @@ _________________________________________________________ -->
                                     <p class="price">{{product.price}} D</p>
                                 </div>
                                 <!-- /.text -->
+                                <div calss="icone">
+                                    <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i><span> Réduction de 50%</span>
+                                    <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><span>Tunis</span> 
+                                <div class="clearfix"></div>
+                                </div>
                                 <div class="more_link"><a href="/index.php/deals/554-maison_helene_vous_propose_une_epilation_totale_assortie_dun_moment_de_relaxation.html">Voir Deal</a></div>
                             </div>
                             <!-- /.product -->
@@ -173,18 +171,13 @@ _________________________________________________________ -->
                 <div class="col-md-12">
 
                     <div class="box text-center">
-                        <h3 class="text-uppercase">About Minimal</h3>
-
-                        <p>Minimal contains <strong>23 beautiful HTML pages</strong> and is built with strong attention to detail.</p>
-
-
-
+                       
                         <div class="same-height-row row">
                             <div class="col-sm-3">
                                 <div class="box same-height clickable no-border text-center-xs text-center-sm">
                                     <div class="icon"><i class="fa fa-heart-o"></i>
                                     </div>
-                                    <h4><a href="text.html">Satisfied customers</a></h4>
+                                    <h4><a href="text.html">CLIENTS SATISFAITS</a></h4>
                                 </div>
                             </div>
 
@@ -192,7 +185,7 @@ _________________________________________________________ -->
                                 <div class="box same-height clickable no-border text-center-xs text-center-sm">
                                     <div class="icon"><i class="fa fa-tags"></i>
                                     </div>
-                                    <h4><a href="text.html">Best prices</a></h4>
+                                    <h4><a href="text.html">MEILLEURS PRIX</a></h4>
                                 </div>
                             </div>
 
@@ -200,7 +193,7 @@ _________________________________________________________ -->
                                 <div class="box same-height clickable no-border text-center-xs text-center-sm">
                                     <div class="icon"><i class="fa fa-send-o"></i>
                                     </div>
-                                    <h4><a href="faq.html">Next day delivery</a></h4>
+                                    <h4><a href="faq.html">VILLES ET REGIONS</a></h4>
                                 </div>
                             </div>
 
@@ -208,7 +201,7 @@ _________________________________________________________ -->
                                 <div class="box same-height clickable no-border text-center-xs text-center-sm">
                                     <div class="icon"><i class="fa fa-refresh"></i>
                                     </div>
-                                    <h4><a href="contact.html">Free returns for 3 months</a></h4>
+                                    <h4><a href="contact.html">DEALS DU JOUR</a></h4>
                                 </div>
                             </div>
                         </div>
