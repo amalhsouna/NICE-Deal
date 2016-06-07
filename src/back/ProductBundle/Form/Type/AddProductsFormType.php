@@ -14,6 +14,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use back\ProductBundle\Form\Type\ImagesFormType;
+use back\ProductBundle\Form\Type\AddCategoryFormType;
 
 /**
  * Products form type.
@@ -33,17 +34,25 @@ class AddProductsFormType extends AbstractType
      * @var ImagesFormType
      */
     protected $imagesFormType;
+    
+    /**
+     * @var AddCategoryFormType
+     */
+    protected $categoryFormType;
 
     /**
      * Constructor class.
      * 
-     * @param string $class  The model for handle form type.
-     * @param ImagesFormType $imagesFormType The Images Form Type.
+     * @param string $class    The model for handle form type.
+     * @param ImagesFormType   $imagesFormType The Images Form Type.
+     * @param CategoryFormType $categoryFormType The Category Form Type.
      */
-    public function __construct($class, ImagesFormType $imagesFormType)
+    public function __construct($class, ImagesFormType $imagesFormType,
+                                AddCategoryFormType $categoryFormType)
     {
         $this->class  = $class;
-        $this->imagesFormType  = $imagesFormType;
+        $this->imagesFormType  =   $imagesFormType;
+        $this->categoryFormType  = $categoryFormType;
     }
 
     /**
@@ -57,10 +66,12 @@ class AddProductsFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name', 'text')
-                ->add('price', 'text')
+                ->add('price', 'integer')
+                ->add('oldPrice', 'integer')
                 ->add('description', 'textarea')
                 ->add('creationDate', 'date')
-                ->add('image', $this->imagesFormType ,array('data_class' => 'Entity\EcommerceBundle\Entity\Images'))
+                ->add('image', $this->imagesFormType, array('data_class' => 'Entity\EcommerceBundle\Entity\Images'))
+                ->add('category', 'entity', array('class' => 'Entity\EcommerceBundle\Entity\Category', 'property' => 'name'  ))
                 ->add('save', 'submit');
     }
     

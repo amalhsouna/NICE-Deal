@@ -32,7 +32,7 @@ services:
            
     back_product.products.form.type:
         class: %back_product.products.form.type.class%
-        arguments: [%back_product.products.form_data_class%, "@back_product.images.form.type"]
+        arguments: [%back_product.products.form_data_class%, "@back_product.images.form.type", "@back_product.category.form.type"]
             
     back_product.handler.add.products:
         class: %back_product.add.handler.client.class%
@@ -56,7 +56,7 @@ services:
         class: %back_product.category.form.type.class%
         arguments: 
         - %back_product.category.form_data_class%
-        - "POST" 
+        
             
             
     back_product.handler.add.category:

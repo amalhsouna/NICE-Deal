@@ -13,9 +13,24 @@ class CustomerController extends Controller
         return $this->render('frontCustomerBundle:Customer:index.html.twig');
     }
     
-    public function registerCustomerAction()
+    /**
+     * My compte.
+     *
+     * @return Response
+     */
+    public function myCompteAction()
     {
-        return $this->render('frontCustomerBundle:Customer:register.html.twig');
+        return $this->render('frontCustomerBundle:Customer:showProfil.html.twig');
+    }
+    
+    /**
+     * My orders.
+     * 
+     * @return Response
+     */
+    public function myOrdersAction()
+    {
+        return $this->render('frontCustomerBundle:Customer:showOrders.html.twig');
     }
     
     /**
@@ -38,4 +53,23 @@ class CustomerController extends Controller
         
         return $this->render('frontCustomerBundle:Customer:register.html.twig' , array('form' => $form->createView()));    
     }
+    
+    /**
+     * get information of customer.
+     * 
+     * @return Response
+     */
+    public function getInfoCustomerAction()
+    {
+        $user = $this->getUser();
+        if (!is_object($user)) {
+           
+        }
+
+        return $this->render('frontCustomerBundle:Customer:showProfil.html.twig', array(
+            'user' => $user
+        ));
+       
+    }
+    
 }

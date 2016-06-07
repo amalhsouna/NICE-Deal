@@ -18,6 +18,7 @@ class CategoryManager
     {
         $this->doctrine             = $doctrine;
         $this->entityManagerEcommerce = $doctrine->getManager();
+        $this->categoryRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Category');
     }
     
     /**
@@ -25,7 +26,14 @@ class CategoryManager
      */
     public function getCategoryDeals()
     {
-        $categoryRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Category');
-        return  $categoryRepository->findAllCategory();
+        return  $this->categoryRepository->findAllCategory();
+    }
+    
+    /**
+     * save category
+     */
+    public function postCategoryDeals($category)
+    {
+       return $this->categoryRepository->saveCategory($category);
     }
 }
