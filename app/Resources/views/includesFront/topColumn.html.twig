@@ -252,15 +252,47 @@
 
 </div>
             <div id="connexion_bloc">
-                <a href="#" class="btn green-full">connexion<a>
-                <a href="#" class="btn utilities">inscription</a>
-              <div class="telephone-horaire">   
-                <i class="glyphicon glyphicon-earphone"></i><span>31 131 111</span>
-                <i class="glyphicon glyphicon-dashboard"></i><span>7J/7 de 09H30 à 20H30</span>
-              </div><!----fin-telephone-->
+                <a href="{{path('front_customer_login_page')}}" class="btn green-full">connexion<a>
+                <a href="{{path('front_customer_register_page')}}" class="btn utilities">inscription</a>
             </div><!--end-block---->
         </div>
 </div>
+    <div class="container">                
+        <div class="telephone-horaire">   
+                <i class="glyphicon glyphicon-earphone"></i><span>31 131 111</span>
+                <i class="glyphicon glyphicon-dashboard"></i><span>7J/7 de 09H30 à 20H30</span>
+        </div><!----fin-telephone-->
+        <div id="search-panier">
+            <div class="navbar-collapse collapse right" id="basket-overview">
+                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">0  <span class="hidden-md">panier</span></span></a>
+            </div>
+        <!--/.nav-collapse -->
+
+            <div class="navbar-collapse collapse right">
+                    <button type="button" class="btn navbar-btn btn-default" data-toggle="collapse" data-target="#search">
+                        <span class="sr-only">Toggle search</span>
+                        <i class="fa fa-search"></i>
+                    </button>
+            </div>
+
+            <div class="collapse clearfix" id="search">
+                    <form class="navbar-form" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+            </div>
+        </div><!----end-search-panier-->
+        <div class="clearfix"></div>
+            <!--/.nav-collapse -->
+        </div>
+
+</div>
+    </div>
+    <!-- /#navbar -->
  <div id="content">
     <div class="container">                   
 <!--/.nav-collapse -->
