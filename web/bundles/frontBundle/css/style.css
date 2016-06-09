@@ -344,6 +344,44 @@ input#remember_me{
     border-radius: 0;
 }
 
+/*********slider_css*****/
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+.carousel-inner:hover > label {
+    background-color: #1FA5AD;
+    width: 70px;
+}
+
+span.glyphicon.glyphicon-chevron-right{
+    overflow: hidden;
+    margin-top: -35px;
+    width: 40px;
+    height: 70px;
+    background: #000;
+    background-color: rgba(0,0,0,0.6);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -moz-transition: 300ms width ease, 300ms margin-left ease, 300ms background-color ease;
+    -ms-transition: 300ms width ease, 300ms margin-left ease, 300ms background-color ease;
+    -o-transition: 300ms width ease, 300ms margin-left ease, 300ms background-color ease;
+}
+.glyphicon-chevron-right:before{
+    text-align: center;
+    line-height: 76px;
+    color: #fff;
+}
 .footer_links li {
     display: inline-block;
 }
