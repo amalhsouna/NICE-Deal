@@ -37,7 +37,6 @@ class AddCustomerFormType extends AbstractType
      * Constructor class.
      * 
      * @param string $class  The model for handle form type.
-     * @param string $method The method of rest.
      */
     public function __construct($class, RegistrationFormType $registrationFormType)
     {
@@ -62,8 +61,7 @@ class AddCustomerFormType extends AbstractType
                 ->add('lastName', 'text')
                 ->add('address', 'text')
                 ->add('telephone', 'integer')
-                ->add('user', $this->registrationFormType ,array('data_class' => 'back\AdminBundle\Entity\User'))
-                ->add('save', 'submit');
+                ->add('user', $this->registrationFormType ,array('data_class' => 'back\AdminBundle\Entity\User'));
     }
 
     /**

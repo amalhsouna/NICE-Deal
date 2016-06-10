@@ -26,15 +26,6 @@ class HomeController extends Controller
     }
     
     /**
-     * @Route("/detail/product")
-     */
-    public function productDetailAction()
-    {
-        return $this->render('frontHomeBundle:Home:productDetail.html.twig');
-    }
-    
-    
-    /**
      * @Route("/detail/product/{id}")
      */
     public function getDetailsProductsAction($id)

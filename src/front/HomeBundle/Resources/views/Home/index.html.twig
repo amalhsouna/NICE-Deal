@@ -288,33 +288,5 @@ _________________________________________________________ -->
          {% include '::includesFront/footer.html.twig' %}
 
         </div>
-        {% block javascripts %}
-            {{ parent() }}
-            <script>
-            $(document).ready(function() {
-              $("#owl-demo").owlCarousel({
-                autoPlay: 3000,
-                items : 4,
-                itemsDesktop : [1199,3],
-                itemsDesktopSmall : [979,3]
-              });
-
-            });
-            $(document).ready(function() {
-            $('#myCarousel').carousel({
-            interval: 10000
-            })
-
-            $('#myCarousel').on('slid.bs.carousel', function() {
-                //alert("slid");
-                });
-
-
-                });
-            </script>
-            <!-- owl carousel -->
-            <script src="{{asset("bundles/frontBundle/js/owl.carousel.js")}}"></script>
-   <!-- End owl -->
-    {% endblock %}
         <!-- /#content -->
  {% endblock %}

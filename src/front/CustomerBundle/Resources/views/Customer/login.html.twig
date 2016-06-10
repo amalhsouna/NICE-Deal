@@ -9,27 +9,55 @@
                         <li><a href="#">Home</a>
                         <li>Connexion</li>
                     </ul>
-                    <div class="box text-center login">
+                    <div class="box login">
                       <div class="card card-left">
-                          <p><a href="#">S’inscrire</a></p>
-                       </div>
+                            <div class="fb_btn" data-appid="685663661483103" data-location="https://passport.dx.com" data-scope="public_profile,email">
+                                <a href="javascript:;" rel="nofollow"><i class="icon icon_fb"></i>Connectez-vous avec 
+                                    <b>Facebook </b> 
+                                </a>
+                                <form action="/Login/FacebookLogin" id="facebook_from" method="post">
+                                                <input type="hidden" name="Email" id="f_email">
+                                                <input type="hidden" name="First_Name" id="f_first_name">
+                                                <input type="hidden" name="Gender" id="f_gender">
+                                                <input type="hidden" name="Id" id="f_id">
+                                                <input type="hidden" name="Last_Name" id="f_last_name">
+                                                <input type="hidden" name="Link" id="f_link">
+                                                <input type="hidden" name="Locale" id="f_locale">
+                                                <input type="hidden" name="Name" id="f_name">
+                                                <input type="hidden" name="TimeZone" id="f_timezone">
+                                                <input type="hidden" name="Updated_Time" id="f_updated_time">
+                                                <input type="hidden" name="Verified" id="f_verified">
+                                                <input type="hidden" name="AccessToken" id="f_access_token">
+                                </form>
+                            </div>
+                       </div><!--end-btn--fb-->
                        <div class="card card-right">
                             <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
                             <p id="profile-name" class="profile-name-card"></p>
-                            <form class="form-signin">
-                                <span id="reauth-email" class="reauth-email"></span>
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-                                <div id="remember" class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="remember-me"> Souviens de moi
-                                    </label>
+                            <form id="form-signin">
+                               <div class="item"> 
+                                   <label for="Email" class="glyphicon glyphicon-envelope"></label>
+                                   <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                               </div>
+                                <div class="item">
+                                    <label for="password" class="glyphicon glyphicon-lock"></label>
+                                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
                                 </div>
-                                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Connexion</button>
+                                <div class="remember_me clearfix">
+                                    <div id="remember" class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="remember-me"> Souviens de moi
+                                        </label>
+                                    </div>
+                                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Connexion</button>
+                                </div><!---end remember_me--> 
                             </form><!-- /form -->
-                            <a href="#" class="forgot-password">
-                                Mot de pass oublié ?
-                            </a>
+                            <div class="forget_pass">
+                                <label class="glyphicon glyphicon-info-sign"></label>
+                                <a href="#" class="forgot-password">
+                                    Mot de pass oublié ?
+                                </a>
+                            </div>
                        </div>
                         <div class="clearfix"></div>
                     </div>
