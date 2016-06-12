@@ -10,8 +10,23 @@
                         <li>Créer votre compte</li>
                     </ul> 
                 </div>
-                <!------form-register----->
-                <form method="post" enctype="multipart/form-data" class="form-register">
+      <div class="box register">
+        <div class="card card-left">
+            <!------form--register----->
+            <ul class="hd">
+                <!-- hd_reg -->
+                <li class="m_login fl">
+                    <a href="#" title="Rejoignez-nous gratuitement" class="cur">
+                        Inscrire 
+                    </a>
+                </li>
+                <li class="m_reg fl">Vous avez déjà un compte?  
+                    <a href="/?redirect=http%3A%2F%2Fwww.dx.com" title="Se connecter " id="sing_in_btn">
+                        Se connecter 
+                    </a> 
+                </li>
+            </ul>
+            <form method="post" enctype="multipart/form-data" class="form-register">
                 {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
                 {{ form_errors(form) }}
                 <div class="box-body">
@@ -58,21 +73,22 @@
                         {{ form_widget(form.user.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
                     </div>
                     
-              
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Connexion</button>
                 {{ form_end(form) }}
             </div>
              
-       </form>
+            </form>
             <!------------>
-
-                <div class="col-sm-3">
+        </div>
+      </div>
+            <div class="col-sm-3">
 
                     <!-- *** MENUS AND FILTERS ***
  _________________________________________________________ -->
                  
 
                     <!-- *** MENUS AND FILTERS END *** -->
-                </div>
+            </div>
                 <!-- /.col-md-3 -->
 
                 <!-- *** RIGHT COLUMN END *** -->

@@ -10,7 +10,7 @@ class CustomerController extends Controller
    
     public function indexAction()
     {
-        return $this->render('frontCustomerBundle:Customer:index.html.twig');
+        return $this->render('frontCustomerBundle:Customer:login.html.twig');
     }
     
     /**
