@@ -3,13 +3,10 @@
 namespace front\HomeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class HomeController extends Controller
 {
-    /**
-     * @Route("/")
-     */
+    
     public function indexAction()
     {
         $listProducts = $this->get('back_product.manager.products');
@@ -25,9 +22,7 @@ class HomeController extends Controller
         return $this->render('frontHomeBundle:Home:contact.html.twig');
     }
     
-    /**
-     * @Route("/detail/product/{id}")
-     */
+    
     public function getDetailsProductsAction($id)
     {
        $listProducts = $this->get('back_product.manager.products');

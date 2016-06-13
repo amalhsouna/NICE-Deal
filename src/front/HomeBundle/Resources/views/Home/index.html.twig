@@ -43,7 +43,7 @@ _________________________________________________________ -->
     <!-- *** SLIDER ****** -->
     <div class="container">
       <div class="col-md-12">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <div id="carousel-generic" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -51,13 +51,34 @@ _________________________________________________________ -->
                             </ol>
                 <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="{{asset("bundles/frontBundle/img/slide1.jpg")}}" alt="">
+                                    <div class="caption">
+                                        <span class="style1">à LAC 2</span>
+                                        <span class="style2">Réparation</span>
+                                        <span class="style3">de votre véhicule</span>
+                                        <span class="style4">à domicile</span>
+                                        <a href="mecanicien-domicile.php">J'achète</a>
+                                    </div>
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="{{asset("bundles/frontBundle/img/slide2.jpg")}}" alt="">
+                                    <div class="caption">
+                                        <span class="style1">à LAC 2</span>
+                                        <span class="style2">Réparation</span>
+                                        <span class="style3">de votre véhicule</span>
+                                        <span class="style4">à domicile</span>
+                                        <a href="mecanicien-domicile.php">J'achète</a>
+                                    </div>
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="{{asset("bundles/frontBundle/img/slide3.jpg")}}" alt="">
+                                    <div class="caption">
+                                        <span class="style1">à LAC 2</span>
+                                        <span class="style2">Réparation</span>
+                                        <span class="style3">de votre véhicule</span>
+                                        <span class="style4">à domicile</span>
+                                        <a href="mecanicien-domicile.php">J'achète</a>
+                                    </div>
                                 </div>
                 </div>
                 <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -86,7 +107,7 @@ _________________________________________________________ -->
                     <div class="box text-center">
                         <h3 class="text-uppercase">C'est Populaire</h3>
 
-                        <h4 class="text-muted"><span class="accent">Profit</span> meilleur prix</h4>
+                        <h4 class="text-muted"><span class="accent">Profiter </span> de notre meilleur prix</h4>
                     </div>
 
                     <div class="row products">
@@ -101,9 +122,6 @@ _________________________________________________________ -->
                                           <img src="http://placehold.it/360x240" alt="">
                                     {% endif %}
                                     </a>
-                                    <div class="quick-view-button">
-                                        <a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-default btn-sm">Aperçu rapide</a>
-                                    </div>
                                 </div>
                                 <!-- /.image -->
                                 <div class="text">
@@ -116,7 +134,7 @@ _________________________________________________________ -->
                                     <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><span>Tunis</span> 
                                 <div class="clearfix"></div>
                                 </div>
-                                <div class="more_link"><a href="/index.php/deals/554-maison_helene_vous_propose_une_epilation_totale_assortie_dun_moment_de_relaxation.html">Voir Deal</a></div>
+                                <div class="more_link"><a href="{{path('front_home_detail_products',{'id': product.id})}}">Voir Deal</a></div>
                             </div>
                             <!-- /.product -->
                         </div>
@@ -180,10 +198,7 @@ _________________________________________________________ -->
                         <!-- /.row -->
 
                     </div>
-
                 </div>
-
-
             </div>
             <!-- /.container -->
 
@@ -193,8 +208,7 @@ _________________________________________________________ -->
     <div class="col-md-12">
         <h1>Nos partenaires</h1>
         <div class="well">
-            <div id="myCarousel" class="carousel slide">
-                
+            <div id="myCarousel" class="carousel slide partenaire">
                 <!-- Carousel items -->
                 <div class="carousel-inner">
                     <div class="item active">

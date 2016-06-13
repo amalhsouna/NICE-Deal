@@ -34,27 +34,54 @@
                         <div class="col-sm-6">
                           
     <div style="width: 400px; margin: 0px auto;">
-    
-    <div id="myCarouselBig" class="carousel slide">
-
+     {% for product in products %}
+    <div id="myCarouselBig" class="carousel slide products">
         <div class="carousel-inner">
             <div class="item active">
-                <div class="col-xs-12"><a href="#"><img src="http://placehold.it/500/bbbbbb/fff&amp;text=1" class="img-responsive"></a></div>
+                <div class="col-xs-12">
+                        {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}
+                </div>
             </div>
             <div class="item">
-                <div class="col-xs-12"><a href="#"><img src="http://placehold.it/500/CCCCCC&amp;text=2" class="img-responsive"></a></div>
+                <div class="col-xs-12">
+                        {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}
+                </div>
             </div>
             <div class="item">
-                <div class="col-xs-12"><a href="#"><img src="http://placehold.it/500/eeeeee&amp;text=3" class="img-responsive"></a></div>
+                <div class="col-xs-12"><a href="#">{% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}</a></div>
             </div>
             <div class="item">
-                <div class="col-xs-12"><a href="#"><img src="http://placehold.it/500/f4f4f4&amp;text=4" class="img-responsive"></a></div>
+                <div class="col-xs-12"><a href="#">{% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}</a></div>
             </div>
             <div class="item">
-                <div class="col-xs-12"><a href="#"><img src="http://placehold.it/500/fcfcfc/333&amp;text=5" class="img-responsive"></a></div>
+                <div class="col-xs-12"><a href="#">{% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}</a></div>
             </div>
             <div class="item">
-                <div class="col-xs-12"><a href="#"><img src="http://placehold.it/500/f477f4/fff&amp;text=6" class="img-responsive"></a></div>
+                <div class="col-xs-12"><a href="#">{% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}</a></div>
             </div>
         </div>
 
@@ -72,45 +99,67 @@
 
         <div class="carousel-inner">
             <div class="item active">
-                <div class="col-xs-3" style="width: 20%;"><a href="#"><img src="http://placehold.it/500/bbbbbb/fff&amp;text=1" class="img-responsive"></a></div>
+                <div class="col-xs-3" style="width: 20%;">
+                    <a href="#">
+                        {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}
+                    </a>
+                </div>
             </div>
             <div class="item">
-                <div class="col-xs-3" style="width: 20%;"><a href="#"><img src="http://placehold.it/500/CCCCCC&amp;text=2" class="img-responsive"></a></div>
+                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}</a></div>
             </div>
             <div class="item">
-                <div class="col-xs-3" style="width: 20%;"><a href="#"><img src="http://placehold.it/500/eeeeee&amp;text=3" class="img-responsive"></a></div>
+                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}</a></div>
             </div>
             <div class="item">
-                <div class="col-xs-3" style="width: 20%;"><a href="#"><img src="http://placehold.it/500/f4f4f4&amp;text=4" class="img-responsive"></a></div>
+                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}</a></div>
             </div>
             <div class="item">
-                <div class="col-xs-3" style="width: 20%;"><a href="#"><img src="http://placehold.it/500/fcfcfc/333&amp;text=5" class="img-responsive"></a></div>
+                <div class="col-xs-3" style="width: 20%;">
+                    <a href="#"> {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}
+                    </a>
+                </div>
             </div>
             <div class="item">
-                <div class="col-xs-3" style="width: 20%;"><a href="#"><img src="http://placehold.it/500/f477f4/fff&amp;text=6" class="img-responsive"></a></div>
+                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
+                        {% else %}
+                            <img src="http://placehold.it/360x240" alt="">
+                        {% endif %}</a></div>
             </div>
         </div>
-
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="display: none;">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="display: none;">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
     </div>
 
     </div>
     <!---end-slider-->
     </div>
         <div class="col-sm-6">
-            {% for product in products %}
-                <div class="box">
+           
+                <div class="box detail-box">
                     <form>
                         <div class="sizes">
                         </div>
-                        <p class="price">{{product.price}} D</p>
+                        <p class="price">{{product.price}}.00<sup>DT</sup></p>
                         <p class="text-center">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> J'achete</button>
                             <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
@@ -119,24 +168,6 @@
 
                     </form>
                  </div>
-
-                            <div class="row" id="thumbs">
-                                <div class="col-xs-4">
-                                    <a href="img/detailbig1.jpg" class="thumb">
-                                        <img src="{{asset("bundles/frontBundle/img/detailsquare.jpg")}}" alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="img/detailbig2.jpg" class="thumb">
-                                        <img src="{{asset("bundles/frontBundle/img/detailsquare2.jpg")}}" alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="img/detailbig3.jpg" class="thumb">
-                                        <img src="{{asset("bundles/frontBundle/img/detailsquare3.jpg")}}" alt="" class="img-responsive">
-                                    </a>
-                                </div>
-                            </div>
                         </div>
 
                     </div>
@@ -170,7 +201,7 @@
                     </div>
 
                     <div class="box social" id="product-social">
-                        <h4>Show it to your friends</h4>
+                        <h4>Partagez avec vous amis</h4>
                         <p>
                             <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
                             <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
@@ -297,76 +328,7 @@
 
                 <!-- *** LEFT COLUMN END *** -->
 
-                <!-- *** RIGHT COLUMN ***
-		  _________________________________________________________ -->
-
-                <div class="col-sm-3">
-
-                    <!-- *** MENUS AND FILTERS ***
- _________________________________________________________ -->
-                    <div class="panel panel-default sidebar-menu">
-
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Categories</h3>
-                        </div>
-
-                        <div class="panel-body">
-                            <ul class="nav nav-pills nav-stacked category-menu">
-                                <li>
-                                    <a href="category.html">Men <span class="badge pull-right">42</span></a>
-                                    <ul>
-                                        <li><a href="category.html">T-shirts</a>
-                                        </li>
-                                        <li><a href="category.html">Shirts</a>
-                                        </li>
-                                        <li><a href="category.html">Pants</a>
-                                        </li>
-                                        <li><a href="category.html">Accessories</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="active">
-                                    <a href="category.html">Ladies  <span class="badge pull-right">123</span></a>
-                                    <ul>
-                                        <li><a href="category.html">T-shirts</a>
-                                        </li>
-                                        <li><a href="category.html">Skirts</a>
-                                        </li>
-                                        <li><a href="category.html">Pants</a>
-                                        </li>
-                                        <li><a href="category.html">Accessories</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="category.html">Kids  <span class="badge pull-right">11</span></a>
-                                    <ul>
-                                        <li><a href="category.html">T-shirts</a>
-                                        </li>
-                                        <li><a href="category.html">Skirts</a>
-                                        </li>
-                                        <li><a href="category.html">Pants</a>
-                                        </li>
-                                        <li><a href="category.html">Accessories</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-
-                        </div>
-                    </div>
-
-                    <!-- *** MENUS AND FILTERS END *** -->
-
-                    <div class="banner">
-                        <a href="category.html">
-                            <img src="{{asset("bundles/frontBundle/img/banner.jpg")}}" alt="sales 2014" class="img-responsive">
-                        </a>
-                    </div>
-                    <!-- /.banner -->
-                </div>
-                <!-- /.col-md-3 -->
+               {% include '::includesFront/left.html.twig' %}
 
                 <!-- *** RIGHT COLUMN END *** -->
 
@@ -376,26 +338,27 @@
         <!-- /#content -->
         <!-- /.container -->
         </div>
-    {% block javascripts %}
-        {{ parent() }}
-    <script src="{{asset("bundles/frontBundle/js/carousel.js")}}"></script>
-    {% endblock %}
-    {% block stylesheets %}
-        {{ parent() }}
-    <style>
-        #myCarousel .carousel-inner > .next.left, #myCarousel .carousel-inner > .prev.right {
-    left: 0 !important;
-    }
+        {% block javascripts %}
+        <script src="{{asset("bundles/frontBundle/js/carousel.js")}}"></script>
+        <script src="{{asset("bundles/frontBundle/js/jquery-1.11.0.min.js")}}"></script>
+        <script src="{{asset("bundles/frontBundle/js/bootstrap.min.js")}}"></script>
+        {% endblock %}
+        {% block stylesheets %}
+            {{ parent() }}
+        <style>
+            #myCarousel .carousel-inner > .next.left, #myCarousel .carousel-inner > .prev.right {
+        left: 0 !important;
+        }
 
-    #myCarousel .carousel-inner .active.left  { left: -20%;             }
-    #myCarousel .carousel-inner .active.right { left: 20%;              }
-    #myCarousel .carousel-inner .next         { left: 20%               }
-    #myCarousel .carousel-inner .prev         { left: -20%              }
-    #myCarousel .carousel-control.left        { background-image: none; }
-    #myCarousel .carousel-control.right       { background-image: none; }
-    #myCarousel .carousel-inner .item         { background: white;      }
-     </style>
-    {% endblock %}
+        #myCarousel .carousel-inner .active.left  { left: -20%;             }
+        #myCarousel .carousel-inner .active.right { left: 20%;              }
+        #myCarousel .carousel-inner .next         { left: 20%               }
+        #myCarousel .carousel-inner .prev         { left: -20%              }
+        #myCarousel .carousel-control.left        { background-image: none; }
+        #myCarousel .carousel-control.right       { background-image: none; }
+        #myCarousel .carousel-inner .item         { background: white;      }
+         </style>
+        {% endblock %}
    {% include '::includesFront/footer.html.twig' %}
 
         </div>
