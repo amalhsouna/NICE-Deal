@@ -24,6 +24,9 @@
             </tr>
             {% endfor %}
         </table>
+        <div class="navigation">
+            {{ knp_pagination_render(paging) }}
+        </div>
     </div>
   {% include '::includes/footer.html.twig' %}
 {% endblock %}

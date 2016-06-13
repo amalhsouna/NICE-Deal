@@ -21,11 +21,17 @@ class ProductsController extends Controller
      *
      * @return Response
      */
-    public function getProductsAction()
+    public function getProductsAction(Request $request)
     {
        $listProducts = $this->get('back_product.manager.products');
        $ProductsDeals = $listProducts->getProductsDeals();
-       return $this->render('backProductBundle:Products:listProducts.html.twig' , array('products' => $ProductsDeals));  
+       $paginator  = $this->get('knp_paginator');
+       $paging = $paginator->paginate(
+            $ProductsDeals, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+       return $this->render('backProductBundle:Products:listProducts.html.twig' , array('products' => $ProductsDeals,'paging' => $paging));  
     }
     
     /**

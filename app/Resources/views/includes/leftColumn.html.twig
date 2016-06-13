@@ -28,12 +28,23 @@
         <li class="header">NAVIGATION PRINCIPALE</li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
+            <i class="fa fa-table"></i> <span>Produit</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
             <li><a href={{path('back_product_admin_add_products')}}><i class="fa fa-circle-o"></i> Ajout produit</a></li>
-            <li><a href={{path('back_category_admin_add_category')}}><i class="fa fa-circle-o"></i> Ajout catégorie</a></li>
+            <li><a href={{path('back_product_admin_list_products')}}><i class="fa fa-circle-o"></i> Liste produit</a></li>
+          </ul>
+        </li>
+        
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Catégorie</span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href={{path('back_product_admin_add_products')}}><i class="fa fa-circle-o"></i> Ajout catégorie</a></li>
+            <li><a href={{path('back_category_admin_add_category')}}><i class="fa fa-circle-o"></i> Liste produit</a></li>
           </ul>
         </li>
         <li>
@@ -79,14 +90,3 @@
   </aside>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
