@@ -82,6 +82,12 @@ h3 span{
   margin-left: 0;
 }
 
+button.glyphicon.glyphicon-remove, a.glyphicon.glyphicon-pencil{
+    background: none;
+    border: none;
+    color: #3C8DBC;
+    font-size: 30px;
+}
 @media (max-width: 767px) {
   .content-wrapper,
   .right-side,

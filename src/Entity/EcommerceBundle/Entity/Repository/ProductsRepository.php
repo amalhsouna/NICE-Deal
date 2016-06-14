@@ -62,4 +62,15 @@ class ProductsRepository extends EntityRepository
         return $products;
     }
     
+    /**
+     * delete product.
+     *
+     * @return true.
+     */
+    public function delete(Products $product)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->remove($product);
+        $entityManager->flush();
+    }
 }

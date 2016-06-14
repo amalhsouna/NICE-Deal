@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormInterface;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 
-use back\ProductBundle\ModelManager\ProductManger;
+use back\ProductBundle\ModelManager\ProductManager;
 
 /**
  * Update Products form handler.
@@ -30,9 +30,9 @@ class UpdateProductsFormHandler
     protected $form;
     
     /**
-     * @var ProductManger
+     * @var ProductManager
      */
-    protected $productManger;
+    protected $productManager;
 
     /**
      * Constructor class.
@@ -41,10 +41,8 @@ class UpdateProductsFormHandler
      * @param FormInterface      $form  The form interface.
      * @param ProductManger      $productManger  The Product Manger.
      */
-    public function __construct(Registry $doctrine, FormInterface $form, ProductManger $productManger)
+    public function __construct(FormInterface $form, ProductManager $productManger)
     {   
-        $this->doctrine = $doctrine;
-        $this->entityManagerProducts = $doctrine->getManager();
         $this->form = $form;
         $this->productManger = $productManger;
        

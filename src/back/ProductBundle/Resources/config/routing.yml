@@ -9,6 +9,7 @@ back_product_admin_put_products:
     defaults: { _controller: backProductBundle:Products:putProducts }
     requirements:
        id: \d+
+       
 #list products by admin
 back_product_admin_list_products:
     path:     /espace-admin/list-produits
@@ -19,7 +20,12 @@ back_product_admin_details_products:
     path:     /espace-admin/{id}/details-produits
     defaults: { _controller: backProductBundle:Products:getDetailsProductsAdmin }
     
-#category routing    
+#delete products
+back_product_admin_delete_products:
+    path:     /espace-admin/{id}/delete-produits
+    defaults: { _controller: backProductBundle:Products:deleteProducts }
+    
+#category routing 
 #list of category
 back_category_list_category:
     path:     /liste/category
@@ -27,12 +33,12 @@ back_category_list_category:
     requirements:
        _method: GET
     
-#Add products by admin
+#Add category by admin
 back_category_admin_add_category:
     path:     /ajouter/category
     defaults: { _controller: backProductBundle:Category:postCategory }
     
-#list products by admin
-back_category_admin_add_products:
-    path:     /espace-admin/category
-    defaults: { _controller: backProductBundle:Category:getProducts }
+#delete category by admin
+back_category_admin_delete_category:
+    path:     /espace-admin/{id}/category
+    defaults: { _controller: backProductBundle:Category:deleteProducts }

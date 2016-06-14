@@ -11,6 +11,7 @@ namespace back\ProductBundle\ModelManager;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\Bundle\DoctrineBundle\Registry;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ProductManager
 {
@@ -50,5 +51,22 @@ class ProductManager
     public function getProductsById($id)
     {
         return $this->productRepository->findProductsById($id);
+    }
+    
+    /**
+     * delete product.
+     *
+     * @param int $productId The product identifier
+     *
+     * @return array
+     */
+    public function deleteProductById($productId)
+    {
+        $product = $this->productRepository->findOneById($productId);
+        if (!$product) {
+            throw new NotFoundHttpException("Page not found");
+        } else {
+            return $this->productRepository->delete($product);
+        }
     }
 }

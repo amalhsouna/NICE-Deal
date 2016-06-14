@@ -11,6 +11,7 @@ namespace back\ProductBundle\ModelManager;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\Bundle\DoctrineBundle\Registry;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CategoryManager
 {
@@ -35,5 +36,22 @@ class CategoryManager
     public function postCategoryDeals($category)
     {
        return $this->categoryRepository->saveCategory($category);
+    }
+    
+    /**
+     * delete category.
+     *
+     * @param int $categoryId The category identifier
+     *
+     * @return array
+     */
+    public function deleteProductById($categoryId)
+    {
+        $product = $this->categoryRepository->findOneById($categoryId);
+        if (!$product) {
+            throw new NotFoundHttpException("Page not found");
+        } else {
+            return $this->categoryRepository->delete($product);
+        }
     }
 }

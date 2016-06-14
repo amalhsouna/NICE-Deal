@@ -91,6 +91,16 @@ class ProductsController extends Controller
        return $this->render('backProductBundle:Products:detailsProducts.html.twig' , array('products' => $ProductsDeals));  
     }
     
+    /**
+     * delete product
+     * 
+     * @return true
+     */
+    public function deleteProductsAction($id)
+    {
+       $products = $this->get('back_product.manager.products');
+       $products->deleteProductById($id);
+       return $this->redirect($this->generateUrl('back_product_admin_list_products'));
+    }
     
-  
 }

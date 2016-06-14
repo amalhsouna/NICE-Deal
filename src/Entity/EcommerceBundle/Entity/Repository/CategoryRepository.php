@@ -48,4 +48,16 @@ class CategoryRepository extends EntityRepository
         $entityManager->persist($category);
         $entityManager->flush();
     }
+    
+    /**
+     * delete category.
+     *
+     * @return true.
+     */
+    public function delete(Category $category)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->remove($category);
+        $entityManager->flush();
+    }
 }

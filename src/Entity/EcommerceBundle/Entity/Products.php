@@ -5,7 +5,7 @@ namespace Entity\EcommerceBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Products
+ * Products.
  *
  * @ORM\Table(name="products")
  * @ORM\Entity(repositoryClass="Entity\EcommerceBundle\Entity\Repository\ProductsRepository")
@@ -34,7 +34,7 @@ class Products
      * @ORM\Column(name="price", type="float")
      */
     private $price;
-    
+
     /**
      * @var float
      *
@@ -48,7 +48,7 @@ class Products
      * @ORM\Column(name="description", type="text")
      */
     private $description;
-    
+
     /**
      * @var \DateTime
      *
@@ -56,31 +56,38 @@ class Products
      */
     private $creationDate;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="place", type="string", length=50)
+     */
+    private $place;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
         return $this->id;
     }
-    
+
     /**
-     * Get name
+     * Get name.
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
         return $this->name;
     }
-    
+
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return Products
      */
     public function setName($name)
@@ -89,21 +96,22 @@ class Products
 
         return $this;
     }
-    
+
     /**
-     * Get price
+     * Get price.
      *
-     * @return float 
+     * @return float
      */
     public function getPrice()
     {
         return $this->price;
     }
-    
+
     /**
-     * Set price
+     * Set price.
      *
      * @param float $price
+     *
      * @return Products
      */
     public function setPrice($price)
@@ -112,21 +120,22 @@ class Products
 
         return $this;
     }
-    
+
     /**
-     * Get description
+     * Get description.
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
         return $this->description;
     }
-    
+
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
+     *
      * @return Products
      */
     public function setDescription($description)
@@ -137,29 +146,54 @@ class Products
     }
 
     /**
-     * Get creationDate
+     * Get creationDate.
      *
-     * @return Date 
+     * @return Date
      */
-    function getCreationDate() {
+    public function getCreationDate()
+    {
         return $this->creationDate;
     }
-    
+
     /**
-     * Set creationDate
+     * Set creationDate.
      *
      * @param DateTime $creationDate
+     *
      * @return Products
      */
-    function setCreationDate($creationDate) {
+    public function setCreationDate($creationDate)
+    {
         $this->creationDate = $creationDate;
     }
-    
+
+    /**
+     * Get place.
+     *
+     * @return string
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
+
+    /**
+     * Set place.
+     *
+     * @param string $place
+     *
+     * @return Products
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
+    }
+
     /**
      * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Images", cascade={"persist"})
      */
     private $image;
-    
+
     // Vos autres attributs…
 
     public function setImage(Images $image = null)
@@ -171,14 +205,13 @@ class Products
     {
         return $this->image;
     }
-    
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", inversedBy="products", cascade={"persist"})
      * @ORM\JoinTable(name="categ_id",name="id")
      */
     private $category;
-    
+
     // Vos autres attributs…
 
     public function setCategory(Category $category = null)
@@ -190,12 +223,14 @@ class Products
     {
         return $this->category;
     }
-    
-    function getOldPrice() {
+
+    public function getOldPrice()
+    {
         return $this->oldPrice;
     }
 
-    function setOldPrice($oldPrice) {
+    public function setOldPrice($oldPrice)
+    {
         $this->oldPrice = $oldPrice;
-    } 
+    }
 }

@@ -48,5 +48,16 @@ class CategoryController extends Controller
         
         return $this->render('backProductBundle:Products:addCategory.html.twig' , array('form' => $form->createView()));    
     }
-    
+       
+    /**
+     * delete category
+     * 
+     * @return true
+     */
+    public function deleteProductsAction($id)
+    {
+       $products = $this->get('back_product.manager.category');
+       $products->deleteProductById($id);
+       return $this->redirect($this->generateUrl('back_product_admin_list_products'));
+    }
 }

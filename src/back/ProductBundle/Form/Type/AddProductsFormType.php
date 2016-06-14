@@ -70,6 +70,9 @@ class AddProductsFormType extends AbstractType
                 ->add('oldPrice', 'integer')
                 ->add('description', 'textarea')
                 ->add('creationDate', 'date')
+                ->add('place', 'choice', array(
+                'choices' => array('tunis' => 'Grand tunis', 'nabeul' => 'Nabeul'),
+                'preferred_choices' => array('tunis'),))
                 ->add('image', $this->imagesFormType, array('data_class' => 'Entity\EcommerceBundle\Entity\Images'))
                 ->add('category', 'entity', array('class' => 'Entity\EcommerceBundle\Entity\Category', 'property' => 'name'  ))
                 ->add('save', 'submit', array('label' => 'Ajouter', 'attr' => array('class' => 'btn btn-primary')));
