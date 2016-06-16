@@ -39,6 +39,11 @@ class AddProductsFormType extends AbstractType
      * @var AddCategoryFormType
      */
     protected $categoryFormType;
+    
+    /**
+     * @var CkeditorFormType
+     */
+    protected $ckeditorFormType;
 
     /**
      * Constructor class.
@@ -46,13 +51,15 @@ class AddProductsFormType extends AbstractType
      * @param string $class    The model for handle form type.
      * @param ImagesFormType   $imagesFormType The Images Form Type.
      * @param CategoryFormType $categoryFormType The Category Form Type.
+     * @param CkeditorFormType $ckeditorFormType The  Ckeditor Form Type.
      */
     public function __construct($class, ImagesFormType $imagesFormType,
-                                AddCategoryFormType $categoryFormType)
+                                AddCategoryFormType $categoryFormType, CkeditorFormType $ckeditorFormType)
     {
         $this->class  = $class;
         $this->imagesFormType  =   $imagesFormType;
         $this->categoryFormType  = $categoryFormType;
+        $this->$ckeditorFormType  = $ckeditorFormType;
     }
 
     /**
@@ -68,7 +75,7 @@ class AddProductsFormType extends AbstractType
         $builder->add('name', 'text')
                 ->add('price', 'integer')
                 ->add('oldPrice', 'integer')
-                ->add('description', 'textarea')
+                ->add('description', 'ckeditor')
                 ->add('creationDate', 'date')
                 ->add('place', 'choice', array(
                 'choices' => array('tunis' => 'Grand tunis', 'nabeul' => 'Nabeul'),

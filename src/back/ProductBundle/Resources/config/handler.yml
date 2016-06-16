@@ -10,12 +10,20 @@ parameters:
     back_product.category.form.type.class: back\ProductBundle\Form\Type\AddCategoryFormType
     back_product.category.form_data_class: Entity\EcommerceBundle\Entity\Category
     
+    back_product.ckeditor.form.type.class: back\ProductBundle\Form\Type\CkeditorFormType
+    
     #handler
     back_product.add.handler.client.class: back\ProductBundle\Form\Handler\AddProductsFormHandler
     back_product.update.handler.client.class: back\ProductBundle\Form\Handler\UpdateProductsFormHandler
     back_product.add.category.handler.client.class: back\ProductBundle\Form\Handler\AddCategoryFormHandler
     
 services:
+    #tags
+    back_product.ckeditor:
+        class: %back_product.ckeditor.form.type.class%
+        tags:
+            - { name: form.type, alias: ckeditor }
+            
     #add and update products
     back_product.products.form:
         class: %back_product.products.form.class%
@@ -32,7 +40,7 @@ services:
            
     back_product.products.form.type:
         class: %back_product.products.form.type.class%
-        arguments: [%back_product.products.form_data_class%, "@back_product.images.form.type", "@back_product.category.form.type"]
+        arguments: [%back_product.products.form_data_class%, "@back_product.images.form.type", "@back_product.category.form.type", "@back_product.ckeditor"]
             
     back_product.handler.add.products:
         class: %back_product.add.handler.client.class%
