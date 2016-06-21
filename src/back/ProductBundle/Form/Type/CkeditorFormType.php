@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Products form type.
+ * Ckeditor form type.
  * 
  * @package backProductBundle
  * @author  Amal Hsouna
@@ -14,7 +14,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * Products form type.
+ * Ckeditor form type.
  * 
  * @package backProductBundle
  * @author Amal Hsouna

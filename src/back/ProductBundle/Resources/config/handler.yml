@@ -10,6 +10,9 @@ parameters:
     back_product.category.form.type.class: back\ProductBundle\Form\Type\AddCategoryFormType
     back_product.category.form_data_class: Entity\EcommerceBundle\Entity\Category
     
+    back_product.partenary.form.type.class: back\ProductBundle\Form\Type\PartenaryFormType
+    back_product.partenary.form_data_class: Entity\EcommerceBundle\Entity\Partenary
+    
     back_product.ckeditor.form.type.class: back\ProductBundle\Form\Type\CkeditorFormType
     
     #handler
@@ -37,10 +40,14 @@ services:
     back_product.images.form.type:
         class: %back_product.images.form.type.class%
         arguments: [%back_product.images.form_data_class%]
+        
+    back_product.partenary.form.type:
+        class: %back_product.partenary.form.type.class%
+        arguments: [%back_product.partenary.form_data_class%]
            
     back_product.products.form.type:
         class: %back_product.products.form.type.class%
-        arguments: [%back_product.products.form_data_class%, "@back_product.images.form.type", "@back_product.category.form.type", "@back_product.ckeditor"]
+        arguments: [%back_product.products.form_data_class%, "@back_product.images.form.type", "@back_product.category.form.type", "@back_product.ckeditor", "@back_product.partenary.form.type"]
             
     back_product.handler.add.products:
         class: %back_product.add.handler.client.class%

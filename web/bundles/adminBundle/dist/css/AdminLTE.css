@@ -1306,6 +1306,9 @@ a:focus {
 .form-group.category{
     margin-top: 20px;
 }
+.form-group.date .form-control{
+    border:none;
+}
 /* Input group */
 .input-group .input-group-addon {
   border-radius: 0;

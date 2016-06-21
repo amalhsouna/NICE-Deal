@@ -3,6 +3,7 @@
 namespace Entity\EcommerceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Products.
@@ -62,6 +63,33 @@ class Products
      * @ORM\Column(name="place", type="string", length=50)
      */
     private $place;
+    
+    /**
+     * @var ArrayCollection
+     * 
+     * @ORM\OneToMany(targetEntity="Entity\EcommerceBundle\Entity\Image", cascade={"persist"})
+     */
+    private $image;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", inversedBy="products", cascade={"persist"})
+     * @ORM\JoinTable(name="categ_id",name="id")
+     */
+    private $category;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Partenary", inversedBy="products", cascade={"persist"})
+     * @ORM\JoinTable(name="partenary_id",name="id")
+     */
+    private $partenary;
+    
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->image = new ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -188,29 +216,42 @@ class Products
     {
         $this->place = $place;
     }
-
+  
     /**
-     * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Images", cascade={"persist"})
+     * Get image.
+     *
+     * @return string
      */
-    private $image;
-
-    // Vos autres attributs…
-
-    public function setImage(Images $image = null)
-    {
-        $this->image = $image;
-    }
-
     public function getImage()
     {
         return $this->image;
     }
+    
+    /**
+     * Add image.
+     *
+     * @param \Entity\EcommerceBundle\Entity\Image $image
+     *
+     * @return image
+     */
+    public function addImage($image)
+    {
+        if (!$this->image->contains($image)) {
+            $this->image->add($image);
+        }
+    }
 
     /**
-     * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", inversedBy="products", cascade={"persist"})
-     * @ORM\JoinTable(name="categ_id",name="id")
+     * Remove Date.
+     *
+     * @param \Entity\EcommerceBundle\Entity\Image $image
      */
-    private $category;
+    public function removeImage($image)
+    {
+        if ($this->days->contains($image)) {
+            $this->days->remove($image);
+        }
+    }
 
     // Vos autres attributs…
 
@@ -232,5 +273,17 @@ class Products
     public function setOldPrice($oldPrice)
     {
         $this->oldPrice = $oldPrice;
+    }
+    
+    // Vos autres attributs…
+
+    public function setPartenary(Partenary $partenary = null)
+    {
+        $this->partenary = $partenary;
+    }
+
+    public function getPartenary()
+    {
+        return $this->partenary;
     }
 }

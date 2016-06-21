@@ -14,6 +14,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use back\ProductBundle\Form\Type\ImagesFormType;
+use back\ProductBundle\Form\Type\PartenaryFormType;
 use back\ProductBundle\Form\Type\AddCategoryFormType;
 
 /**
@@ -44,22 +45,29 @@ class AddProductsFormType extends AbstractType
      * @var CkeditorFormType
      */
     protected $ckeditorFormType;
+    
+    /**
+     * @var PartenaryFormType
+     */
+    protected $partenaryFormType;
 
     /**
      * Constructor class.
      * 
-     * @param string $class    The model for handle form type.
-     * @param ImagesFormType   $imagesFormType The Images Form Type.
-     * @param CategoryFormType $categoryFormType The Category Form Type.
-     * @param CkeditorFormType $ckeditorFormType The  Ckeditor Form Type.
+     * @param string $class     The model for handle form type.
+     * @param ImagesFormType    $imagesFormType    The Images Form Type.
+     * @param CategoryFormType  $categoryFormType  The Category Form Type.
+     * @param CkeditorFormType  $ckeditorFormType  The  Ckeditor Form Type.
+     * @param PartenaryFormType $partenaryFormType The  partenary Form Type.
      */
     public function __construct($class, ImagesFormType $imagesFormType,
-                                AddCategoryFormType $categoryFormType, CkeditorFormType $ckeditorFormType)
+                                AddCategoryFormType $categoryFormType, CkeditorFormType $ckeditorFormType, PartenaryFormType $partenaryFormType)
     {
         $this->class  = $class;
         $this->imagesFormType  =   $imagesFormType;
         $this->categoryFormType  = $categoryFormType;
-        $this->$ckeditorFormType  = $ckeditorFormType;
+        $this->ckeditorFormType  = $ckeditorFormType;
+        $this->partenaryFormType  = $partenaryFormType;
     }
 
     /**
@@ -80,11 +88,12 @@ class AddProductsFormType extends AbstractType
                 ->add('place', 'choice', array(
                 'choices' => array('tunis' => 'Grand tunis', 'nabeul' => 'Nabeul'),
                 'preferred_choices' => array('tunis'),))
-                ->add('image', $this->imagesFormType, array('data_class' => 'Entity\EcommerceBundle\Entity\Images'))
+                ->add('image', 'collection', array('type' => $this->imagesFormType, 'allow_add' => true))
                 ->add('category', 'entity', array('class' => 'Entity\EcommerceBundle\Entity\Category', 'property' => 'name'  ))
+                ->add('partenary', 'entity', array('class' => 'Entity\EcommerceBundle\Entity\Partenary', 'property' => 'name'  ))
                 ->add('save', 'submit', array('label' => 'Ajouter', 'attr' => array('class' => 'btn btn-primary')));
     }
-    
+   
     /**
        * Sets options as model for current form type.
        * 

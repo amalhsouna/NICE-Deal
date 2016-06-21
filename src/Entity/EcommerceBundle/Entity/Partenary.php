@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
  * Partenary
  *
  * @ORM\Table(name="partenary")
- * @ORM\Entity(repositoryClass="Entity\EcommerceBundle\Repository\PartenaryRepository")
  */
 class Partenary
 {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Products form type.
+ * Partenary form type.
  * 
  * @package backProductBundle
  * @author  Amal Hsouna
@@ -14,24 +14,25 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * Products form type.
+ * Partenary form type.
  * 
  * @package backProductBundle
  * @author Amal Hsouna
  */
-class ImagesFormType extends AbstractType
+class PartenaryFormType extends AbstractType
 {
 
     /**
      * @var string
      */
     protected $class;
+   
 
     /**
      * Constructor class.
      * 
      * @param string $class  The model for handle form type.
-     * @param string $method The method of rest.
+     * 
      */
     public function __construct($class)
     {
@@ -48,9 +49,12 @@ class ImagesFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('file', 'file');
+        $builder->add('adresse', 'text')
+                ->add('telephone', 'text')
+                ->add('opiningTime', 'text')
+                ->add('closeTime', 'text');
     }
-
+    
     /**
      * Sets options as model for current form type.
      * 
@@ -73,6 +77,6 @@ class ImagesFormType extends AbstractType
      */
     public function getName()
     {
-        return "images_products";
+        return "category_form";
     }
 }
