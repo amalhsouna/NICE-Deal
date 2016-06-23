@@ -26,8 +26,8 @@ class Images
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=255)
-     */
+     * @ORM\Column(name="url", type="array")
+     */ 
     private $url;
 
     /**
@@ -43,6 +43,7 @@ class Images
      * @ORM\Column(name="file", type="string", length=255)
      */
     private $file;
+  
 
     /**
      * Get id.
@@ -169,11 +170,21 @@ class Images
           }
       }
 
-      // On déplace le fichier envoyé dans le répertoire de notre choix
-      $this->file->move(
-      $this->getUploadRootDir(), // Le répertoire de destination
-      $this->id.'.'.$this->url   // Le nom du fichier à créer, ici « id.extension »
-      );
+//      // On déplace le fichier envoyé dans le répertoire de notre choix
+//      $this->file->move(
+//      $this->getUploadRootDir(), // Le répertoire de destination
+//      $this->id.'.'.$this->url   // Le nom du fichier à créer, ici « id.extension »
+//       
+//      );
+      
+    foreach($this->files as $file)
+    {
+        $url = sha1(uniqid(mt_rand(), true)).'.'.$file->guessExtension();
+        array_push ($this->url, $url);
+        $file->move($this->getUploadRootDir(), $url);
+
+        unset($file);
+    }
     }
     
     /**

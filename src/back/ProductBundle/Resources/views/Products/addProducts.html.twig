@@ -44,13 +44,33 @@
                 <div class="form-group category">
                     {{ form_label(form.category,"Catégorie") }}
                     {{ form_errors(form.category) }}
-                    {{ form_widget(form.category, {'attr': {'class': 'form-control '}}) }}
+                    {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 
-                <div class="form-group category">
+                <div class="form-group">
                     {{ form_label(form.place,"Lieu") }}
                     {{ form_errors(form.place) }}
-                    {{ form_widget(form.place, {'attr': {'class': 'form-control '}}) }}
+                    {{ form_widget(form.place, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.partenary.adresse,"Adresse") }}
+                    {{ form_errors(form.partenary.adresse) }}
+                    {{ form_widget(form.partenary.adresse, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.partenary.telephone,"Télephone") }}
+                    {{ form_errors(form.partenary.telephone) }}
+                    {{ form_widget(form.partenary.telephone, {'attr': {'class': 'form-control '}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.partenary.map,"Map") }}
+                    {{ form_errors(form.partenary.map) }}
+                    {{ form_widget(form.partenary.map, {'attr': {'class': 'form-control '}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.partenary.additionalInformation,"Information supplémentaire") }}
+                    {{ form_errors(form.partenary.additionalInformation) }}
+                    {{ form_widget(form.partenary.additionalInformation, {'attr': {'class': 'form-control '}}) }}
                 </div>
                 
                 {{ form_end(form) }}

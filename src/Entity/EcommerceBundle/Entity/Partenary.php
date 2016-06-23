@@ -42,18 +42,18 @@ class Partenary
     private $telephone;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="opiningTime", type="datetime")
+     * @ORM\Column(name="map", type="string", length=255)
      */
-    private $opiningTime;
+    private $map;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="closeTime", type="datetime")
+     * @ORM\Column(name="additionalInformation", type="string", length=255)
      */
-    private $closeTime;
+    private $additionalInformation;
 
 
     /**
@@ -135,49 +135,19 @@ class Partenary
         return $this->telephone;
     }
 
-    /**
-     * Set opiningTime
-     *
-     * @param \DateTime $opiningTime
-     * @return Partenary
-     */
-    public function setOpiningTime($opiningTime)
-    {
-        $this->opiningTime = $opiningTime;
-
-        return $this;
+    function getMap() {
+        return $this->map;
     }
 
-    /**
-     * Get opiningTime
-     *
-     * @return \DateTime 
-     */
-    public function getOpiningTime()
-    {
-        return $this->opiningTime;
+    function getAdditionalInformation() {
+        return $this->additionalInformation;
     }
 
-    /**
-     * Set closeTime
-     *
-     * @param \DateTime $closeTime
-     * @return Partenary
-     */
-    public function setCloseTime($closeTime)
-    {
-        $this->closeTime = $closeTime;
-
-        return $this;
+    function setMap($map) {
+        $this->map = $map;
     }
 
-    /**
-     * Get closeTime
-     *
-     * @return \DateTime 
-     */
-    public function getCloseTime()
-    {
-        return $this->closeTime;
+    function setAdditionalInformation($additionalInformation) {
+        $this->additionalInformation = $additionalInformation;
     }
 }

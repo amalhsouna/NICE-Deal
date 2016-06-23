@@ -51,8 +51,8 @@ class PartenaryFormType extends AbstractType
     {
         $builder->add('adresse', 'text')
                 ->add('telephone', 'text')
-                ->add('opiningTime', 'text')
-                ->add('closeTime', 'text');
+                ->add('map', 'text')
+                ->add('additionalInformation', 'textarea');
     }
     
     /**

@@ -65,11 +65,16 @@ class Products
     private $place;
     
     /**
-     * @var ArrayCollection
+     * @var file
      * 
-     * @ORM\OneToMany(targetEntity="Entity\EcommerceBundle\Entity\Image", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Entity\EcommerceBundle\Entity\Images", mappedBy="products", cascade={"persist"})
      */
     private $image;
+    
+    /**
+      * @var ArrayCollection
+     */
+    private $uploadedFiles;
     
     /**
      * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", inversedBy="products", cascade={"persist"})

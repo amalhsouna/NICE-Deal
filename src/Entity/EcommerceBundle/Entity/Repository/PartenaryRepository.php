@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * PartenaryRepository
+ * 
+ * @package EntityEcommerceBundle
+ * @author Amal Hsouna
+ */
+
 namespace Entity\EcommerceBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ProductsRepository
+ * CustomerRepository
  * 
  * @package EntityEcommerceBundle
  * @author Amal Hsouna

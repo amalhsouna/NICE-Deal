@@ -90,7 +90,7 @@ class AddProductsFormType extends AbstractType
                 'preferred_choices' => array('tunis'),))
                 ->add('image', 'collection', array('type' => $this->imagesFormType, 'allow_add' => true))
                 ->add('category', 'entity', array('class' => 'Entity\EcommerceBundle\Entity\Category', 'property' => 'name'  ))
-                ->add('partenary', 'entity', array('class' => 'Entity\EcommerceBundle\Entity\Partenary', 'property' => 'name'  ))
+                ->add('partenary', $this->partenaryFormType)
                 ->add('save', 'submit', array('label' => 'Ajouter', 'attr' => array('class' => 'btn btn-primary')));
     }
    
