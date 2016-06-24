@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use back\AdminBundle\Entity\User;
 
 /**
- * Products
+ * Customer
  *
  * @ORM\Table(name="customer")
  * @ORM\Entity(repositoryClass="Entity\EcommerceBundle\Entity\Repository\CustomerRepository")

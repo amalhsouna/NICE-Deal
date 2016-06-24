@@ -6,16 +6,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class HomeController extends Controller
 {
-    
+    /**
+     * Method homepage
+     */
     public function indexAction()
     {
         $listProducts = $this->get('back_product.manager.products');
         $ProductsDeals = $listProducts->getProductsDeals();
+        var_dump($ProductsDeals);exit;
         return $this->render('frontHomeBundle:Home:index.html.twig' , array('products' => $ProductsDeals));  
     }
     
     /**
-     * @Route("/contact")
+     * Method contactpage
      */
     public function contactAction()
     {

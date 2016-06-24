@@ -4,6 +4,7 @@ namespace Entity\EcommerceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Entity\EcommerceBundle\Entity\Partenary;
 
 /**
  * Products.
@@ -65,36 +66,23 @@ class Products
     private $place;
     
     /**
-     * @var file
+     * @var 
      * 
      * @ORM\OneToMany(targetEntity="Entity\EcommerceBundle\Entity\Images", mappedBy="products", cascade={"persist"})
      */
     private $image;
     
     /**
-      * @var ArrayCollection
-     */
-    private $uploadedFiles;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", inversedBy="products", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", inversedBy="products", cascade={"persist"})
      * @ORM\JoinTable(name="categ_id",name="id")
      */
     private $category;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Partenary", inversedBy="products", cascade={"persist"})
-     * @ORM\JoinTable(name="partenary_id",name="id")
+     * @ORM\OneToOne(targetEntity="Partenary", inversedBy="products", cascade={"persist", "merge", "remove"})
+     * @ORM\JoinColumn(name="partenary_id", referencedColumnName="id")
      */
     private $partenary;
-    
-    /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        $this->image = new ArrayCollection();
-    }
 
     /**
      * Get id.
@@ -242,7 +230,8 @@ class Products
     public function addImage($image)
     {
         if (!$this->image->contains($image)) {
-            $this->image->add($image);
+            $this->image[] = $image;
+            return $this;
         }
     }
 

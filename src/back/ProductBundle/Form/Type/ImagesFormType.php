@@ -49,9 +49,10 @@ class ImagesFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('file', 'file', array(
-            'multiple' => true, 
-            'data_class' => null,
-        ));
+                'required'=>true,
+                'attr' => array(
+                    'multiple'=>'multiple'
+                    )));
     }
 
     /**

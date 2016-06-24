@@ -37,7 +37,7 @@ class ProductsRepository extends EntityRepository
     
        
     /**
-     * Persists products.
+     * Persists Product.
      * 
      * @param Products $products The products model.
      * 
@@ -51,7 +51,7 @@ class ProductsRepository extends EntityRepository
     }
     
     /**
-     * Finds Products by id.
+     * Finds Product by id.
      * 
      * @return array
      */
@@ -63,7 +63,7 @@ class ProductsRepository extends EntityRepository
     }
     
     /**
-     * delete product.
+     * delete Product.
      *
      * @return true.
      */

@@ -4,6 +4,7 @@ namespace Entity\EcommerceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Entity\EcommerceBundle\Entity\Products;
 
 /**
  * Images.
@@ -20,13 +21,15 @@ class Images
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\ManyToOne(targetEntity="Products",inversedBy="Images", cascade={"remove", "persist"})
+     * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="array")
+     * @ORM\Column(name="url", type="string", length=255)
      */ 
     private $url;
 

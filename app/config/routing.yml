@@ -7,6 +7,10 @@ front_customer:
 #    type:     annotation
 #    prefix:   /
 
+oneup_uploader:
+    resource: .
+    type: uploader
+
 back_utilisateur:
     resource: "@backAdminBundle/Resources/config/routing.yml"
     prefix:   /

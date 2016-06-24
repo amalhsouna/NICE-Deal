@@ -3,11 +3,13 @@
 namespace Entity\EcommerceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Entity\EcommerceBundle\Repository\PartenaryRepository;
 
 /**
  * Partenary
  *
  * @ORM\Table(name="partenary")
+ * @ORM\Entity(repositoryClass="PartenaryRepository")
  */
 class Partenary
 {
