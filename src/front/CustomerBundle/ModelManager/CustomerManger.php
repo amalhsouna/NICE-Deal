@@ -16,7 +16,7 @@ class CustomerManger
 {
     public function __construct(Registry $doctrine)
     {
-        $this->doctrine             = $doctrine;
+        $this->doctrine = $doctrine;
         $this->entityManagerEcommerce = $doctrine->getManager();
         $this->customerRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Customer');
         $this->ordersRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Orders');

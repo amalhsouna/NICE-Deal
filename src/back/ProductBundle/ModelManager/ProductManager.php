@@ -80,4 +80,14 @@ class ProductManager
     {
         return $this->partenaryRepository->savePartenary($partenary);
     }
+    
+     /**
+     * return list of products
+     * 
+     */
+    public function getListPartenary()
+    {
+        return $this->partenaryRepository->findAllPartenary();
+    }
+    
 }

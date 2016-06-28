@@ -8,6 +8,11 @@ use Symfony\Component\HttpFoundation\Request;
 class CustomerController extends Controller
 {
    
+    /**
+     * My compte.
+     *
+     * @return Response
+     */
     public function indexAction()
     {
         

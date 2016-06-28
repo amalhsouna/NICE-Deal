@@ -33,4 +33,16 @@ class PartenaryRepository extends EntityRepository
         $entityManager->persist($partenary);
         $entityManager->flush();
     }
+    
+    /**
+     * Finds all Partenary.
+     * 
+     * @return array
+     */
+    public function findAllPartenary()
+    {
+        $listPartenary = $this->findAll();
+        
+        return $listPartenary;
+    }
 }

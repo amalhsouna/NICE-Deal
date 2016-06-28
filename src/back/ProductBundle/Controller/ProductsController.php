@@ -127,4 +127,22 @@ class ProductsController extends Controller
         return $this->render('backProductBundle:Products:addPartenary.html.twig' , array('form' => $form->createView(), 'message' => $message));    
     }
     
+    /**
+     * Return a list of partenary.
+     *
+     * @return Response
+     */
+    public function getListPartenaryAction(Request $request)
+    {
+       $listProducts = $this->get('back_product.manager.products');
+       $partenaryList = $listProducts->getListPartenary();
+       $paginator  = $this->get('knp_paginator');
+       $paging = $paginator->paginate(
+            $partenaryList, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+       return $this->render('backProductBundle:Products:listPartenary.html.twig' , array('partenary' => $partenaryList,'paging' => $paging));  
+    }
+    
 }
