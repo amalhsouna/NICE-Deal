@@ -4,16 +4,13 @@
 {% include '::includesFront/topColumn.html.twig' %}
 
 <h1>Mon compte</h1>
-<p class="info-account">Bienvenue sur votre page d'accueil. Vous pouvez y gérer vos informations personnelles ainsi que vos commandes.</p>
-{#<div class="fos_user_user_show">
-    <p>{{ user.username }}</p>
-    <p>{{ user.email }}</p>
-</div>#}
+<p class="info-account">Bienvenue {{ user.username }} sur votre page d'accueil. Vous pouvez y gérer vos informations personnelles ainsi que vos commandes.</p>
+
 
 <div id="my-account">
         <ul class="myaccount-link-list">
             <li><a href="#" title="Informations"><i class="glyphicon glyphicon-user"></i><span>Mon compte</span></a></li>
-            <li><a href="{{path('front_customer_my_orders_page')}}" title="Commandes"><i class="glyphicon glyphicon-book"></i><span>Historique et détails de mes commandes</span></a></li>
+            <li><a href="{{path('front_customer_my_orders_page', { 'customer': idCustomer }) }}" title="Commandes"><i class="glyphicon glyphicon-book"></i><span>Historique et détails de mes commandes</span></a></li>
         </ul>
 </div>
  {% include '::includesFront/footer.html.twig' %}

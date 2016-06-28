@@ -67,11 +67,12 @@ class AddCustomerFormHandler
         {
             $this->form->handleRequest($request);
             if ($this->form->isValid())
-            {
-                return $this->customerManger->postCustomerDeals($customer);
+            {   
+                $this->customerManger->postCustomerDeals($customer);
+                return $process = true;
             }
         }
-        return false;
+        return $process;
          
     }
 

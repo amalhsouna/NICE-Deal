@@ -165,7 +165,7 @@ body{padding-top:100px}body.no-padding{padding-top:0}a,button{-webkit-transition
     }
     /***carousel-partenaire***/
     .partenaire .carousel-control.right, .partenaire .carousel-control.left{
-        top:108px;
+        top:0px;
     }
     /*****detail products***/
     .detail-box p.price{
@@ -683,9 +683,11 @@ span.glyphicon.glyphicon-chevron-right{
     color: #fff;
 }
 
+/****footer**/
 .footer_links li {
     display: inline-block;
 }
+
 
 /****erreur-page****/
 #erreur-page img, #erreur-page .erreur-desoler{
@@ -694,6 +696,26 @@ span.glyphicon.glyphicon-chevron-right{
     margin-top: 10px;
 }
 
+#footer ul li{
+    margin-bottom: 5px;
+}
 
+#footer ul li span{
+   -webkit-transition: .2s;
+    transition: .2s;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 14px;
+    color: #fff;
+    text-align: center;
+    margin-right: 10px;
+    padding: 7px 12px;
+    background-color: #000; 
+}
 
+#footer h4 {
+    border-left: 3px solid #000;
+    padding-left: 5px;
+    margin-bottom: 15px;
+}
     

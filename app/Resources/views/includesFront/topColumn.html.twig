@@ -238,15 +238,20 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a>
+                    <li><a href="{{path('front_home_contact_page')}}">Contact</a>
                     </li>
                 </ul>
 
 </div>
             <div id="connexion_bloc">
+            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                <a href="{{ path('fos_user_security_logout') }}"><i class="glyphicon glyphicon-log-out"></i>Déconnexion</a>
+                <p>  Bonjour <b>{{ app.user.username }}</b></p>
+            {% else %}
                 <a href="{{path('fos_user_security_login')}}" class="btn green-full">connexion<a>
                 <a href="{{path('front_customer_register_page')}}" class="btn utilities">inscription</a>
-            </div><!--end-block---->
+            {%endif%}
+                </div><!--end-block---->
         </div>
 </div>
     <div class="container">                

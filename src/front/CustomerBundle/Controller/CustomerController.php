@@ -59,7 +59,7 @@ class CustomerController extends Controller
        $processForm = $formHandler->process($request); 
         if ($processForm === true)
         {
-            $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
+             return $this->redirect($this->generateUrl('fos_user_security_login')); 
         }
         
         return $this->render('frontCustomerBundle:Customer:register.html.twig' , array('form' => $form->createView()));    
@@ -73,11 +73,12 @@ class CustomerController extends Controller
     public function getInfoCustomerAction()
     {
         $user = $this->getUser();
+        $idCustomer = $this->getUser()->getId();
         if (!is_object($user)) {
            
         }
         return $this->render('frontCustomerBundle:Customer:showProfil.html.twig', array(
-            'user' => $user
+            'user' => $user, 'idCustomer' => $idCustomer
         ));
        
     }
