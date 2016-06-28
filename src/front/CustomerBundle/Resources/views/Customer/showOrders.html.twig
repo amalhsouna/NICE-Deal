@@ -4,9 +4,11 @@
 {% include '::includesFront/topColumn.html.twig' %}
 <h1> Mes commandes</h1>
 <p class="info-account">Vous trouverez ici vos commandes passées depuis la création de votre compte</p>
+{% if countResult ==0 %}
 <div class="block-center" id="block-history">
   <p class="alert alert-warning">Vous n'avez pas encore passé de commande</p>
 </div>
+    {% else %}
 
 <div class="orderList">
                 <table id="simple-example-table" width="100%">
@@ -20,192 +22,35 @@
                         <th style="text-align: center;">Action</th>
                     </tr>
                     
-                    <tr class="highlight" style="min-height: 72px;">
-                                <td>0000035079</td>
+                   <tr class="highlight" style="min-height: 72px;">
+                                <td>{{listOrder.orderNumber}}</td>
                                 <td>
                                     <table width="100%">
-                                                                <tbody><tr style="background: none;">
-                                        <td>Crazy Week:Détendez-vous chez hammam plus belle menzah 9 </td>
+                                       <tbody><tr style="background: none;">
+                                        <td>{{listOrder.products.description}}</td>
                                         <td width="30">1</td>
                                     </tr>
-
-                                                                </tbody></table>
+                                       </tbody>
+                                    </table>
                                 </td>
-                                <td>10.00 DT</td>
-                                <td>21 May 2016</td>
+                                <td>{{listOrder.products.price}}</td>
+                                <td>{{listOrder.orderDate |date('Y-M-d')}}</td>
                                 <td>Paiement par carte bancaire</td>
                                 <td>Delivered</td>
                                 <td style="text-align: center">
                                  
                                         <a class="list_coupon" href="/mes-coupons/coupon/listing.html?orderId=35079&amp;token=252efb866f1e4d5082ebc9171b61c2ed&amp;ItemId=">
                                             <div class="profileAddGoldV7">
-                                                
-                                                Imprimer Coupon 
-                                            </div>
-                                        </a>
-                                                                    </td>
-
-                            </tr>
-                                                                        <tr style="min-height: 72px;">
-                                <td>0000035075</td>
-                                <td>
-                                    <table width="100%">
-                                                                <tbody><tr style="background: none;">
-                                        <td>Crazy Week:Détendez-vous chez hammam plus belle menzah 9 </td>
-                                        <td width="30">1</td>
-                                    </tr>
-
-                                                                </tbody></table>
-                                </td>
-                                <td>10.00 DT</td>
-                                <td>21 May 2016</td>
-                                <td>Paiement par carte bancaire</td>
-                                <td>Delivered</td>
-                                <td style="text-align: center">
-                                 
-                                        <a class="list_coupon" href="/mes-coupons/coupon/listing.html?orderId=35075&amp;token=e20b1f60b2fe35084d5507a30e968d7e&amp;ItemId=">
-                                            <div class="profileAddGoldV7">
-                                                
-                                                Imprimer Coupon 
-                                            </div>
-                                        </a>
-                                                                    </td>
-
-                            </tr>
-                                                                        <tr class="highlight" style="min-height: 72px;">
-                                <td>0000034496</td>
-                                <td>
-                                    <table width="100%">
-                                                                <tbody><tr style="background: none;">
-                                        <td>Crazy Week : Un petit dejeuner complet salé, sucré pour deux personnes chez Fly</td>
-                                        <td width="30">1</td>
-                                    </tr>
-
-                                                                </tbody></table>
-                                </td>
-                                <td>7.00 DT</td>
-                                <td>19 May 2016</td>
-                                <td>Paiement par carte bancaire</td>
-                                <td>Delivered</td>
-                                <td style="text-align: center">
-                                 
-                                        <a class="list_coupon" href="/mes-coupons/coupon/listing.html?orderId=34496&amp;token=88f12f99087295b0490a2fe4a994460b&amp;ItemId=">
-                                            <div class="profileAddGoldV7">
-                                                
-                                                Imprimer Coupon 
-                                            </div>
-                                        </a>
-                                                                    </td>
-
-                            </tr>
-                                                                        <tr style="min-height: 72px;">
-                                <td>0000034301</td>
-                                <td>
-                                    <table width="100%">
-                                                                <tbody><tr style="background: none;">
-                                        <td>Crazy Week : Illuminez votre foyer avec  des lustres, avec une gamme de couleur très variéé</td>
-                                        <td width="30">1</td>
-                                    </tr>
-
-                                                                </tbody></table>
-                                </td>
-                                <td>15.00 DT</td>
-                                <td>19 May 2016</td>
-                                <td>Paiement par carte bancaire</td>
-                                <td>Delivered</td>
-                                <td style="text-align: center">
-                                 
-                                        <a class="list_coupon" href="/mes-coupons/coupon/listing.html?orderId=34301&amp;token=1c742161a7e8dc14b065d3c98d6fec22&amp;ItemId=">
-                                            <div class="profileAddGoldV7">
-                                                
-                                                Imprimer Coupon 
-                                            </div>
-                                        </a>
-                                                                    </td>
-
-                            </tr>
-                                                                        <tr class="highlight" style="min-height: 72px;">
-                                <td>0000034268</td>
-                                <td>
-                                    <table width="100%">
-                                                                <tbody><tr style="background: none;">
-                                        <td>Crazy Week: Kit Relooking comprenant un coup d éclat, une pose vernis permanent , coupe &amp; Brushing chez Fée Rose</td>
-                                        <td width="30">2</td>
-                                    </tr>
-
-                                                                </tbody></table>
-                                </td>
-                                <td>10.00 DT</td>
-                                <td>19 May 2016</td>
-                                <td>Paiement par carte bancaire</td>
-                                <td>Delivered</td>
-                                <td style="text-align: center">
-                                 
-                                        <a class="list_coupon" href="/mes-coupons/coupon/listing.html?orderId=34268&amp;token=f1e5e817fa7ebbc3d6537d815e03144b&amp;ItemId=">
-                                            <div class="profileAddGoldV7">
-                                                
-                                                Imprimer Coupon 
-                                            </div>
-                                        </a>
-                                                                    </td>
-
-                            </tr>
-                                                                        <tr style="min-height: 72px;">
-                                <td>0000013512</td>
-                                <td>
-                                    <table width="100%">
-                                                                <tbody><tr style="background: none;">
-                                        <td>Les CrazyDays chez Baguette &amp; Baguette : 50% de réduction sur 6 passages valables sur tous les produits</td>
-                                        <td width="30">1</td>
-                                    </tr>
-
-                                                                </tbody></table>
-                                </td>
-                                <td>6.00 DT</td>
-                                <td>9 Dec 2015</td>
-                                <td>Paiement par carte bancaire</td>
-                                <td>Delivered</td>
-                                <td style="text-align: center">
-                                 
-                                        <a class="list_coupon" href="/mes-coupons/coupon/listing.html?orderId=13512&amp;token=c448a7895133c7af673b41cd31499442&amp;ItemId=">
-                                            <div class="profileAddGoldV7">
-                                                
-                                                Imprimer Coupon 
-                                            </div>
-                                        </a>
-                                                                    </td>
-
-                            </tr>
-                                                                        <tr class="highlight" style="min-height: 72px;">
-                                <td>0000005810</td>
-                                <td>
-                                    <table width="100%">
-                                                                <tbody><tr style="background: none;">
-                                        <td>Brunch Royale servi à table chez Baiyoke Lac 1 pour deux personnes </td>
-                                        <td width="30">1</td>
-                                    </tr>
-
-                                                                </tbody></table>
-                                </td>
-                                <td>19.00 DT</td>
-                                <td>20 Sep 2015</td>
-                                <td>Paiement par carte bancaire</td>
-                                <td>Delivered</td>
-                                <td style="text-align: center">
-                                 
-                                        <a class="list_coupon" href="/mes-coupons/coupon/listing.html?orderId=5810&amp;token=f7ee460a8f40f39a1b77332679e4c3be&amp;ItemId=">
-                                            <div class="profileAddGoldV7">
-                                                
                                                 Imprimer Coupon 
                                             </div>
                                         </a>
                                 </td>
-
-                            </tr>
-                            </tbody>
+                        </tr>   
+                        </tbody>
                 </table>
             </div>
 <!---fin table---->
+{%endif%}
 <div class="footer_links clearfix">
     <ul>
         <li>

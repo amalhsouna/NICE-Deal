@@ -10,6 +10,8 @@ class CustomerController extends Controller
    
     public function indexAction()
     {
+        
+        $form = $this->get('front_customer.customer.form');
         return $this->render('frontCustomerBundle:Customer:login.html.twig');
     }
     
@@ -28,9 +30,13 @@ class CustomerController extends Controller
      * 
      * @return Response
      */
-    public function myOrdersAction()
+    public function myOrdersAction($customer)
     {
-        return $this->render('frontCustomerBundle:Customer:showOrders.html.twig');
+        $customerManager = $this->get('front_customer.manager.customer');
+        $listOrder = $customerManager->listOrdersbyCustomer($customer);
+        $countResult = count($listOrder);
+        return $this->render('frontCustomerBundle:Customer:showOrders.html.twig', array("listOrder" => $listOrder,
+                            'countResult' => $countResult));
     }
     
     /**
@@ -65,11 +71,11 @@ class CustomerController extends Controller
         if (!is_object($user)) {
            
         }
-
         return $this->render('frontCustomerBundle:Customer:showProfil.html.twig', array(
             'user' => $user
         ));
        
     }
+ 
     
 }

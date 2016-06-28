@@ -50,11 +50,16 @@ class Customer
      */
     private $telephone;
     
-    
     /**
      * @ORM\OneToOne(targetEntity="back\AdminBundle\Entity\User", cascade={"persist"})
      */
     protected $user;
+    
+    /**
+     * 
+     * @ORM\OneToMany(targetEntity="Entity\EcommerceBundle\Entity\Orders", mappedBy="customer", cascade={"persist"})
+     */
+    private $orders;
   
     // Vos autres attributs…
 
@@ -103,7 +108,56 @@ class Customer
     function setTelephone($telephone) {
         $this->telephone = $telephone;
     }
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->orders = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    /**
+     * Add order
+     *
+     * @param \Entity\EcommerceBundle\Entity\Orders $order
+     *
+     * @return Customer
+     */
+    public function addOrder(\Entity\EcommerceBundle\Entity\Orders $order)
+    {
+        $this->orders[] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Remove order
+     *
+     * @param \Entity\EcommerceBundle\Entity\Orders $order
+     */
+    public function removeOrder(\Entity\EcommerceBundle\Entity\Orders $order)
+    {
+        $this->orders->removeElement($order);
+    }
+
+    /**
+     * Get orders
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
 }
-

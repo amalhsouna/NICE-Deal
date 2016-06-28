@@ -42,3 +42,8 @@ back_category_admin_add_category:
 back_category_admin_delete_category:
     path:     /espace-admin/{id}/category
     defaults: { _controller: backProductBundle:Category:deleteProducts }
+    
+#Add partenary
+back_product_admin_add_partenary:
+    path:     /espace-admin/ajouter-partenaire
+    defaults: { _controller: backProductBundle:Products:postPartenary }

@@ -4,11 +4,11 @@
    <div id="all">
         <div id="content">
             <div class="container">
-                <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li><a href="#">Home</a>
                         <li>Connexion</li>
                     </ul>
+                <div class="clearfix"></div>
                     <div class="box login">
                       <div class="card card-left">
                             <div class="fb_btn" data-appid="685663661483103" data-location="https://passport.dx.com" data-scope="public_profile,email">
@@ -48,139 +48,15 @@
                             </div>
                        </div>
                         <div class="clearfix"></div>
-                    </div>
-                </div>
-
+                </div><!-- endlogin -->
                 <!-- *** LEFT COLUMN ***-->
-
-                <div class="col-md-9">
-
-                    <div class="row" id="productMain">
-                    
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="box">
-                                <h3>You may also like these products</h3>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product2.jpg")}}" alt="" class="img-responsive image1">
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product3.jpg")}}" alt="" class="img-responsive image1">
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product1.jpg")}}" alt="" class="img-responsive image1">
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="box">
-                                <h3>Products viewed recently</h3>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product3.jpg")}}" alt="" class="img-responsive image1">
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product1.jpg")}}" alt="" class="img-responsive image1">
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product2.jpg")}}" alt="" class="img-responsive image1">
-                                    </a>
-                                </div>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
-                    </div>
-
-                </div>
                 <!-- /.col-md-9 -->
 
-
+                {% include '::includesFront/otherProducts.html.twig' %}
                 <!-- *** LEFT COLUMN END *** -->
-
-
-                <!-- *** RIGHT COLUMN END *** -->
-
             </div>
             <!-- /.container -->
-        </div>
+       
         <!-- /#content -->
         <!-- /.container -->
         </div>

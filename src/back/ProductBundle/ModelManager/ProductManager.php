@@ -24,6 +24,7 @@ class ProductManager
         $this->doctrine = $doctrine;
         $this->entityManagerEcommerce = $doctrine->getManager();
         $this->productRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Products');
+        $this->partenaryRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Partenary');
     }
     
     /**
@@ -68,5 +69,15 @@ class ProductManager
         } else {
             return $this->productRepository->delete($product);
         }
+    }
+    
+    /**
+     * post partenary
+     * 
+     * @param int $partenary The partenary identifier
+     */
+    public function postPartenaryDeals($partenary)
+    {
+        return $this->partenaryRepository->savePartenary($partenary);
     }
 }

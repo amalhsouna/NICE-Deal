@@ -2,30 +2,30 @@
 {% block body %}
    {% include '::includesFront/topColumn.html.twig' %}
    <div id="all">
-      <div id="content">
+        <div id="content">
             <div class="container">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li><a href="#">Home</a>
                         <li>Créer votre compte</li>
                     </ul> 
-                
-      <div class="box register">
-        <div class="card card-left">
+                    <div class="clearfix"></div>
+        <div class="box register">
+            <div class="card card-left">
+                <ul class="hd">
+                    <!-- hd_reg -->
+                    <li class="m_login fl">
+                        <a href="#" title="Rejoignez-nous gratuitement" class="cur">
+                            Inscrire 
+                        </a>
+                    </li>
+                    <li class="m_reg fl">Vous avez déjà un compte?  
+                        <a href="/?redirect=http%3A%2F%2Fwww.dx.com" title="Se connecter " id="sing_in_btn">
+                            Se connecter 
+                        </a> 
+                    </li>
+                </ul>
             <!------form--register----->
-            <ul class="hd">
-                <!-- hd_reg -->
-                <li class="m_login fl">
-                    <a href="#" title="Rejoignez-nous gratuitement" class="cur">
-                        Inscrire 
-                    </a>
-                </li>
-                <li class="m_reg fl">Vous avez déjà un compte?  
-                    <a href="/?redirect=http%3A%2F%2Fwww.dx.com" title="Se connecter " id="sing_in_btn">
-                        Se connecter 
-                    </a> 
-                </li>
-            </ul>
             <form method="post" enctype="multipart/form-data" class="form-register">
                 {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
                 {{ form_errors(form) }}
@@ -73,15 +73,18 @@
                         {{ form_widget(form.user.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
                     </div>
                     
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Connexion</button>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">S'inscrire</button>
                 {{ form_end(form) }}
             </div>
              
             </form>
             <!------------>
         </div>
+        <div class="clearfix"></div>
       </div>
+            
       </div> 
+            
         <!-- *** RIGHT COLUMN END *** -->
 
             </div>
@@ -90,7 +93,7 @@
         <!-- /#content -->
         <!-- /.container -->
         </div>
-   {% include '::includesFront/footer.html.twig' %}
+    {% include '::includesFront/footer.html.twig' %}
 
         </div>
         <!-- /#content -->

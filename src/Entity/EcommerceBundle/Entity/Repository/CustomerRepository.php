@@ -34,7 +34,6 @@ class CustomerRepository extends EntityRepository
         
         return $customer;
     }
-    
        
     /**
      * Persists Customer.

@@ -21,8 +21,7 @@ class Images
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\ManyToOne(targetEntity="Products",inversedBy="Images", cascade={"remove", "persist"})
-     * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
+     * 
      */
     private $id;
 
@@ -46,7 +45,13 @@ class Images
      * @ORM\Column(name="file", type="string", length=255)
      */
     private $file;
-  
+    
+    /**
+     *  @ORM\ManyToOne(targetEntity="Products",inversedBy="image", cascade={"remove", "persist"})
+     *
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    private $product;
 
     /**
      * Get id.
@@ -221,5 +226,29 @@ class Images
     {
         // On retourne le chemin relatif vers l'image pour notre code PHP
       return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    /**
+     * Set product
+     *
+     * @param \Entity\EcommerceBundle\Entity\Products $product
+     *
+     * @return Images
+     */
+    public function setProduct(\Entity\EcommerceBundle\Entity\Products $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Entity\EcommerceBundle\Entity\Products
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 }

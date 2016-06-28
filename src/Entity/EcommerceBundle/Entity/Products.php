@@ -68,7 +68,7 @@ class Products
     /**
      * @var 
      * 
-     * @ORM\OneToMany(targetEntity="Entity\EcommerceBundle\Entity\Images", mappedBy="products", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Entity\EcommerceBundle\Entity\Images", mappedBy="product", cascade={"persist"})
      */
     private $image;
     
@@ -79,7 +79,7 @@ class Products
     private $category;
     
     /**
-     * @ORM\OneToOne(targetEntity="Partenary", inversedBy="products", cascade={"persist", "merge", "remove"})
+     * @ORM\ManyToOne(targetEntity="Partenary", inversedBy="product", cascade={"persist", "merge", "remove"})
      * @ORM\JoinColumn(name="partenary_id", referencedColumnName="id")
      */
     private $partenary;
@@ -280,4 +280,12 @@ class Products
     {
         return $this->partenary;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->image = new ArrayCollection();
+    }
+
 }

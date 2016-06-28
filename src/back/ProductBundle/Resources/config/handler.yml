@@ -19,6 +19,7 @@ parameters:
     back_product.add.handler.client.class: back\ProductBundle\Form\Handler\AddProductsFormHandler
     back_product.update.handler.client.class: back\ProductBundle\Form\Handler\UpdateProductsFormHandler
     back_product.add.category.handler.client.class: back\ProductBundle\Form\Handler\AddCategoryFormHandler
+    back_product.add.partenary.handler.client.class: back\ProductBundle\Form\Handler\AddPartenaryFormHandler
     
 services:
     #tags
@@ -72,10 +73,21 @@ services:
         arguments: 
         - %back_product.category.form_data_class%
         
-            
-            
     back_product.handler.add.category:
         class: %back_product.add.category.handler.client.class%
-        arguments: ["@back_product.category.form", "@back_product.manager.category"]
+        arguments: ["@back_product.category.form", "@back_product.manager.category"]  
         
+    #add and update partenary
+    back_product.partenary.form:
+        class: %back_product.partenary.form.type.class%
+        factory_service: form.factory
+        factory_method: createNamed
+        arguments:
+            - ~
+            - "@back_product.partenary.form.type"
+            - ~
+            
+    back_product.handler.add.partenary:
+        class: %back_product.add.partenary.handler.client.class%
+        arguments: ["@back_product.partenary.form", "@back_product.manager.products"]     
    

@@ -12,8 +12,10 @@ front_customer_my_compte_page:
        _method: GET
        
 front_customer_my_orders_page:
-    path:     /mes-coupons
+    path:     /mes-coupons/{customer}
     defaults: { _controller: frontCustomerBundle:Customer:myOrders }
+    requirements:
+        customer:  \d+  
 
 #register customer
 front_customer_register_page:

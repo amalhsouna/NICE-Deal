@@ -10,6 +10,7 @@
 namespace Entity\EcommerceBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Entity\EcommerceBundle\Entity\Partenary;
 
 /**
  * PartenaryRepository
@@ -19,4 +20,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class PartenaryRepository extends EntityRepository
 {
+    /**
+     * Persists Partenary.
+     * 
+     * @param Products $partenary The partenary model.
+     * 
+     * @return void
+     */
+    public function savePartenary(Partenary $partenary)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($partenary);
+        $entityManager->flush();
+    }
 }

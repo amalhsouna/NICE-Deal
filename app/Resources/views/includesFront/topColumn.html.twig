@@ -2,7 +2,6 @@
 <div class="navbar navbar-default navbar-fixed-top yamm" role="navigation" id="navbar">
         <div class="container">
             <div class="navbar-header">
-
                 <a class="navbar-brand home" href="index.html">
                     <img src="{{asset("bundles/frontBundle/img/logo.png")}}" alt="Minimal logo" class="hidden-xs hidden-sm">
                     <span class="logo">Nice <e>shop</e></span>
@@ -24,9 +23,7 @@
                 </div>
             </div>
             <!--/.navbar-header -->
-
             <div class="navbar-collapse collapse" id="navigation">
-
                 <ul class="nav navbar-nav navbar-left">
                     <li class="active dropdown normal-dropdown"><a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Tous nos deals<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -39,7 +36,6 @@
                     <li class="dropdown yamm-fw">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">deal<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-
                             <li>
                                 <div class="yamm-content">
                                     <div class="row">
@@ -102,7 +98,6 @@
                     <li class="dropdown yamm-fw">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">shop <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-
                             <li>
                                 <div class="yamm-content">
                                     <div class="row">
@@ -249,15 +244,15 @@
 
 </div>
             <div id="connexion_bloc">
-                <a href="{{path('front_customer_login_page')}}" class="btn green-full">connexion<a>
+                <a href="{{path('fos_user_security_login')}}" class="btn green-full">connexion<a>
                 <a href="{{path('front_customer_register_page')}}" class="btn utilities">inscription</a>
             </div><!--end-block---->
         </div>
 </div>
     <div class="container">                
         <div class="telephone-horaire">   
-                <i class="glyphicon glyphicon-earphone"></i><span>31 131 111</span>
-                <i class="glyphicon glyphicon-dashboard"></i><span>7J/7 de 09H30 à 20H30</span>
+            <div id="teleph"><i class="glyphicon glyphicon-earphone"></i><span>31 131 111</span></div>
+             <i class="glyphicon glyphicon-dashboard"></i><span>7J/7 de 09H30 à 20H30</span>
         </div><!----fin-telephone-->
         <div id="search-panier">
             <div class="navbar-collapse collapse right" id="basket-overview">

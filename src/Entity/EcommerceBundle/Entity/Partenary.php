@@ -3,13 +3,14 @@
 namespace Entity\EcommerceBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Entity\EcommerceBundle\Repository\PartenaryRepository;
+
+use Entity\EcommerceBundle\Entity\Products;
 
 /**
  * Partenary
  *
- * @ORM\Table(name="partenary")
- * @ORM\Entity(repositoryClass="PartenaryRepository")
+ * @ORM\Table(name="Partenary")
+ * @ORM\Entity(repositoryClass="Entity\EcommerceBundle\Entity\Repository\PartenaryRepository")
  */
 class Partenary
 {
@@ -56,8 +57,13 @@ class Partenary
      * @ORM\Column(name="additionalInformation", type="string", length=255)
      */
     private $additionalInformation;
-
-
+    
+    /**
+     * 
+     * @ORM\OneToMany(targetEntity="Products", mappedBy="partenary", cascade={"persist"})
+     */
+    private $product;
+    
     /**
      * Get id
      *
@@ -151,5 +157,46 @@ class Partenary
 
     function setAdditionalInformation($additionalInformation) {
         $this->additionalInformation = $additionalInformation;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add product
+     *
+     * @param \Entity\EcommerceBundle\Entity\Products $product
+     *
+     * @return Partenary
+     */
+    public function addProduct(\Entity\EcommerceBundle\Entity\Products $product)
+    {
+        $this->product[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \Entity\EcommerceBundle\Entity\Products $product
+     */
+    public function removeProduct(\Entity\EcommerceBundle\Entity\Products $product)
+    {
+        $this->product->removeElement($product);
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 }

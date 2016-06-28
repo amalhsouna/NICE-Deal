@@ -9,7 +9,6 @@ _________________________________________________________ -->
 
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
         <div class="modal-dialog modal-sm">
-
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -43,7 +42,7 @@ _________________________________________________________ -->
     <!-- *** SLIDER ****** -->
     <div class="container">
       <div class="col-md-12">
-            <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+            <div id="carousel-generic" class="carousel slide" data-ride="carousel" style="margin-top:20px;">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -116,8 +115,9 @@ _________________________________________________________ -->
                             <div class="product">
                                 <div class="image">
                                     <a href="detail.html">
-                                    {% if (product.image) %}
-                                        <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive image1">
+                                    {% for image in product.image %}
+                                    {% if (image) %}
+                                        <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive image1">
                                     {% else %}
                                           <img src="http://placehold.it/360x240" alt="">
                                     {% endif %}
@@ -128,6 +128,7 @@ _________________________________________________________ -->
                                     <h3><a href="detail.html">{{product.name}}</a></h3>
                                     <p class="price">{{product.price}} D</p>
                                 </div>
+                                {%endfor%}
                                 <!-- /.text -->
                                 <div calss="icone">
                                     <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i><span> Réduction de 50%</span>
@@ -148,11 +149,11 @@ _________________________________________________________ -->
                     </div>
                         
                     <!-- /.products -->
-     </div>
+            </div>
                 <!-- /.col-sm-12 -->
 
             </div>
-            <!-- /.container -->
+    <!-- /.container -->
     <!--advantages -->
     <div id="advantages">
 
@@ -261,7 +262,7 @@ _________________________________________________________ -->
             <!--/myCarousel-->
         </div>
         <!--/well-->
-    </div>
+ 
 </div>
          {% include '::includesFront/footer.html.twig' %}
 

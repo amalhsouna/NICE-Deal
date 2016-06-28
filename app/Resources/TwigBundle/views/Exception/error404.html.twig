@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+{% block body %}
+   {% include 'includesFront/topColumn.html.twig' %}
+       <div id="erreur-page">
+        <img src="{{asset("bundles/frontBundle/img/404.png")}}" class="l-inline" alt="">
+        <div class="erreur-desoler">
+            <h1>Désolé, cette page n'existe pas</h1>
+            <p>Mais ne vous inquiétez pas ! Trouver ce que vous aimez ne devrait pas être difficile, nous avons donc préparé une sélection de nos meilleures offres ci-dessous.</p>
+        </div>
+        <div class="clearfix"></div>
+       </div>
+    {% include 'includesFront/footer.html.twig' %}
+
+        </div>
+        <!-- /#content -->
+ {% endblock %}

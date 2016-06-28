@@ -35,7 +35,6 @@ class ProductsRepository extends EntityRepository
         return $listProducts;
     }
     
-       
     /**
      * Persists Product.
      * 

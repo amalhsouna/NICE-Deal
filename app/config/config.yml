@@ -62,9 +62,9 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-        metadata_cache_driver: apc
-        query_cache_driver: apc
-        result_cache_driver: apc
+#        metadata_cache_driver: apc
+#        query_cache_driver: apc
+#        result_cache_driver: apc
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -90,8 +90,3 @@ knp_paginator:
     template:
         pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
-        
-oneup_uploader:
-    mappings:
-        gallery:
-            frontend: blueimp # or any uploader you use in the frontend

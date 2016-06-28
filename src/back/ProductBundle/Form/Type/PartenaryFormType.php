@@ -27,7 +27,6 @@ class PartenaryFormType extends AbstractType
      */
     protected $class;
    
-
     /**
      * Constructor class.
      * 
@@ -49,7 +48,8 @@ class PartenaryFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('adresse', 'text')
+        $builder->add('name', 'text')
+                ->add('adresse', 'text')
                 ->add('telephone', 'text')
                 ->add('map', 'text')
                 ->add('additionalInformation', 'textarea');
