@@ -15,6 +15,7 @@ use Doctrine\Bundle\DoctrineBundle\Registry;
 
 use Entity\EcommerceBundle\Entity\Customer;
 use front\CustomerBundle\ModelManager\CustomerManger;
+use back\AdminBundle\Entity\User;
 
 /**
  * Add Customer form handler.
@@ -62,12 +63,14 @@ class AddCustomerFormHandler
         $process  = false;
         
         $customer = new Customer();
+        $user = new User();
         $this->form->setData($customer);
         if ('POST' == $request->getMethod())
         {
             $this->form->handleRequest($request);
             if ($this->form->isValid())
             {   
+                $test = $user->setEnabled("1");
                 $this->customerManger->postCustomerDeals($customer);
                 return $process = true;
             }

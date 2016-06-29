@@ -63,26 +63,31 @@ class CustomerController extends Controller
     public function getProfilCustomerAction()
     {
         $user = $this->getUser();
-        $idCustomer = $this->getUser()->getId();
+        $customerId = $this->getUser()->getId();
         if (!is_object($user)) {
            
         }
         return $this->render('frontCustomerBundle:Customer:showProfil.html.twig', array(
-            'user' => $user, 'idCustomer' => $idCustomer
+            'user' => $user, 'customerId' => $customerId
         ));
        
     }
     
     /**
-     * get information of customer.
+     * Return information of customer.
+     * 
+     * @param integer $customerId The customer identifier.
      * 
      * @return Response
      */
     public function getInofoCustomerAction($customerId)
     {
-        return $this->render('frontCustomerBundle:Customer:infoCustomer.html.twig');
+        $user = $this->getUser();
+        
+        return $this->render('frontCustomerBundle:Customer:infoCustomer.html.twig', array(
+                              'user' => $user, 'customerId' => $customerId
+        ));
        
     }
- 
-    
+   
 }

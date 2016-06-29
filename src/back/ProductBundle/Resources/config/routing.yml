@@ -28,7 +28,7 @@ back_product_admin_delete_products:
 #category routing 
 #list of category
 back_category_list_category:
-    path:     /liste/category
+    path:     /liste-categorie
     defaults: { _controller: backProductBundle:Category:getListCategory }
     requirements:
        _method: GET

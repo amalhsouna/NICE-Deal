@@ -56,7 +56,7 @@ class AddCustomerFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title', 'choice', array(
-                      'choices' => array('0' => 'M.', '1' => 'Mme'),
+                      'choices' => array('Mr' => 'M.', 'Mme' => 'Mme'),
                        'required' => false))
                 ->add('lastName', 'text')
                 ->add('address', 'text')

@@ -1,1 +1,18 @@
-ttt
+{% extends "::base.html.twig" %}
+{% block body %}
+    
+{% include '::includesFront/topColumn.html.twig' %}
+
+<h1>Mon profil</h1>
+<p class="info-account">Bienvenue {{ user.username }} sur votre page d'information personelle.</p>
+
+Civilité
+E-Mail / Identifiant {{ user.email }}
+Téléphone {{ user.email }}
+Adresse {{ user.email }}
+
+ {% include '::includesFront/footer.html.twig' %}
+
+        </div>
+        <!-- /#content -->
+ {% endblock %}     

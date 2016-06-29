@@ -9,7 +9,7 @@ use Entity\EcommerceBundle\Entity\Products;
 /**
  * Partenary
  *
- * @ORM\Table(name="Partenary")
+ * @ORM\Table(name="partenary")
  * @ORM\Entity(repositoryClass="Entity\EcommerceBundle\Entity\Repository\PartenaryRepository")
  */
 class Partenary

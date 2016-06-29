@@ -30,7 +30,7 @@ class ProductsRepository extends EntityRepository
      */
     public function findAllProducts()
     {
-        $listProducts = $this->findAll();
+        $listProducts = $this->findAll();var_dump($listProducts);exit;
         
         return $listProducts;
     }

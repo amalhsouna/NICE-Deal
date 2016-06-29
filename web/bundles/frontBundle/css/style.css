@@ -293,6 +293,16 @@ label{
     font-size: 14px;
 }
 
+#owl-demo .item{
+    margin: 3px;
+    }
+    
+#owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+    }
+    
  /*******logo**********/
  span.logo {
     font-size: 28px;
@@ -399,7 +409,6 @@ a.navbar-brand.home img {
     font-size: 14px;
     background: #FBFBFB;
  }
- 
  .login .card-right img{
      display: block;
      margin: 0 auto 40px auto;

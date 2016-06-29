@@ -30,10 +30,6 @@ class HomeController extends Controller
     {
        $listProducts = $this->get('back_product.manager.products');
        $ProductsDeals = $listProducts->getProductsById($id);
-//var_dump($ProductsDeals);die;
-//foreach ($ProductsDeals as $ProductsDeals){
-//    
-//}
        return $this->render('frontHomeBundle:Home:productDetail.html.twig' , array('products' => $ProductsDeals));  
     }
 }
