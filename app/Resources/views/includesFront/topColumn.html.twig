@@ -246,7 +246,7 @@
             <div id="connexion_bloc">
             {% if is_granted("IS_AUTHENTICATED_FULLY") %}
                 <a href="{{ path('fos_user_security_logout') }}"><i class="glyphicon glyphicon-log-out"></i>Déconnexion</a>
-                <p>  Bonjour <b>{{ app.user.username }}</b></p>
+                <p><a href="{{ path('front_customer_detail_page') }}">  Bonjour <b>{{ app.user.username }}</b> </a></p>
             {% else %}
                 <a href="{{path('fos_user_security_login')}}" class="btn green-full">connexion<a>
                 <a href="{{path('front_customer_register_page')}}" class="btn utilities">inscription</a>

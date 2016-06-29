@@ -4,13 +4,7 @@ front_customer_login_page:
     defaults: { _controller: frontCustomerBundle:Customer:index }
     requirements:
        _method: GET
-       
-front_customer_my_compte_page:
-    path:     /mon-compte
-    defaults: { _controller: frontCustomerBundle:Customer:myCompte }
-    requirements:
-       _method: GET
-       
+      
 front_customer_my_orders_page:
     path:     /mes-coupons/{customer}
     defaults: { _controller: frontCustomerBundle:Customer:myOrders }
@@ -24,6 +18,13 @@ front_customer_register_page:
     
 #detail customer
 front_customer_detail_page:
-    path:     /profile
-    defaults: { _controller: frontCustomerBundle:Customer:getInfoCustomer }
+    path:     /detail-profile
+    defaults: { _controller: frontCustomerBundle:Customer:getProfilCustomer }
+    
+#info customer
+front_customer_info_page:
+    path:     /mon-compte/{customerId}
+    defaults: { _controller: frontCustomerBundle:Customer:getInofoCustomer }
+    requirements:
+        customerId:  \d+  
     

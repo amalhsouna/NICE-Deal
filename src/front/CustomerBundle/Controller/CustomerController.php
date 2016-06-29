@@ -21,16 +21,6 @@ class CustomerController extends Controller
     }
     
     /**
-     * My compte.
-     *
-     * @return Response
-     */
-    public function myCompteAction()
-    {
-        return $this->render('frontCustomerBundle:Customer:showProfil.html.twig');
-    }
-    
-    /**
      * My orders.
      * 
      * @return Response
@@ -70,7 +60,7 @@ class CustomerController extends Controller
      * 
      * @return Response
      */
-    public function getInfoCustomerAction()
+    public function getProfilCustomerAction()
     {
         $user = $this->getUser();
         $idCustomer = $this->getUser()->getId();
@@ -80,6 +70,17 @@ class CustomerController extends Controller
         return $this->render('frontCustomerBundle:Customer:showProfil.html.twig', array(
             'user' => $user, 'idCustomer' => $idCustomer
         ));
+       
+    }
+    
+    /**
+     * get information of customer.
+     * 
+     * @return Response
+     */
+    public function getInofoCustomerAction($customerId)
+    {
+        return $this->render('frontCustomerBundle:Customer:infoCustomer.html.twig');
        
     }
  
