@@ -73,13 +73,13 @@ class Products
     private $image;
     
     /**
-     * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", inversedBy="products", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", cascade={"persist"})
      * @ORM\JoinTable(name="categ_id",name="id")
      */
     private $category;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Partenary", inversedBy="product", cascade={"persist", "merge", "remove"})
+     * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Partenary", inversedBy="product", cascade={"persist", "merge", "remove"})
      * @ORM\JoinColumn(name="partenary_id", referencedColumnName="id")
      */
     private $partenary;

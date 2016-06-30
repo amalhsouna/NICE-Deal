@@ -5,6 +5,7 @@ namespace front\CustomerBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class CustomerController extends Controller
 {
    
@@ -43,10 +44,12 @@ class CustomerController extends Controller
      */
     public function postRegisterCustomerAction(Request $request)
     {
+
        $form        = $this->get('front_customer.customer.form');
        $formHandler = $this->get('front_customer.handler.add.customer');
         
        $processForm = $formHandler->process($request); 
+      
         if ($processForm === true)
         {
              return $this->redirect($this->generateUrl('fos_user_security_login')); 

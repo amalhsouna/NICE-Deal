@@ -13,7 +13,6 @@ class HomeController extends Controller
     {
         $listProducts = $this->get('back_product.manager.products');
         $ProductsDeals = $listProducts->getProductsDeals();
-        
         return $this->render('frontHomeBundle:Home:index.html.twig' , array('products' => $ProductsDeals));  
     }
     
