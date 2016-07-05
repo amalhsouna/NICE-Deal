@@ -14,5 +14,21 @@ front_home_contact_page:
 front_home_detail_products:
     path:     /detail/{id}/product
     defaults: { _controller: frontHomeBundle:Home:getDetailsProducts }
+ 
+#####pannier####
+#info panier
+front_customer_mon_pannier_page:
+    path:     /mon-pannier
+    defaults: { _controller: frontHomeBundle:Pannier:pannierCustomer } 
+    
+#add of panier
+front_customer_add_pannier_page:
+    path:     /{id}/ajouter-pannier
+    defaults: { _controller: frontHomeBundle:Pannier:addPannier }   
+    
+#delete panier
+front_customer_delete_pannier_page:
+    path:     /{id}/supprimer-pannier
+    defaults: { _controller: frontHomeBundle:Pannier:deletePannierCustomer }     
     
 

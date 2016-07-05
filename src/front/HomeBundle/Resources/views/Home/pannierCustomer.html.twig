@@ -1,0 +1,50 @@
+{% extends "::base.html.twig" %}
+{% set totalHT = 0 %}
+
+{% block body %}
+{% include '::includesFront/topColumn.html.twig' %}
+
+<h1>Mes commande</h1>
+<p class="info-account">Bienvenue sur votre page d'information personelle.</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Description du deal</th>
+           <th>Prix unitaire</th>
+           <th>Quantité</th>
+           <th>Sous-total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for products in product %}
+        <tr>
+         <td>
+            <div class="row">
+                <div class="col-sm-3 col-xs-6 text-center">
+                    <img src="https://www.bigdeal.tn/media/cache/thumbcommandedeal/medias/06_2016/Le Parador/B1.jpg" alt="La Goulette : Une rupture du jeûne pour 2 personnes à 39 DT Seulement au restaurant Le Parador">
+                </div>
+                <div class="col-sm-9 col-xs-6">
+                    <p>{{products.name}}</p>
+                </div></div>
+         </td>
+         <td class="bold">{{products.price}} <sup>DT</sup></td>
+         <td class="bg">
+             <form action="{{ path('front_customer_add_pannier_page', { 'id' : products.id }) }}" method="get">
+                <select class="form-control" id="form-control" name="qte" onChange="this.form.submit()">
+                    {% for i in 1..10 %}
+                        <option value="{{ i }}" {% if i == panier[products.id] %} selected="selected" {% endif %}>{{ i }}</option>>{{ i }}</option>
+                    {% endfor %}
+                </select>
+             </form><!---end --form-->
+         </td>
+         <td class="bold">{{ products.price * panier[products.id] }} <sup>DT</sup></td>
+        </tr>
+        {% set totalHT = totalHT + (products.price * panier[products.id]) %}
+        {% endfor %}
+        <tr class="hidden-xs"><td></td><td></td><td>Total</td><td class="bold">{{totalHT}} <sup>DT</sup></td></tr></tbody></table>
+        
+    {% include '::includesFront/footer.html.twig' %}
+
+        </div>
+        <!-- /#content -->
+ {% endblock %}     

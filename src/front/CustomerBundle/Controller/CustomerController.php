@@ -16,7 +16,6 @@ class CustomerController extends Controller
      */
     public function indexAction()
     {
-        
         $form = $this->get('front_customer.customer.form');
         return $this->render('frontCustomerBundle:Customer:login.html.twig');
     }
@@ -36,7 +35,7 @@ class CustomerController extends Controller
     }
     
     /**
-     * Add products.
+     * Add customer.
      *
      * @var Request $request The current http request.
      * 
@@ -45,7 +44,7 @@ class CustomerController extends Controller
     public function postRegisterCustomerAction(Request $request)
     {
 
-       $form        = $this->get('front_customer.customer.form');
+       $form = $this->get('front_customer.customer.form');
        $formHandler = $this->get('front_customer.handler.add.customer');
         
        $processForm = $formHandler->process($request); 
@@ -86,11 +85,37 @@ class CustomerController extends Controller
     public function getInofoCustomerAction($customerId)
     {
         $user = $this->getUser();
-        
+        $customerManager = $this->get('front_customer.manager.customer');
+        $infoCustomer = $customerManager->infoUserbyCustomerId($customerId);
         return $this->render('frontCustomerBundle:Customer:infoCustomer.html.twig', array(
-                              'user' => $user, 'customerId' => $customerId
+                              'user' => $user, 'customerId' => $customerId, 'infoCustomer' => $infoCustomer
         ));
        
+    }
+    
+    /**
+     * update customer.
+     *
+     * @var Request $request The current http request.
+     * 
+     * @param integer $id The customer identifier.
+     * 
+     * @return Response
+     */
+    public function putCustomerAction(Request $request, $id)
+    {
+
+       $form = $this->get('front_customer.update.customer.form');
+       $formHandler = $this->get('front_customer.handler.update.customer');
+        
+       $processForm = $formHandler->process($request, $id); 
+      
+        if ($processForm === true)
+        {
+              $message='Modification effectué avec succèes';
+        }
+        
+        return $this->render('frontCustomerBundle:Customer:register.html.twig' , array('form' => $form->createView(), 'action' => "Editer"));    
     }
    
 }

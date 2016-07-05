@@ -39,6 +39,13 @@ class Customer
     /**
      * @var string
      *
+     * @ORM\Column(name="name", type="string", length=150)
+     */
+    private $name;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="address", type="string", length=100)
      */
     private $address;
@@ -68,46 +75,7 @@ class Customer
         $this->user = $user;
     }
 
-    public function getUser()
-    {
-        return $this->user;
-    }
-    
-    function getTitle() {
-        return $this->title;
-    }
-
-    function getLastName() {
-        return $this->lastName;
-    }
-
-    function getAddress() {
-        return $this->address;
-    }
-
-    function getTelephone() {
-        return $this->telephone;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setTitle($title) {
-        $this->title = $title;
-    }
-
-    function setLastName($lastName) {
-        $this->lastName = $lastName;
-    }
-
-    function setAddress($address) {
-        $this->address = $address;
-    }
-
-    function setTelephone($telephone) {
-        $this->telephone = $telephone;
-    }
+ 
     
     /**
      * Constructor
@@ -159,5 +127,135 @@ class Customer
     public function getOrders()
     {
         return $this->orders;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Customer
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set lastName
+     *
+     * @param string $lastName
+     *
+     * @return Customer
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Customer
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     *
+     * @return Customer
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param integer $telephone
+     *
+     * @return Customer
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return integer
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \back\AdminBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

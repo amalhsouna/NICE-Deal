@@ -20,6 +20,7 @@ class CustomerManger
         $this->entityManagerEcommerce = $doctrine->getManager();
         $this->customerRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Customer');
         $this->ordersRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Orders');
+        $this->userRepository = $this->entityManagerEcommerce->getRepository('backAdminBundle:User');
     }
     
     /**
@@ -27,7 +28,7 @@ class CustomerManger
      * 
      */
     public function postCustomerDeals($customer)
-    {
+    {   
         return $this->customerRepository->save($customer);
     }
     
@@ -47,5 +48,14 @@ class CustomerManger
     public function listOrdersbyCustomer($customer)
     {
         return $this->ordersRepository->findByCustomer($customer);
+    }
+    
+    /**
+     * info customer by customer idnetifier
+     * 
+     */
+    public function infoUserbyCustomerId($customerId)
+    {
+        return $this->customerRepository->findByCustomerId($customerId);
     }
 }

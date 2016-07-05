@@ -113,29 +113,26 @@
                                     {% if (image) %}
                                         <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive image1">
                                     {% else %}
-                                          <img src="http://placehold.it/360x240" alt="">
+                                        <img src="http://placehold.it/360x240" alt="">
                                     {% endif %}
+                                    {%endfor%}
                                     </a>
-                                </div>
-                                <!-- /.image -->
+                                </div><!-- /.image -->
                                 <div class="text">
                                     <h3><a href="detail.html">{{product.name}}</a></h3>
                                     <p class="price">{{product.price}} D</p>
                                 </div>
-                                {%endfor%}
-                                <!-- /.text -->
                                 <div calss="icone">
                                     <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i><span> Réduction de 50%</span>
                                     <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><span>Tunis</span> 
                                 <div class="clearfix"></div>
                                 </div>
                                 <div class="more_link"><a href="{{path('front_home_detail_products',{'id': product.id})}}">Voir Deal</a></div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
+                            </div><!-- /.product -->
+                        </div><!---col-md-4 col-sm-4--->
                         {% endfor %}
                     </div>
-                            <!--/.row products-->
+                    <!--/.row products-->
                 </div>
                 <!-- /.col-sm-12 -->  
                 </div>   

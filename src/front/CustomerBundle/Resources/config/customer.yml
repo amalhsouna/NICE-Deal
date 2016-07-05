@@ -6,6 +6,7 @@ parameters:
     
     #handler
     front_customer.add.handler.client.class: front\CustomerBundle\Form\Handler\AddCustomerFormHandler 
+    front_customer.update.handler.client.class: front\CustomerBundle\Form\Handler\UpdateCustomerFormHandler 
     
 services:
     front_customer.customer.form.type:
@@ -21,6 +22,26 @@ services:
             - "@front_customer.customer.form.type"
             - ~
             
+    front_customer.update.customer.form.type:
+        class: %front_customer.customer.form.type.class%
+        arguments: 
+            - %front_customer.customer.form_data_class%
+            - @fos_user.registration.form.type
+            - "PUT"
+            
+    front_customer.update.customer.form:
+        class: %front_customer.customer.form.class%
+        factory_service: form.factory
+        factory_method: createNamed
+        arguments:
+            - ~
+            - "@front_customer.update.customer.form.type"
+            - ~
+            
     front_customer.handler.add.customer:
         class: %front_customer.add.handler.client.class%
-        arguments: ["@front_customer.customer.form", "@front_customer.manager.customer"]        
+        arguments: ["@front_customer.customer.form", "@front_customer.manager.customer"]  
+        
+    front_customer.handler.update.customer:
+        class: %front_customer.update.handler.client.class%
+        arguments: ["@front_customer.update.customer.form", "@front_customer.manager.customer"]        

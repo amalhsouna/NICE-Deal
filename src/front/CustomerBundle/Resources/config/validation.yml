@@ -1,0 +1,24 @@
+# Entity/EcommerceBundle/Entity/Customer/validation.yml
+Entity\EcommerceBundle\Entity\Customer:
+    properties:
+        telephone:
+            - NotNull: { message: "err_field_empty" }
+            - Length:
+                min: 5
+        lastName:
+            - NotNull: { message: "err_field_empty" }
+            - Length:
+                min: 3
+        name:
+            - NotNull: { message: "err_field_empty" }
+            - Length:
+                min: 3
+                
+# back/AdminBundle/Entity/validation.yml                
+back\AdminBundle\Entity\User:
+    properties:
+        plainPassword:
+            - NotNull: { message: "err_field_empty" }
+            - Length:
+                min: 5
+        

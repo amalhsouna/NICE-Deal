@@ -16,6 +16,11 @@ front_customer_register_page:
     path:     /inscription
     defaults: { _controller: frontCustomerBundle:Customer:postRegisterCustomer }
     
+#update customer
+front_customer_update_coordonner_page:
+    path:     /modifier-coordonnees/{id}
+    defaults: { _controller: frontCustomerBundle:Customer:putCustomer }
+    
 #detail customer
 front_customer_detail_page:
     path:     /detail-profile

@@ -20,7 +20,7 @@ use FOS\UserBundle\Form\Type\RegistrationFormType;
  * @package frontCustomerBundle
  * @author Amal Hsouna
  */
-class AddCustomerFormType extends AbstractType
+class UpdateCustomerFormType extends AbstractType
 {
 
     /**
@@ -56,10 +56,9 @@ class AddCustomerFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title', 'choice', array(
-                      'choices' => array('Mr' => 'M.', 'Mme' => 'Mme','Mlle' => 'Mlle'),
+                      'choices' => array('Mr' => 'M.', 'Mme' => 'Mme'),
                        'required' => false))
                 ->add('lastName', 'text')
-                ->add('name', 'text')
                 ->add('address', 'text')
                 ->add('telephone', 'integer')
                 ->add('user', $this->registrationFormType ,array('data_class' => 'back\AdminBundle\Entity\User'));

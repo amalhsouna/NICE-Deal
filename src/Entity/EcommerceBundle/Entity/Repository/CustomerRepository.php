@@ -48,4 +48,15 @@ class CustomerRepository extends EntityRepository
         $entityManager->persist($customer);
         $entityManager->flush();
     }
+    
+    /**
+     * Finds info customer.
+     * 
+     * @return array
+     */
+    public function findByCustomerId($customerId)
+    {
+        $detailCustomer = $this->findOneBy(array('user' => $customerId));
+        return $detailCustomer;
+    }
 }
