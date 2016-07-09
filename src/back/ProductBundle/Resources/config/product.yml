@@ -1,0 +1,26 @@
+#Add products
+back_product_admin_add_products:
+    path:     /ajouter-produits
+    defaults: { _controller: backProductBundle:Products:postProducts }
+    
+#Update products 
+back_product_admin_put_products:
+    path:     /modifier-produits/{id}
+    defaults: { _controller: backProductBundle:Products:putProducts }
+    requirements:
+       id: \d+
+       
+#list products by admin
+back_product_admin_list_products:
+    path:     /list-produits
+    defaults: { _controller: backProductBundle:Products:getProducts }
+    
+#details products
+back_product_admin_details_products:
+    path:     /{id}/details-produits
+    defaults: { _controller: backProductBundle:Products:getDetailsProductsAdmin }
+    
+#delete products
+back_product_admin_delete_products:
+    path:     /{id}/delete-produits
+    defaults: { _controller: backProductBundle:Products:deleteProducts }

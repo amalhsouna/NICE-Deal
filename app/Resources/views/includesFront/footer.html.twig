@@ -14,7 +14,7 @@
                         </li>
                         <li><a href="faq.html">FAQ</a>
                         </li>
-                        <li><a href="contact.html">Contacter nous</a>
+                        <li><a href="{{path('front_home_contact_page')}}">Contacter nous</a>
                         </li>
                     </ul>
                     <hr>
@@ -94,7 +94,7 @@ _________________________________________________________ -->
         <div id="copyright">
             <div class="container">
                 <div class="col-md-12">
-                    <p class="pull-left">Copyright &copy; 2016 NiceShop. Tous droits réservés.</p>
+                    <p class="pull-left">Copyright &copy; {{ "now"|date('Y') }} NiceShop. Tous droits réservés.</p>
                     <p class="pull-right">
                        NOUS ACCEPTONS : <img src="{{asset("bundles/frontBundle/img/payment.png")}}" alt="payments accepted">
                     </p>

@@ -27,6 +27,13 @@ class Category
      * @ORM\Column(name="name", type="string", length=100)
      */
     private $name;
+    
+    /**
+     * @var 
+     * 
+     * @ORM\OneToMany(targetEntity="Entity\EcommerceBundle\Entity\Category", mappedBy="category", cascade={"persist"})
+     */
+    private $subCategory;
 
     /**
      * Get id
@@ -59,5 +66,46 @@ class Category
     public function getName()
     {
         return $this->name;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->subCategory = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add subCategory
+     *
+     * @param \Entity\EcommerceBundle\Entity\Category $subCategory
+     *
+     * @return Category
+     */
+    public function addSubCategory(\Entity\EcommerceBundle\Entity\Category $subCategory)
+    {
+        $this->subCategory[] = $subCategory;
+
+        return $this;
+    }
+
+    /**
+     * Remove subCategory
+     *
+     * @param \Entity\EcommerceBundle\Entity\Category $subCategory
+     */
+    public function removeSubCategory(\Entity\EcommerceBundle\Entity\Category $subCategory)
+    {
+        $this->subCategory->removeElement($subCategory);
+    }
+
+    /**
+     * Get subCategory
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSubCategory()
+    {
+        return $this->subCategory;
     }
 }

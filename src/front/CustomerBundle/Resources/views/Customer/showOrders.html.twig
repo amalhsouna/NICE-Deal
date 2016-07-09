@@ -12,7 +12,8 @@
 
 <div class="orderList">
                 <table id="simple-example-table" width="100%">
-                    <tbody><tr class="oderTitle">
+                    <tbody>
+                       <tr class="oderTitle">
                         <th>numéro de commande</th>
                         <th>Product &nbsp; | &nbsp; Qty</th>
                         <th>Total</th>
@@ -20,18 +21,17 @@
                         <th>Mode de paiement</th>
                         <th>Status</th>
                         <th style="text-align: center;">Action</th>
-                    </tr>
-                    
+                       </tr>
                    <tr class="highlight" style="min-height: 72px;">
-                                <td>{{listOrder.orderNumber}}</td>
-                                <td>
-                                    <table width="100%">
-                                       <tbody><tr style="background: none;">
-                                        <td>{{listOrder.products.description}}</td>
-                                        <td width="30">1</td>
+                        <td>{{listOrder.orderNumber}}</td>
+                        <td>
+                             <table width="100%">
+                                <tbody><tr style="background: none;">
+                                    <td>{{listOrder.products.description}}</td>
+                                    <td width="30">1</td>
                                     </tr>
-                                       </tbody>
-                                    </table>
+                                </tbody>
+                              </table>
                                 </td>
                                 <td>{{listOrder.products.price}}</td>
                                 <td>{{listOrder.orderDate |date('Y-M-d')}}</td>
@@ -39,11 +39,11 @@
                                 <td>Delivered</td>
                                 <td style="text-align: center">
                                  
-                                        <a class="list_coupon" href="/mes-coupons/coupon/listing.html?orderId=35079&amp;token=252efb866f1e4d5082ebc9171b61c2ed&amp;ItemId=">
-                                            <div class="profileAddGoldV7">
+                                <a class="list_coupon" href="/mes-coupons/coupon/listing.html?orderId=35079&amp;token=252efb866f1e4d5082ebc9171b61c2ed&amp;ItemId=">
+                                    <div class="profileAddGoldV7">
                                                 Imprimer Coupon 
-                                            </div>
-                                        </a>
+                                    </div>
+                                </a>
                                 </td>
                         </tr>   
                         </tbody>

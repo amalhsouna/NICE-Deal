@@ -85,6 +85,7 @@ class AddProductsFormType extends AbstractType
                 ->add('oldPrice', 'integer')
                 ->add('description', 'ckeditor')
                 ->add('creationDate', 'date')
+                ->add('endDate', 'date')
                 ->add('place', 'choice', array(
                 'choices' => array('tunis' => 'Grand tunis', 'nabeul' => 'Nabeul'),
                 'preferred_choices' => array('tunis'),))

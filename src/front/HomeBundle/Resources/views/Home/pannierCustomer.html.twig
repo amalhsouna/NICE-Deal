@@ -3,9 +3,9 @@
 
 {% block body %}
 {% include '::includesFront/topColumn.html.twig' %}
-
 <h1>Mes commande</h1>
-<p class="info-account">Bienvenue sur votre page d'information personelle.</p>
+<p class="info-account">Bienvenue sur votre page récapitulatif de la commande.</p>
+{% if product %}
 <table class="table table-striped">
     <thead>
         <tr>
@@ -41,8 +41,49 @@
         </tr>
         {% set totalHT = totalHT + (products.price * panier[products.id]) %}
         {% endfor %}
-        <tr class="hidden-xs"><td></td><td></td><td>Total</td><td class="bold">{{totalHT}} <sup>DT</sup></td></tr></tbody></table>
-        
+        <tr class="hidden-xs"><td></td><td></td><td>Montant total</td><td class="bold">{{totalHT}} <sup>DT</sup></td></tr>
+    </tbody></table>
+     <h3>Choisissez votre méthode de paiement</h3>
+    <div id="HOOK_PAYMENT">
+      <p>
+          <a class="bankwire" href="#" title="Paiement sécurisé par carte bancaire"> Paiement sécurisé par carte bancaire <span class="glyphicon glyphicon-chevron-right"></span></a>
+      </p>
+      <p>
+        <a class="poste" href="#" title="Paiement par carte de la poste Tunisienne"> Paiement par la carte de la Poste<span class="glyphicon glyphicon-chevron-right"></span> </a>
+      </p>
+       <p>
+        <a class="space" href="#" title="Paiement en Espèces">Mandat postal<span class="glyphicon glyphicon-chevron-right"></span> </a>
+      </p>
+      <p>
+        <a class="cheque" href="#" title="Paiement en Espèces">Paiement en Espèces <span class="glyphicon glyphicon-chevron-right"></span> </a>
+      </p>
+    </div>
+     
+    {% else %}
+        <div class="alert alert-success">								
+            <a class="close" data-dismiss="alert">×</a>
+                <h4 class="alert-heading">Message</h4>
+            <div>
+            <p class="alert-message">Le panier est vide ou de la session a expiré!</p>
+            </div>
+        </div>
+        {% endif %}
+        <div class="footer_links clearfix">
+            <ul>
+                <li>
+                    <a class="btn btn-default button button-small" href="{{path('front_home_homepage')}}">
+                        <span>
+                            <i class="glyphicon glyphicon-shopping-cart"></i> Continue mes shopping
+                        </span>
+                    </a>
+                </li>
+                <li>   
+                <a class="btn btn-default button button-small" href="/">
+                    <span><i class="glyphicon glyphicon-chevron-left"></i> Accueil</span>
+                </a>
+                </li>
+            </ul>
+        </div><!--end-of-link-->
     {% include '::includesFront/footer.html.twig' %}
 
         </div>

@@ -75,19 +75,40 @@ class ProductManager
      * post partenary
      * 
      * @param int $partenary The partenary identifier
+     * 
      */
     public function postPartenaryDeals($partenary)
     {
         return $this->partenaryRepository->savePartenary($partenary);
     }
     
-     /**
+    /**
      * return list of products
      * 
      */
     public function getListPartenary()
     {
         return $this->partenaryRepository->findAllPartenary();
+    }
+    
+    /**
+     * return list of products
+     * 
+     */
+    public function getProductsByEndDate()
+    {
+        return $this->productRepository->findProductsByEndDate();
+    }
+    
+    /**
+     * return detail of partenary
+     * 
+     * @param int $id The partenary identifier
+     * 
+     */
+    public function getDetailPartenary($id)
+    {
+        return $this->partenaryRepository->findPartenaryById($id);
     }
     
 }

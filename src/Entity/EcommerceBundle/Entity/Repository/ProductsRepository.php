@@ -71,4 +71,19 @@ class ProductsRepository extends EntityRepository
         $entityManager->remove($product);
         $entityManager->flush();
     }
+    
+    /**
+     * Finds Products with the date has passed.
+     * 
+     * @return array
+     */
+    public function findProductsByEndDate()
+    {
+          
+        $query = $this->_em->createQuery('SELECT p FROM EntityEcommerceBundle:Products p where p.endDate <  CURRENT_DATE()');
+        $resultsQuery = $query->getResult();
+
+        return $resultsQuery;   
+  
+    }
 }

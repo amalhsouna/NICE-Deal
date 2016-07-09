@@ -185,22 +185,23 @@
                 
     <div class="box" id="details">
             <p>
-                    <h4>Details produit </h4>
+                <h4>Details produit </h4>
             <p> 
-            <tr>
+                <tr>
                     <td>{{product.name}}</td>
                     <td>{{product.description}}</td>
-                    </tr>
-                    </p>
-                        <h4>Inforamtion de partenaire</h4>
-                        <ul>
-                            <li>{{product.partenary.name}}</li>
-                            <li>Adresse: {{product.partenary.adresse}}</li>
-                        </ul>
-                    <blockquote>
-                            <p><em>{{product.partenary.additionalInformation}}</em></p>
-                    </blockquote>
-    </div>
+                </tr>
+            </p>
+                <h4>Inforamtion de partenaire</h4>
+            <ul>
+                <li>{{product.partenary.name}}</li>
+                <li>Adresse: {{product.partenary.adresse}}</li>
+               
+            </ul>
+                <blockquote>
+                   <p><em>{{product.partenary.additionalInformation}}</em></p>
+                </blockquote>
+    </div> 
                     {% endfor %}<!--end for-->
                     <div class="box social" id="product-social">
                         <h4>Partagez avec vous amis</h4>
@@ -340,25 +341,28 @@
         <!-- /#content -->
         <!-- /.container -->
         </div>
+            
         {% block javascripts %}
         <script type="text/javascript" src="{{asset("bundles/frontBundle/js/carousel.js")}}"></script>
         <script type="text/javascript" src="{{asset("bundles/frontBundle/js/jquery-1.11.0.min.js")}}"></script>
         <script type="text/javascript" src="{{asset("bundles/frontBundle/js/bootstrap.min.js")}}"></script>
         <script type="text/javascript" src="{{asset("bundles/frontBundle/js/jquery.countdownTimer.js")}}"></script>
+        
         <script>
             $(function(){
                 $('#given_date').countdowntimer({
-                        startDate : "2014/10/01 00:00:00",
-                        dateAndTime : "2018/01/01 00:00:00",
+                        startDate : "{{products[0].creationDate |date('Y/m/d H:i:s')}}",
+                        dateAndTime : "{{products[0].endDate |date('Y/m/d H:i:s')}}",
                        size : "lg"
                  });
             });
         </script>
         {% endblock %}
+       
         {% block stylesheets %}
             {{ parent() }}
         <style>
-            #myCarousel .carousel-inner > .next.left, #myCarousel .carousel-inner > .prev.right {
+        #myCarousel .carousel-inner > .next.left, #myCarousel .carousel-inner > .prev.right {
         left: 0 !important;
         }
 

@@ -1,0 +1,258 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+   {% include '::includesFront/topColumn.html.twig' %}
+    <!-- *** NAVBAR END *** -->
+
+    <!-- *** LOGIN MODAL ***-->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="Login">Customer login</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="customer-orders.html" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="email" placeholder="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" placeholder="password">
+                        </div>
+
+                        <p class="text-center">
+                            <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                        </p>
+
+                    </form>
+
+                    <p class="text-center text-muted">Not registered yet?</p>
+                    <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- *** LOGIN MODAL END *** -->
+
+    <!-- *** SLIDER ****** -->
+    <div class="container">
+      <div class="col-md-12">
+            <div id="carousel-generic" class="carousel slide" data-ride="carousel" style="margin-top:20px;">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                <div class="carousel-inner">
+                                <div class="item active">
+                                    <img class="slide-image" src="{{asset("bundles/frontBundle/img/slide1.jpg")}}" alt="">
+                                    <div class="caption">
+                                        <span class="style1">à LAC 2</span>
+                                        <span class="style2">Réparation</span>
+                                        <span class="style3">de votre véhicule</span>
+                                        <span class="style4">à domicile</span>
+                                        <a href="mecanicien-domicile.php">J'achète</a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="{{asset("bundles/frontBundle/img/slide2.jpg")}}" alt="">
+                                    <div class="caption">
+                                        <span class="style1">à LAC 2</span>
+                                        <span class="style2">Réparation</span>
+                                        <span class="style3">de votre véhicule</span>
+                                        <span class="style4">à domicile</span>
+                                        <a href="mecanicien-domicile.php">J'achète</a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="{{asset("bundles/frontBundle/img/slide3.jpg")}}" alt="">
+                                    <div class="caption">
+                                        <span class="style1">à LAC 2</span>
+                                        <span class="style2">Réparation</span>
+                                        <span class="style3">de votre véhicule</span>
+                                        <span class="style4">à domicile</span>
+                                        <a href="mecanicien-domicile.php">J'achète</a>
+                                    </div>
+                                </div>
+                </div>
+                <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-generic" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div><!--end-carousel-->
+      </div>
+    <div>
+    <!-- *** SLIDER END *** -->
+
+    <div id="all">
+
+        <!-- *** ADVANTAGES ***-->
+
+        <!-- *** ADVANTAGES END *** -->
+
+        <!-- *** CONTENT ***-->
+        <div id="content">
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="box text-center">
+                        <h3 class="text-uppercase">C'est Populaire</h3>
+                        <h4 class="text-muted"><span class="accent">Profiter </span> de notre meilleur prix</h4>
+                    </div>
+
+                    <div class="row products">
+                        {% for pastDeals in pastDeal %}    
+                        <div class="col-md-4 col-sm-4">
+                            <div class="product">
+                                <div class="image">
+                                    <a href="detail.html">
+                                    {% for image in pastDeals.image %}
+                                    {% if (image) %}
+                                        <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive image1">
+                                    {% else %}
+                                        <img src="http://placehold.it/360x240" alt="">
+                                    {% endif %}
+                                    {%endfor%}
+                                    </a>
+                                </div><!-- /.image -->
+                                <div class="text">
+                                    <h3><a href="detail.html">{{pastDeals.name}}</a></h3>
+                                    <p class="price">{{pastDeals.price}} D</p>
+                                </div>
+                                <div calss="icone">
+                                    <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i><span> Réduction de 50%</span>
+                                    <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><span>Tunis</span> 
+                                <div class="clearfix"></div>
+                                </div>
+                                <div class="more_link"><a href="{{path('front_home_detail_products',{'id': pastDeals.id})}}">Voir Deal</a></div>
+                            </div><!-- /.product -->
+                        </div><!---col-md-4 col-sm-4--->
+                        {% endfor %}
+                    </div>
+                    <!--/.row products-->
+                </div>
+                <!-- /.col-sm-12 -->  
+                </div>   
+                <!-- /.products -->
+            </div>
+            <!-- /.col-sm-12 -->
+            </div>
+    </div>
+    <!-- /.container -->
+    <!--advantages -->
+    <div id="advantages">
+            <div class="container">
+                <div class="col-md-12">
+
+                    <div class="box text-center">
+                       
+                        <div class="same-height-row row">
+                            <div class="col-sm-3">
+                                <div class="box same-height clickable no-border text-center-xs text-center-sm">
+                                    <div class="icon"><i class="fa fa-heart-o"></i>
+                                    </div>
+                                    <h4><a href="text.html">CLIENTS SATISFAITS</a></h4>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="box same-height clickable no-border text-center-xs text-center-sm">
+                                    <div class="icon"><i class="fa fa-tags"></i>
+                                    </div>
+                                    <h4><a href="text.html">MEILLEURS PRIX</a></h4>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="box same-height clickable no-border text-center-xs text-center-sm">
+                                    <div class="icon"><i class="fa fa-send-o"></i>
+                                    </div>
+                                    <h4><a href="faq.html">VILLES ET REGIONS</a></h4>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="box same-height clickable no-border text-center-xs text-center-sm">
+                                    <div class="icon"><i class="fa fa-refresh"></i>
+                                    </div>
+                                    <h4><a href="contact.html">DEALS DU JOUR</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /#advantages -->
+        <div class="container">
+    <div class="col-md-12">
+        <h1>Nos partenaires</h1>
+        <div class="well">
+            <div id="myCarousel" class="carousel slide partenaire">
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                            <div class="col-sm-3"><a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x"><img src="http://placehold.it/500x500" alt="Image" class="img-responsive"></a>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" class="img-responsive"></a>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                </div>
+                <!--/carousel-inner--> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+            </div>
+            <!--/myCarousel-->
+        </div>
+        <!--/well-->
+ 
+</div>
+            </div>
+         {% include '::includesFront/footer.html.twig' %}
+
+        
+        <!-- /#content -->
+ {% endblock %}

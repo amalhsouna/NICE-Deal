@@ -4,7 +4,7 @@
     {% include '::includes/topColumn.html.twig' %}
     {% include '::includes/leftColumn.html.twig' %}
     <div class="col-md-6">
-    <h3>Formulaire d'ajout catégorie <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h3>
+    <h3>Formulaire d'ajout sous catégorie <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h3>
     <div class="box"  style="padding: 10px">
       <form method="post" enctype="multipart/form-data">
             {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
@@ -14,6 +14,11 @@
                     {{ form_label(form.name,"Nom") }}
                     {{ form_errors(form.name) }}
                     {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group category">
+                    {{ form_label(form.category,"Catégorie") }}
+                    {{ form_errors(form.category) }}
+                    {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Ajouter</button>

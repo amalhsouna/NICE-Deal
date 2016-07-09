@@ -43,7 +43,7 @@
                                             <img src="img/4.jpg" class="img-responsive hidden-xs" alt="">
                                         </div>
                                         <div class="col-sm-3">
-                                            <h3>Clothing</h3>
+                                            <h3>Deal</h3>
                                             <ul>
                                                 <li><a href="category.html">T-shirts</a>
                                                 </li>
@@ -56,7 +56,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-sm-3">
-                                            <h3>Clothing</h3>
+                                            <h3>Shopping</h3>
                                             <ul>
                                                 <li><a href="category.html">T-shirts</a>
                                                 </li>
@@ -69,7 +69,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-sm-3">
-                                            <h3>Shoes</h3>
+                                            <h3>Formation</h3>
                                             <ul>
                                                 <li><a href="category.html">Trainers</a>
                                                 </li>
@@ -260,8 +260,10 @@
              <i class="glyphicon glyphicon-dashboard"></i><span>7J/7 de 09H30 à 20H30</span>
         </div><!----fin-telephone-->
         <div id="search-panier">
+             {# {% render(controller('frontHomeBundle:Pannier:pannierCustomer')) %}#}
             <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">0  <span class="hidden-md">panier</span></span></a>
+                     {% render(controller('frontHomeBundle:Pannier:topPannier')) %}
+                    
             </div>
         <!--/.nav-collapse -->
 

@@ -31,7 +31,6 @@ class PannierController extends Controller
         $session = $this->getRequest()->getSession();
         if (!$session->has('front_customer_mon_pannier_page')) $session->set('front_customer_mon_pannier_page',array());
         $panier = $session->get('front_customer_mon_pannier_page');
-       
         if (array_key_exists($id, $panier)) {
             if ($this->getRequest()->query->get('qte') != null) $panier[$id] = $this->getRequest()->query->get('qte');
             $this->get('session')->getFlashBag()->add('success','Quantité modifié avec succès');
@@ -46,7 +45,6 @@ class PannierController extends Controller
            
         $session->set('front_customer_mon_pannier_page',$panier);
         
-
         return $this->redirect($this->generateUrl('front_customer_mon_pannier_page'));
        
     }
@@ -61,6 +59,21 @@ class PannierController extends Controller
         $listProducts = $this->get('back_product.manager.products');
         $ProductsDeals = $listProducts->getProductsById($id);
         return $this->render('frontHomeBundle:Home:buyCustomer.html.twig' , array('product' => $ProductsDeals));
+       
+    }
+    
+    /**
+     * Delete Pannier of customer.
+     * 
+     * @return Response
+     */
+    public function topPannierAction()
+    {
+        $session = $this->getRequest()->getSession();
+        if (!$session->has('front_customer_mon_pannier_page')) $session->set('front_customer_mon_pannier_page', array());
+        $listProducts = $this->get('back_product.manager.products');
+        $ProductsDeals = $listProducts->getProductsById(array_keys($session->get('front_customer_mon_pannier_page')));
+        return $this->render('::includesFront/pannier.html.twig', array('product' => $ProductsDeals, 'panier' => $session->get('front_customer_mon_pannier_page')));
        
     }
 }

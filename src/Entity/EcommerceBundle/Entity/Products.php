@@ -57,6 +57,13 @@ class Products
      * @ORM\Column(name="creation_date", type="date")
      */
     private $creationDate;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end_date", type="date")
+     */
+    private $endDate;
 
     /**
      * @var string
@@ -288,4 +295,28 @@ class Products
         $this->image = new ArrayCollection();
     }
 
+
+    /**
+     * Set endDate
+     *
+     * @param \DateTime $endDate
+     *
+     * @return Products
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+
+        return $this;
+    }
+
+    /**
+     * Get endDate
+     *
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
 }

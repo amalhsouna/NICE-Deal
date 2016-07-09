@@ -45,4 +45,16 @@ class PartenaryRepository extends EntityRepository
         
         return $listPartenary;
     }
+    
+    /**
+     * Finds Partenary by id.
+     * 
+     * @return array
+     */
+    public function findPartenaryById($id)
+    {
+        $products = $this->findById($id);
+
+        return $products;
+    }
 }

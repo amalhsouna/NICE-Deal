@@ -87,8 +87,8 @@ class ProductsController extends Controller
     public function getDetailsProductsAdminAction($id)
     {
        $listProducts = $this->get('back_product.manager.products');
-       $ProductsDeals = $listProducts->getProductsById($id);
-       return $this->render('backProductBundle:Products:detailsProducts.html.twig' , array('products' => $ProductsDeals));  
+       $productsDeals = $listProducts->getProductsById($id);
+       return $this->render('backProductBundle:Products:detailsProducts.html.twig' , array('products' => $productsDeals));  
     }
     
     /**
@@ -144,5 +144,75 @@ class ProductsController extends Controller
         );
        return $this->render('backProductBundle:Products:listPartenary.html.twig' , array('partenary' => $partenaryList,'paging' => $paging));  
     }
+    
+    /**
+     * Finds Products with the date has passed.
+     *
+     * @return array
+     */
+    public function getProductsByEndDateAction()
+    {
+       $listProducts = $this->get('back_product.manager.products');
+       $pastDeal = $listProducts->getProductsByEndDate();
+       return $this->render('frontHomeBundle:Home:pastDeal.html.twig' , array('pastDeal' => $pastDeal));  
+    }
+    
+    /**
+     * Return Details of Partenary.
+     *
+     * @return Response
+     */
+    public function getDetailPartenaryAdminAction($id)
+    {
+       $listProducts = $this->get('back_product.manager.products');
+       $partenaryDeals = $listProducts->getDetailPartenary($id);
+       return $this->render('backProductBundle:Products:detailsCategory.html.twig' , array('partenary' => $partenaryDeals));  
+    }
+    
+    /**
+     * put partenary.
+     *
+     * @var Request $request The current http request.
+     * 
+     * @return Response
+     */
+    public function updatePartenaryAdminAction($id, Request $request)
+    {
+       $form        = $this->get('back_product.update.partenary.form');
+       $formHandler = $this->get('back_product.handler.update.partenary');
+        
+       $processForm = $formHandler->process($id, $request); 
+        if ($processForm === true)
+        {
+            $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
+        }
+        
+        return $this->render('backProductBundle:Products:editProducts.html.twig' , array(
+        'form' => $form->createView(),
+         'id' => $id
+        ));    
+    }
+    
+    /**
+     * Add category.
+     *
+     * @var Request $request The current http request.
+     * 
+     * @return Response
+     */
+    public function postSubCategoryAction(Request $request)
+    {
+       $form        = $this->get('back_product.sub.category.form');
+       $formHandler = $this->get('back_product.handler.add.sub.category');
+        
+       $processForm = $formHandler->process($request); 
+        if ($processForm === true)
+        {
+            $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
+        }
+        
+        return $this->render('backProductBundle:Products:addSubCategory.html.twig' , array('form' => $form->createView()));    
+    }
+    
     
 }

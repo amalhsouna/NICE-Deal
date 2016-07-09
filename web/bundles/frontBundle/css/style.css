@@ -200,6 +200,9 @@ body{padding-top:100px}body.no-padding{padding-top:0}a,button{-webkit-transition
        float:right;
        margin-top: 10px;
     }
+    .detail-box .btn-primary i{
+        font-size: 18px;
+    }
     /***profils***/
     #my-account ul.myaccount-link-list li {
         overflow: hidden;
@@ -749,4 +752,55 @@ a.navbar-brand.home img {
 .coordonnees p strong{
     font-size: 16px;
 }
+/*********HOOK_PAYMENT*****/
+#HOOK_PAYMENT p a{
+    display: block;
+    border: 1px solid #d6d4d4;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    font-size: 17px;
+    line-height: 23px;
+    color: #333;
+    font-weight: bold;
+    padding: 33px 40px 34px 99px;
+    letter-spacing: -1px;
+    position: relative;
+}
+
+#HOOK_PAYMENT .bankwire{
+   background: url(../img/cartebancaire.jpg) 15px 12px no-repeat #fbfbfb;
+}
+
+#HOOK_PAYMENT .poste{
+    background: url(../img/logo-poste.png) 15px 12px no-repeat #fbfbfb;
+}
+
+#HOOK_PAYMENT .cheque{
+    background: url(../img/cartes-bancaires.jpg) 15px 12px no-repeat #fbfbfb;
+}
+
+#HOOK_PAYMENT .cheque{
+    background: url(../img/cartes-bancaires.jpg) 15px 12px no-repeat #fbfbfb;
+}
+
+#HOOK_PAYMENT .space{
+    background: url(../img/mondatcache.jpg) 15px 12px no-repeat #fbfbfb;
+}
+
+#HOOK_PAYMENT span.glyphicon.glyphicon-chevron-right{
+    float:right;
+    color:#000;
+    font-size: 25px;
+    height: 22px;
+    width: 14px;
+    color: #777;
+}
+
+#HOOK_PAYMENT p a:hover{
+   font-size: 19px; 
+   text-decoration: none;
+   color:#6DA1B4;
+}
+
     
