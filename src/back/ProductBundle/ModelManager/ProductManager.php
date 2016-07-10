@@ -111,4 +111,12 @@ class ProductManager
         return $this->partenaryRepository->findPartenaryById($id);
     }
     
+    /**
+     * get products by id
+     * 
+     */
+    public function getProductsByCategory($category)
+    {
+        return $this->productRepository->findProductByCategory($category);
+    }
 }

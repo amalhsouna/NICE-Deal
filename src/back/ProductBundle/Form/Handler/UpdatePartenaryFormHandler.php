@@ -66,7 +66,6 @@ class UpdatePartenaryFormHandler
             $this->form->handleRequest($request);
             if ($this->form->isValid())
             {
-                var_dump('ffff');exit;
                  $this->productManger->saveProducts($partenary);
                  return true;
                 

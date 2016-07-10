@@ -803,4 +803,12 @@ a.navbar-brand.home img {
    color:#6DA1B4;
 }
 
+/**menu**/
+.titleMenu{
+    color: #ea1c6f;
+}
+.titleMenu:hover{
+    text-decoration: none;
+}
+
     

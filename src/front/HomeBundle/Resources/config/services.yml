@@ -1,4 +1,7 @@
+parameters:
+    home.manager.client.class: front\HomeBundle\ModelManager\HomeManager
+
 services:
-#    front_home.example:
-#        class: front\HomeBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    front_home.manager.home:
+        class: %home.manager.client.class%
+        arguments: ["@doctrine"]

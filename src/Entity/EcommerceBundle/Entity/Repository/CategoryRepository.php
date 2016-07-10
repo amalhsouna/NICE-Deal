@@ -60,4 +60,5 @@ class CategoryRepository extends EntityRepository
         $entityManager->remove($category);
         $entityManager->flush();
     }
+    
 }

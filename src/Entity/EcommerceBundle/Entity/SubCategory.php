@@ -26,7 +26,7 @@ class SubCategory
      *
      * @ORM\Column(name="name", type="string", length=50)
      */
-    private $name;
+    private $subName;
 
      /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="SubCategory", cascade={"remove"})
@@ -44,29 +44,7 @@ class SubCategory
         return $this->id;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return subCategory
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
+    
 
     /**
      * Set category
@@ -90,5 +68,29 @@ class SubCategory
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set subName
+     *
+     * @param string $subName
+     *
+     * @return SubCategory
+     */
+    public function setSubName($subName)
+    {
+        $this->subName = $subName;
+
+        return $this;
+    }
+
+    /**
+     * Get subName
+     *
+     * @return string
+     */
+    public function getSubName()
+    {
+        return $this->subName;
     }
 }

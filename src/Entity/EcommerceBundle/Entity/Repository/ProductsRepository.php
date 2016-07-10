@@ -86,4 +86,23 @@ class ProductsRepository extends EntityRepository
         return $resultsQuery;   
   
     }
+    
+    /* Finds category by name.
+     * 
+     * @param $nameCategory name of category
+     * 
+     * @return array
+     */
+    public function findProductByCategory($nameCategory)
+    {   
+        $queryBuilder = $this->createQueryBuilder('p')
+                      ->leftJoin('p.category', 'c')
+                      ->where('p.category = c.id')
+                      ->andWhere('c.name  = :category')
+                      ->setParameter('category', $nameCategory)
+                      ->getQuery()
+                      ->getResult();
+
+        return $queryBuilder;  
+    }
 }

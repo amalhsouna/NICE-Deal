@@ -1,0 +1,27 @@
+{% extends "::baseAdmin.html.twig" %}
+{% block body %}
+    {% include '::includes/topColumn.html.twig' %}
+    {% include '::includes/leftColumn.html.twig' %}
+    <div class="col-md-6">
+        <h3>Détail partenaire</h3>
+
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+              <th>Nom de partenaire</th>
+              <th>adresse</th>
+              <th>Téléphone</th>
+            </tr>
+        </thead>
+         <tbody>
+            {% for partenaire in partenary %}
+            <tr>
+                <td>{{partenaire.name}}</td>
+                <td>{{partenaire.adresse}}</td>
+                <td>{{partenaire.telephone}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+  {% include '::includes/footer.html.twig' %}
+{% endblock %}

@@ -164,9 +164,9 @@ class ProductsController extends Controller
      */
     public function getDetailPartenaryAdminAction($id)
     {
-       $listProducts = $this->get('back_product.manager.products');
-       $partenaryDeals = $listProducts->getDetailPartenary($id);
-       return $this->render('backProductBundle:Products:detailsCategory.html.twig' , array('partenary' => $partenaryDeals));  
+       $listPartenary = $this->get('back_product.manager.products');
+       $partenaryDeals = $listPartenary->getDetailPartenary($id);
+       return $this->render('backProductBundle:Products:detailsPartenary.html.twig' , array('partenary' => $partenaryDeals));  
     }
     
     /**
@@ -191,27 +191,6 @@ class ProductsController extends Controller
         'form' => $form->createView(),
          'id' => $id
         ));    
-    }
-    
-    /**
-     * Add category.
-     *
-     * @var Request $request The current http request.
-     * 
-     * @return Response
-     */
-    public function postSubCategoryAction(Request $request)
-    {
-       $form        = $this->get('back_product.sub.category.form');
-       $formHandler = $this->get('back_product.handler.add.sub.category');
-        
-       $processForm = $formHandler->process($request); 
-        if ($processForm === true)
-        {
-            $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
-        }
-        
-        return $this->render('backProductBundle:Products:addSubCategory.html.twig' , array('form' => $form->createView()));    
     }
     
     

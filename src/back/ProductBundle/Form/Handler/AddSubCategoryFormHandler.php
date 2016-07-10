@@ -67,7 +67,7 @@ class AddSubCategoryFormHandler
             $this->form->handleRequest($request);
             if ($this->form->isValid())
             {
-                $this->categoryManager->postCategoryDeals($subCategory);
+                $this->categoryManager->postSubCategory($subCategory);
                 return $process = true;
             }
         }

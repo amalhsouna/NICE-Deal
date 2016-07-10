@@ -1,4 +1,4 @@
 #Add products
 back_product_admin_add_sub_category:
     path:     /ajouter-sousCategorie
-    defaults: { _controller: backProductBundle:Products:postSubCategory }
+    defaults: { _controller: backProductBundle:Category:postSubCategory }

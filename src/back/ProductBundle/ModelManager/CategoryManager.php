@@ -15,11 +15,16 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CategoryManager
 {
+    /**
+     * return Registry $doctrine The doctrine.
+     * 
+     */
     public function __construct(Registry $doctrine)
     {
-        $this->doctrine             = $doctrine;
+        $this->doctrine          = $doctrine;
         $this->entityManagerEcommerce = $doctrine->getManager();
         $this->categoryRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Category');
+        $this->subCategoryRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:SubCategory');
     }
     
     /**
@@ -35,6 +40,7 @@ class CategoryManager
      */
     public function postCategoryDeals($category)
     {
+        
        return $this->categoryRepository->saveCategory($category);
     }
     
@@ -54,4 +60,13 @@ class CategoryManager
             return $this->categoryRepository->delete($product);
         }
     }
+    
+    /**
+     * save subCategory
+     */
+    public function postSubCategory($subCategory)
+    {
+       return $this->subCategoryRepository->saveSubCategory($subCategory);
+    }
+   
 }

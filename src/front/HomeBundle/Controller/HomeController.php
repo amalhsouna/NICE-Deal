@@ -29,17 +29,44 @@ class HomeController extends Controller
     }
     
     /**
-     * Update note.
+     * Details Products.
      *
-     * @param string $id The note identification.
+     * @param string $id The products identification.
      *
      * @return type
      */
     public function getDetailsProductsAction($id)
     {
        $listProducts = $this->get('back_product.manager.products');
-       $ProductsDeals = $listProducts->getProductsById($id);
-       return $this->render('frontHomeBundle:Home:productDetail.html.twig' , array('products' => $ProductsDeals));  
+       $productsDeals = $listProducts->getProductsById($id);
+       return $this->render('frontHomeBundle:Home:productDetail.html.twig' , array('products' => $productsDeals));  
+    }
+    
+    /**
+     * get menu Home Page.
+     *
+     * @return type
+     */
+    public function menuHomePageAction()
+    {
+//       $listCategory = $this->get('front_home.manager.home');
+//       $categoryDeals = $listCategory->getCategory();var_dump($categoryDeals);exit;
+       return $this->render('::includesFront/menuColumn.html.twig');  
+    }
+    
+    /**
+     * Return a list of products by categories.
+     *
+     * @param $category name of categories
+     * 
+     * @return Response
+     */
+    public function getListProductByCategoryAction($category)
+    {
+       $listeCategoryManager = $this->get('back_product.manager.products');
+       $categoryList = $listeCategoryManager->getProductsByCategory($category);
+       var_dump($categoryList);exit;
+       return $this->render('backProductBundle:Products:listCategory.html.twig' , array('category' => $categoryList));  
     }
     
 }

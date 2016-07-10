@@ -60,4 +60,30 @@ class CategoryController extends Controller
        $products->deleteProductById($id);
        return $this->redirect($this->generateUrl('back_product_admin_list_products'));
     }
+    
+    /**
+     * Add subCategory.
+     *
+     * @var Request $request The current http request.
+     * 
+     * @return Response
+     */
+    public function postSubCategoryAction(Request $request)
+    {
+       $message='';
+       $form        = $this->get('back_product.sub.category.form');
+       $formHandler = $this->get('back_product.handler.add.sub.category');
+        
+       $processForm = $formHandler->process($request); 
+        if ($processForm === true)
+        {
+            $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
+            $message='Ajout effectuée avec succée';
+        }
+        
+        return $this->render('backProductBundle:Products:addSubCategory.html.twig' , array('form' => $form->createView(), 'message' => $message));     
+    }
+   
+    
+    
 }
