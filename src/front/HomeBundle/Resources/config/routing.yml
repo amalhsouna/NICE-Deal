@@ -20,8 +20,14 @@ front_home_detail_products:
     
 #liste products by category name
 front_home_list_products_by_category:
-    path:     /categories/liste-test/{category}
+    path:     /categories/{category}
     defaults: { _controller: frontHomeBundle:Home:getListProductByCategory }
+    
+#liste products by category name
+front_home_list_products_by_city:
+    path:     /deals_region
+    defaults: { _controller: frontHomeBundle:Home:searchByCity }
+
     
 
     

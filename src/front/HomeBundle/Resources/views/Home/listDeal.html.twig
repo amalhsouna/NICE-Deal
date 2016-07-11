@@ -104,12 +104,13 @@
                     </div>
 
                     <div class="row products">
-                        {% for pastDeals in pastDeal %}    
+                      {% if deal %}
+                        {% for deals in deal %}    
                         <div class="col-md-4 col-sm-4">
                             <div class="product">
                                 <div class="image">
                                     <a href="detail.html">
-                                    {% for image in pastDeals.image %}
+                                    {% for image in deals.image %}
                                     {% if (image) %}
                                         <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive image1">
                                     {% else %}
@@ -119,18 +120,21 @@
                                     </a>
                                 </div><!-- /.image -->
                                 <div class="text">
-                                    <h3><a href="detail.html">{{pastDeals.name}}</a></h3>
-                                    <p class="price">{{pastDeals.price}} D</p>
+                                    <h3><a href="detail.html">{{deals.name}}</a></h3>
+                                    <p class="price">{{deals.price}} D</p>
                                 </div>
                                 <div calss="icone">
                                     <i class="glyphicon glyphicon-heart-empty" aria-hidden="true"></i><span> Réduction de 50%</span>
                                     <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><span>Tunis</span> 
                                 <div class="clearfix"></div>
                                 </div>
-                                <div class="more_link"><a href="{{path('front_home_detail_products',{'id': pastDeals.id})}}">Voir Deal</a></div>
+                                <div class="more_link"><a href="{{path('front_home_detail_products',{'id': deals.id})}}">Voir Deal</a></div>
                             </div><!-- /.product -->
                         </div><!---col-md-4 col-sm-4--->
                         {% endfor %}
+                       {% else %}
+                           <p class="alert alert-warning">Aucun produit ne correspond à votre recherche</p>
+                       {%endif%}
                     </div>
                     <!--/.row products-->
                 </div>

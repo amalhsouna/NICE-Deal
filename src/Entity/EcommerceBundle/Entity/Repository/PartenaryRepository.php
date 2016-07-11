@@ -49,6 +49,8 @@ class PartenaryRepository extends EntityRepository
     /**
      * Finds Partenary by id.
      * 
+     * @param id $id The identifier partenary.
+     * 
      * @return array
      */
     public function findPartenaryById($id)

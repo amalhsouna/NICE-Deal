@@ -25,6 +25,9 @@
             <!--/.navbar-header -->
             {% render(controller('frontHomeBundle:Home:menuHomePage')) %}
             <!--end nav-->
+            <!--block search--->
+            {% render(controller('frontHomeBundle:Home:searchByCity')) %}
+           <!--end search-->
             <div id="connexion_bloc">
             {% if is_granted("IS_AUTHENTICATED_FULLY") %}
                 <a href="{{ path('fos_user_security_logout') }}"><i class="glyphicon glyphicon-log-out"></i>Déconnexion</a>

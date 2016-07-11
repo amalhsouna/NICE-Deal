@@ -105,4 +105,18 @@ class ProductsRepository extends EntityRepository
 
         return $queryBuilder;  
     }
+    
+    /**
+     * Finds Partenary by id.
+     * 
+     * @param $city The city of product
+     * 
+     * @return array
+     */
+    public function findProductByCity($city)
+    {
+        $productsByCity = $this->findByPlace($city);
+
+        return $productsByCity;
+    }
 }

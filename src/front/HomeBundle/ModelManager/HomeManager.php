@@ -24,6 +24,7 @@ class HomeManager
         $this->doctrine = $doctrine;
         $this->entityManagerEcommerce = $doctrine->getManager();
         $this->subCategoryRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:SubCategory');
+        $this->productsRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Products');
     }
     
     /**
@@ -33,5 +34,14 @@ class HomeManager
     public function getCategory()
     {
         return $this->subCategoryRepository->findCategory();
+    }
+    
+    /**
+     * return list of category and subCategory
+     * 
+     */
+    public function getProductByCity($city)
+    {
+        return $this->productsRepository->findProductByCity($city);
     }
 }

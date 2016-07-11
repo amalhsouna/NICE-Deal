@@ -154,7 +154,7 @@ class ProductsController extends Controller
     {
        $listProducts = $this->get('back_product.manager.products');
        $pastDeal = $listProducts->getProductsByEndDate();
-       return $this->render('frontHomeBundle:Home:pastDeal.html.twig' , array('pastDeal' => $pastDeal));  
+       return $this->render('frontHomeBundle:Home:listDeal.html.twig' , array('deal' => $pastDeal));  
     }
     
     /**
