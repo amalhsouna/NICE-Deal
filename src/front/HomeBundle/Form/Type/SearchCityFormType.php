@@ -27,7 +27,9 @@ class SearchCityFormType extends AbstractType
     {
         $builder->add('city', 'choice', array(
                     'choices' => array('tunis' => 'Tunis', 'nabel' => 'Nabel'),
-                    'required' => false, ));
+                    'required'    => false,
+                    'placeholder' => 'Choix ville',
+                    'empty_data'  => null ));
     }
 
     /**

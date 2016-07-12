@@ -47,16 +47,14 @@
         <div id="search-panier">
              {# {% render(controller('frontHomeBundle:Pannier:pannierCustomer')) %}#}
             <div class="navbar-collapse collapse right" id="basket-overview">
-                     {% render(controller('frontHomeBundle:Pannier:topPannier')) %}
-                    
+                {% render(controller('frontHomeBundle:Pannier:topPannier')) %}
             </div>
         <!--/.nav-collapse -->
-
+ 
             <div class="navbar-collapse collapse right">
-                    <button type="button" class="btn navbar-btn btn-default" data-toggle="collapse" data-target="#search">
-                        <span class="sr-only">Toggle search</span>
-                        <i class="fa fa-search"></i>
-                    </button>
+            <!--block search--->
+                {% render(controller('frontHomeBundle:Home:search')) %}
+             <!--end search-->
             </div>
 
             <div class="collapse clearfix" id="search">

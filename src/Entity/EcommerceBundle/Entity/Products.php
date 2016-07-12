@@ -72,10 +72,10 @@ class Products
      */
     private $place;
     
-    /**
-     * @var 
+    /** 
      * 
-     * @ORM\OneToMany(targetEntity="Entity\EcommerceBundle\Entity\Images", mappedBy="product", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Images", cascade={"persist"})
+     * @ORM\JoinTable(name="img_id",name="id")
      */
     private $image;
     
@@ -287,13 +287,13 @@ class Products
     {
         return $this->partenary;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->image = new ArrayCollection();
-    }
+//    /**
+//     * Constructor
+//     */
+//    public function __construct()
+//    {
+//        $this->image = new ArrayCollection();
+//    }
 
 
     /**
@@ -318,5 +318,19 @@ class Products
     public function getEndDate()
     {
         return $this->endDate;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Entity\EcommerceBundle\Entity\Images $image
+     *
+     * @return Products
+     */
+    public function setImage(\Entity\EcommerceBundle\Entity\Images $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
     }
 }

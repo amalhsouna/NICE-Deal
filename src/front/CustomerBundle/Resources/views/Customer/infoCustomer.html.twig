@@ -12,7 +12,7 @@
     <p><strong>E-Mail / Identifiant </strong>{{ user.email }}</p>
     <p><strong>Téléphone </strong>{{ user.email }}</p>
     <p><strong>Adresse </strong> {{ infoCustomer.address }}</p>
-    <div class="more_link"><a href="{{path('front_customer_update_coordonner_page' , { 'id': infoCustomer.id }) }}">Modifier mes coordonnées</a></div>
+    <div class="more_link"><a href="{{path('front_customer_update_coordonner_page' , { 'id': user.id }) }}">Modifier mes coordonnées</a></div>
 </div><!--end-coordonnees-->
  {% include '::includesFront/footer.html.twig' %}
 

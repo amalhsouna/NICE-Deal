@@ -46,12 +46,12 @@ class Images
      */
     private $file;
     
-    /**
-     *  @ORM\ManyToOne(targetEntity="Products",inversedBy="image", cascade={"remove", "persist"})
-     *
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     */
-    private $product;
+//    /**
+//     *  @ORM\OneToOne(targetEntity="Products",inversedBy="image", cascade={"remove", "persist"})
+//     *
+//     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+//     */
+//    private $product;
 
     /**
      * Get id.
@@ -179,20 +179,20 @@ class Images
       }
 
 //      // On déplace le fichier envoyé dans le répertoire de notre choix
-//      $this->file->move(
-//      $this->getUploadRootDir(), // Le répertoire de destination
-//      $this->id.'.'.$this->url   // Le nom du fichier à créer, ici « id.extension »
-//       
-//      );
+      $this->file->move(
+      $this->getUploadRootDir(), // Le répertoire de destination
+      $this->id.'.'.$this->url   // Le nom du fichier à créer, ici « id.extension »
+       
+      );
       
-    foreach($this->files as $file)
-    {
-        $url = sha1(uniqid(mt_rand(), true)).'.'.$file->guessExtension();
-        array_push ($this->url, $url);
-        $file->move($this->getUploadRootDir(), $url);
-
-        unset($file);
-    }
+//    foreach($this->files as $file)
+//    {
+//        $url = sha1(uniqid(mt_rand(), true)).'.'.$file->guessExtension();
+//        array_push ($this->url, $url);
+//        $file->move($this->getUploadRootDir(), $url);
+//
+//        unset($file);
+//    }
     }
     
     /**
@@ -228,27 +228,27 @@ class Images
       return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
 
-    /**
-     * Set product
-     *
-     * @param \Entity\EcommerceBundle\Entity\Products $product
-     *
-     * @return Images
-     */
-    public function setProduct(\Entity\EcommerceBundle\Entity\Products $product = null)
-    {
-        $this->product = $product;
-
-        return $this;
-    }
-
-    /**
-     * Get product
-     *
-     * @return \Entity\EcommerceBundle\Entity\Products
-     */
-    public function getProduct()
-    {
-        return $this->product;
-    }
+//    /**
+//     * Set product
+//     *
+//     * @param \Entity\EcommerceBundle\Entity\Products $product
+//     *
+//     * @return Images
+//     */
+//    public function setProduct(\Entity\EcommerceBundle\Entity\Products $product = null)
+//    {
+//        $this->product = $product;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get product
+//     *
+//     * @return \Entity\EcommerceBundle\Entity\Products
+//     */
+//    public function getProduct()
+//    {
+//        return $this->product;
+//    }
 }

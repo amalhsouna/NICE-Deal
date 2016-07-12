@@ -810,5 +810,17 @@ a.navbar-brand.home img {
 .titleMenu:hover{
     text-decoration: none;
 }
+/*********search***********/
+.form-search label{
+   display: none; 
+}
+.form-search select{
+    background: url('../img/city.png') 5px no-repeat;
+    font-size: 17px;
+    height: 42px;
+    border: 1px solid #ccc;
+    width: 176px!important;
+    padding-left: 25px;
+}
 
     

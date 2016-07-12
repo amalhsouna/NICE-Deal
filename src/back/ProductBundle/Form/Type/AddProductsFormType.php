@@ -84,14 +84,22 @@ class AddProductsFormType extends AbstractType
                 ->add('price', 'integer')
                 ->add('oldPrice', 'integer')
                 ->add('description', 'ckeditor')
-                ->add('creationDate', 'date')
-                ->add('endDate', 'date')
+                ->add('creationDate', 'date', array(
+                        'widget' => 'single_text',
+                        'input' => 'datetime',
+                        'format' => 'yyyy-MM-dd',
+                        'attr' => array('class' => 'date'),))
+                ->add('endDate', 'date', array(
+                        'widget' => 'single_text',
+                        'input' => 'datetime',
+                        'format' => 'yyyy-MM-dd',
+                        'attr' => array('class' => 'date'),))
                 ->add('place', 'choice', array(
                 'choices' => array('tunis' => 'Grand tunis', 'nabeul' => 'Nabeul'),
                 'preferred_choices' => array('tunis'),))
-                ->add('image', 'collection', array('type' => $this->imagesFormType, 'allow_add' => true))
+                ->add('image',  $this->imagesFormType)
                 ->add('category', 'entity', array('class' => 'Entity\EcommerceBundle\Entity\Category', 'property' => 'name'  ))
-                ->add('partenary', $this->partenaryFormType)
+                ->add('partenary', 'entity', array('class' => 'Entity\EcommerceBundle\Entity\Partenary', 'property' => 'name'  ))
                 ->add('save', 'submit', array('label' => 'Ajouter', 'attr' => array('class' => 'btn btn-primary')));
     }
    
@@ -102,13 +110,21 @@ class AddProductsFormType extends AbstractType
        * 
        * @return void
        */
-      public function setDefaultOptions(OptionsResolverInterface $resolver)
-      {
-          $resolver->setDefaults(array('data_class' => $this->class,
-              'csrf_protection'    => false,
-              'cascade_validation' => true)
-          );
-      }
+      /**
+     * Sets options as model for current form type.
+     * 
+     * @param OptionsResolverInterface $resolver The resolver instance.
+     * 
+     * @return void
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array('data_class' => $this->class,
+            'csrf_protection'    => false,
+            'cascade_validation' => true)
+        );
+    }
+    
     /**
      * Returns the name of the form type.
      * 
