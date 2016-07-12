@@ -6,12 +6,17 @@
     <div class="col-md-6">
     <h3>Formulaire d'ajout produit <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h3>
     <div class="box"  style="padding: 10px">
+        {% if message %}
+            <div class="alert alert-success">
+                <strong><span class="glyphicon glyphicon-thumbs-up">Success!</span></strong> {{ message }}
+            </div>
+        {% endif %}
       <form method="post" enctype="multipart/form-data">
             {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
             {{ form_errors(form) }}
             <div class="box-body">
                 <div class="form-group">
-                    {{ form_label(form.name,"Nom") }}
+                    {{ form_label(form.name,"Titre") }}
                     {{ form_errors(form.name) }}
                     {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
                 </div>
@@ -25,6 +30,11 @@
                     {{ form_errors(form.oldPrice) }}
                     {{ form_widget(form.oldPrice, {'attr': {'class': 'form-control'}}) }}
                 </div>
+               <div class="form-group">
+                    {{ form_label(form.place,"Ville") }}
+                    {{ form_errors(form.place) }}
+                    {{ form_widget(form.place, {'attr': {'class': 'form-control'}}) }}
+                </div>
                 <div class="form-group">
                     {{ form_label(form.description,"Description") }}
                     {{ form_errors(form.description) }}
@@ -34,6 +44,11 @@
                     {{ form_label(form.creationDate,"Date de création") }}
                     {{ form_errors(form.creationDate) }}
                     {{ form_widget(form.creationDate, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group date">
+                    {{ form_label(form.endDate,"Date de fin") }}
+                    {{ form_errors(form.endDate) }}
+                    {{ form_widget(form.endDate, {'attr': {'class': 'form-control'}}) }}
                 </div>
                <div class="form-group image">
                     {{ form_label(form.image,"Image") }}
@@ -48,32 +63,10 @@
                 </div>
                 
                 <div class="form-group">
-                    {{ form_label(form.place,"Lieu") }}
-                    {{ form_errors(form.place) }}
-                    {{ form_widget(form.place, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_label(form.partenary) }}
+                    {{ form_errors(form.partenary) }}
+                    {{ form_widget(form.partenary, {'attr': {'class': 'form-control '}}) }}
                 </div>
-                <div class="form-group">
-                    {{ form_label(form.partenary.adresse,"Adresse") }}
-                    {{ form_errors(form.partenary.adresse) }}
-                    {{ form_widget(form.partenary.adresse, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="form-group">
-                    {{ form_label(form.partenary.telephone,"Télephone") }}
-                    {{ form_errors(form.partenary.telephone) }}
-                    {{ form_widget(form.partenary.telephone, {'attr': {'class': 'form-control '}}) }}
-                </div>
-                <div class="form-group">
-                    {{ form_label(form.partenary.map,"Map") }}
-                    {{ form_errors(form.partenary.map) }}
-                    {{ form_widget(form.partenary.map, {'attr': {'class': 'form-control '}}) }}
-                </div>
-                <div class="form-group">
-                    {{ form_label(form.partenary.additionalInformation,"Information supplémentaire") }}
-                    {{ form_errors(form.partenary.additionalInformation) }}
-                    {{ form_widget(form.partenary.additionalInformation, {'attr': {'class': 'form-control '}}) }}
-                </div>
-                
-                
                 {{ form_end(form) }}
             </div>
             

@@ -18,7 +18,9 @@ class ProductsController extends Controller
 {
     /**
      * Return a list of products.
-     *
+     * 
+     * @param Request $request The request query.
+     * 
      * @return Response
      */
     public function getProductsAction(Request $request)
@@ -37,22 +39,24 @@ class ProductsController extends Controller
     /**
      * Add products.
      *
-     * @var Request $request The current http request.
+     * @param Request $request The current http request.
      * 
      * @return Response
      */
     public function postProductsAction(Request $request)
     {
+       $message='';
        $form        = $this->get('back_product.products.form');
        $formHandler = $this->get('back_product.handler.add.products');
         
        $processForm = $formHandler->process($request); 
         if ($processForm === true)
         {
-            $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
+            $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message'); 
+            $message='Ajout effectuée avec succée';
         }
         
-        return $this->render('backProductBundle:Products:addProducts.html.twig' , array('form' => $form->createView()));    
+        return $this->render('backProductBundle:Products:addProducts.html.twig' , array('form' => $form->createView(), 'message' => $message));    
     }
     
     /**
@@ -82,6 +86,8 @@ class ProductsController extends Controller
     /**
      * Return Details of products.
      *
+     * @param  $id The product identifier.
+     * 
      * @return Response
      */
     public function getDetailsProductsAdminAction($id)
@@ -93,6 +99,8 @@ class ProductsController extends Controller
     
     /**
      * delete product
+     * 
+     * @param  $id The product identifier.
      * 
      * @return true
      */
@@ -129,7 +137,9 @@ class ProductsController extends Controller
     
     /**
      * Return a list of partenary.
-     *
+     * 
+     * @var Request $request The current http request.
+     * 
      * @return Response
      */
     public function getListPartenaryAction(Request $request)

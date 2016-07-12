@@ -1,6 +1,13 @@
-<form action="{{path('front_home_list_products_by_city')}}" method="POST" class="navbar-form form-search pull-right">
-     {{ form_widget(form) }}
-    <button type="submit" class="btn">Rechercher</button>
+<form action="{{path('front_home_list_products_by_city')}}" method="POST" class="form-search">
+     {{ form_start(form) }}
+     {{ form_errors(form) }} 
+        <div class="form-group">
+            {{ form_label(form.city,"Ville") }}
+            {{ form_errors(form.city) }}
+            {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+         </div>
+    <button type="submit" class="btn glyphicon glyphicon-searchRechercher"></button>
+    {{ form_end(form) }}
 </form>
 
 

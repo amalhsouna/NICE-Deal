@@ -1306,8 +1306,9 @@ a:focus {
 .form-group.category{
     margin-top: 20px;
 }
-.form-group.date .form-control{
-    border:none;
+
+.form-group #create_products_image label{
+    display: none;
 }
 /* Input group */
 .input-group .input-group-addon {
