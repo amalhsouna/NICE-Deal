@@ -26,7 +26,7 @@
             {% render(controller('frontHomeBundle:Home:menuHomePage')) %}
             <!--end nav-->
             <!--block search--->
-            {% render(controller('frontHomeBundle:Home:searchByCity')) %}
+            {% render(controller('frontHomeBundle:Home:search')) %}
            <!--end search-->
             <div id="connexion_bloc">
             {% if is_granted("IS_AUTHENTICATED_FULLY") %}
