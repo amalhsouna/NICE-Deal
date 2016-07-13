@@ -80,7 +80,7 @@ class Products
     private $image;
     
     /**
-     * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", cascade={"persist"})
      * @ORM\JoinTable(name="categ_id",name="id")
      */
     private $category;

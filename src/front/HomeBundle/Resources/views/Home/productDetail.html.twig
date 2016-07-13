@@ -32,12 +32,11 @@
     <div style="width: 400px; margin: 0px auto;">
      {% for product in products %}
     <div id="myCarouselBig" class="carousel slide products">
-        {% for image in product.image %}
         <div class="carousel-inner">
             <div class="item active">
                 <div class="col-xs-12">
-                        {% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                        {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}
@@ -45,37 +44,37 @@
             </div>
             <div class="item">
                 <div class="col-xs-12">
-                        {% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                        {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}
                 </div>
             </div>
             <div class="item">
-                <div class="col-xs-12"><a href="#">{% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                <div class="col-xs-12"><a href="#">{% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}</a></div>
             </div>
             <div class="item">
-                <div class="col-xs-12"><a href="#">{% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                <div class="col-xs-12"><a href="#">{% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}</a></div>
             </div>
             <div class="item">
-                <div class="col-xs-12"><a href="#">{% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                <div class="col-xs-12"><a href="#">{% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}</a></div>
             </div>
             <div class="item">
-                <div class="col-xs-12"><a href="#">{% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                <div class="col-xs-12"><a href="#">{% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}</a></div>
@@ -98,8 +97,8 @@
             <div class="item active">
                 <div class="col-xs-3" style="width: 20%;">
                     <a href="#">
-                        {% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                        {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}
@@ -107,30 +106,30 @@
                 </div>
             </div>
             <div class="item">
-                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}</a></div>
             </div>
             <div class="item">
-                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}</a></div>
             </div>
             <div class="item">
-                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}</a></div>
             </div>
             <div class="item">
                 <div class="col-xs-3" style="width: 20%;">
-                    <a href="#"> {% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                    <a href="#"> {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}
@@ -138,14 +137,14 @@
                 </div>
             </div>
             <div class="item">
-                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (image) %}
-                            <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive">
+                <div class="col-xs-3" style="width: 20%;"><a href="#"> {% if (product.image) %}
+                            <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive">
                         {% else %}
                             <img src="http://placehold.it/360x240" alt="">
                         {% endif %}</a></div>
             </div>
         </div>
-        {%endfor%}<!---for image-->
+        
     </div>
 
     </div>
@@ -157,6 +156,7 @@
                         <div class="sizes">
                         </div>
                         <p class="price">{{product.price}}.00<sup>DT</sup></p>
+                        <p class="price">Au lieu de {{product.oldPrice}}.00<sup>DT</sup></p>
                         <p class="text-center">
                             <a href='{{path('front_customer_add_pannier_page', { 'id': product.id }) }}' class="btn btn-primary"><i class="fa fa-shopping-cart"></i> J'achete</a>
                             <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i></button>
@@ -202,7 +202,6 @@
                    <p><em>{{product.partenary.additionalInformation}}</em></p>
                 </blockquote>
     </div> 
-                    {% endfor %}<!--end for-->
                     <div class="box social" id="product-social">
                         <h4>Partagez avec vous amis</h4>
                         <p>
@@ -222,9 +221,9 @@
 
                         <div class="col-md-3 col-sm-6">
                             <div class="product">
-                                <div class="image">
+                                <div class="product.image">
                                     <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product2.jpg")}}" alt="" class="img-responsive image1">
+                                        <img src="{{asset("bundles/frontBundle/img/product2.jpg")}}" alt="" class="img-responsive product.image1">
                                     </a>
                                 </div>
                                 <div class="text">
@@ -238,9 +237,9 @@
 
                         <div class="col-md-3 col-sm-6">
                             <div class="product">
-                                <div class="image">
+                                <div class="product.image">
                                     <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product3.jpg")}}" alt="" class="img-responsive image1">
+                                        <img src="{{asset("bundles/frontBundle/img/product3.jpg")}}" alt="" class="img-responsive product.image1">
                                     </a>
                                 </div>
                                 <div class="text">
@@ -253,9 +252,9 @@
 
                         <div class="col-md-3 col-sm-6">
                             <div class="product">
-                                <div class="image">
+                                <div class="product.image">
                                     <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product1.jpg")}}" alt="" class="img-responsive image1">
+                                        <img src="{{asset("bundles/frontBundle/img/product1.jpg")}}" alt="" class="img-responsive product.image1">
                                     </a>
                                 </div>
                                 <div class="text">
@@ -278,9 +277,9 @@
 
                         <div class="col-md-3 col-sm-6">
                             <div class="product">
-                                <div class="image">
+                                <div class="product.image">
                                     <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product3.jpg")}}" alt="" class="img-responsive image1">
+                                        <img src="{{asset("bundles/frontBundle/img/product3.jpg")}}" alt="" class="img-responsive product.image1">
                                     </a>
                                 </div>
                                 <div class="text">
@@ -293,9 +292,9 @@
 
                         <div class="col-md-3 col-sm-6">
                             <div class="product">
-                                <div class="image">
+                                <div class="product.image">
                                     <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product1.jpg")}}" alt="" class="img-responsive image1">
+                                        <img src="{{asset("bundles/frontBundle/img/product1.jpg")}}" alt="" class="img-responsive product.image1">
                                     </a>
                                 </div>
                                 <div class="text">
@@ -309,9 +308,9 @@
 
                         <div class="col-md-3 col-sm-6">
                             <div class="product">
-                                <div class="image">
+                                <div class="product.image">
                                     <a href="#">
-                                        <img src="{{asset("bundles/frontBundle/img/product2.jpg")}}" alt="" class="img-responsive image1">
+                                        <img src="{{asset("bundles/frontBundle/img/product2.jpg")}}" alt="" class="img-responsive product.image1">
                                     </a>
                                 </div>
                                 <div class="text">
@@ -328,6 +327,7 @@
                             
 
                 </div>
+                {%endfor%}<!---for product.image-->
                 <!-- /.col-md-9 -->
                 <!-- *** LEFT COLUMN END *** -->
 
@@ -370,8 +370,8 @@
         #myCarousel .carousel-inner .active.right { left: 20%;              }
         #myCarousel .carousel-inner .next         { left: 20%               }
         #myCarousel .carousel-inner .prev         { left: -20%              }
-        #myCarousel .carousel-control.left        { background-image: none; }
-        #myCarousel .carousel-control.right       { background-image: none; }
+        #myCarousel .carousel-control.left        { background-product.image: none; }
+        #myCarousel .carousel-control.right       { background-product.image: none; }
         #myCarousel .carousel-inner .item         { background: white;      }
          </style>
         {% endblock %}

@@ -109,13 +109,11 @@
                             <div class="product">
                                 <div class="image">
                                     <a href="detail.html">
-                                    {% for image in product.image %}
-                                    {% if (image) %}
-                                        <img src="{{ asset('uploads/img/'~image.url) }}" alt="" class="img-responsive image1">
+                                    {% if (product.image) %}
+                                        <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive image1">
                                     {% else %}
                                         <img src="http://placehold.it/360x240" alt="">
                                     {% endif %}
-                                    {%endfor%}
                                     </a>
                                 </div><!-- /.image -->
                                 <div class="text">
