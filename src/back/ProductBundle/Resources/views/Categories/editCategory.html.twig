@@ -4,13 +4,13 @@
     {% include '::includes/topColumn.html.twig' %}
     {% include '::includes/leftColumn.html.twig' %}
     <div class="col-md-6">
-    <h3>Formulaire d'ajout catégorie <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h3>
+    <h3>Formulaire de modification catégorie <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h3>
     <div class="box"  style="padding: 10px">
-      {% if message %}
-        <div class="alert alert-success">
-            <strong><span class="glyphicon glyphicon-thumbs-up">Success!</span></strong> {{ message }}
-        </div>
-      {% endif %}
+        {% if message %}
+            <div class="alert alert-success">
+                <strong>Success!</strong> {{ message }}
+            </div>
+        {% endif %}
       <form method="post" enctype="multipart/form-data">
             {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
             {{ form_errors(form) }}

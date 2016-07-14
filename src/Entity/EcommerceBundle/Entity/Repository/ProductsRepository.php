@@ -55,7 +55,7 @@ class ProductsRepository extends EntityRepository
      */
     public function findProductsById($id)
     {
-        $products = $this->findById($id);
+        $products = $this->findOneById($id);
 
         return $products;
     }

@@ -823,11 +823,23 @@ a.navbar-brand.home img {
 }
 .form-search select{
     background: url('../img/city.png') 5px no-repeat;
-    font-size: 17px;
+    font-size: 15px;
     height: 42px;
     border: 1px solid #ccc;
-    width: 176px!important;
+    width: 150px!important;
     padding-left: 25px;
 }
 
-    
+.form-search button{
+    background: none;
+}
+.form-search button span{
+    font-size: 20px;
+}
+.form-search .form-group{
+    display: inline-block;
+    margin-bottom:0px;
+}
+.navbar-collapse.collapse.left{
+    margin-top: 20px;
+}   

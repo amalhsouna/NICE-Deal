@@ -13,15 +13,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormInterface;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 
-use back\ProductBundle\ModelManager\ProductManager;
+use back\ProductBundle\ModelManager\CategoryManager;
 
 /**
- * Update Partenary form handler.
+ * Add Category form handler.
  * 
  * @package backProductBundle
  * @author  Amal Hsouna
  */
-class UpdatePartenaryFormHandler
+class UpdateCategoryFormHandler
 {
 
     /**
@@ -30,28 +30,26 @@ class UpdatePartenaryFormHandler
     protected $form;
     
     /**
-     * @var ProductManager
+     * @var CategoryManager
      */
-    protected $productManager;
+    protected $categoryManager;
 
     /**
      * Constructor class.
      * 
      * @param Registry           $doctrine  The doctrine.
      * @param FormInterface      $form  The form interface.
-     * @param ProductManger      $productManger  The Product Manger.
+     * @param CategoryManager    $categoryManager  The Category Manger.
      */
-    public function __construct(FormInterface $form, ProductManager $productManger)
+    public function __construct(FormInterface $form, CategoryManager $categoryManager)
     {   
         $this->form = $form;
-        $this->productManger = $productManger;
-       
+        $this->categoryManager = $categoryManager;
     }
 
     /**
      * The process function for handler.
      * 
-     * @param integer $id The identifier.
      * @param Request $request The current request.
      * 
      * @return $response
@@ -59,19 +57,21 @@ class UpdatePartenaryFormHandler
     public function process($id, Request $request)
     {
         $process  = false;
-        $partenary = $this->productManger->getDetailPartenary($id);
-        $this->form->setData($partenary);
+        
+        $category = $this->categoryManager->getDetailCategory($id);
+                
+        $this->form->setData($category);
+        
         if ('POST' == $request->getMethod())
         {
             $this->form->handleRequest($request);
             if ($this->form->isValid())
             {
-                 $this->productManger->saveProducts($partenary);
-                  return $process = true;
-                
+                $this->categoryManager->postCategoryDeals($category);
+                return $process = true;
             }
         }
-        return $this->form->setData($partenary);
+        return $process;
          
     }
 

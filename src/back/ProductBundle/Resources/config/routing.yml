@@ -24,6 +24,11 @@ back_category_admin_add_category:
     path:     /ajouter-category
     defaults: { _controller: backProductBundle:Category:postCategory }
     
+#Update category by admin
+back_category_admin_update_category:
+    path:     /modifier-category/{id}
+    defaults: { _controller: backProductBundle:Category:putCategory }
+    
 #delete category by admin
 back_category_admin_delete_category:
     path:     /espace-admin/{id}/category

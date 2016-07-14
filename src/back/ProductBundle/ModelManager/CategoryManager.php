@@ -68,5 +68,16 @@ class CategoryManager
     {
        return $this->subCategoryRepository->saveSubCategory($subCategory);
     }
+    
+    /**
+     * return detail of partenary
+     * 
+     * @param int $id The partenary identifier
+     * 
+     */
+    public function getDetailCategory($id)
+    {
+        return $this->categoryRepository->findOneById($id);
+    }
    
 }
