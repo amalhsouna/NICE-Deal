@@ -20,10 +20,18 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
-    
+
+# liste user
 fos_user_list_user:
     path:     /liste-utilisateur
     defaults: { _controller: backAdminBundle:User:getListUsers }
+    requirements:
+       _method: GET
+
+# liste nbre of customer
+fos_user_nbre_cusotmer:
+    path:     /testtt
+    defaults: { _controller: backAdminBundle:User:getNbrUsersConnect }
     requirements:
        _method: GET
 

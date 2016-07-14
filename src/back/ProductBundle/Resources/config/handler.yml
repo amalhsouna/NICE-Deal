@@ -16,17 +16,17 @@ parameters:
     back_product.sub.category.form.type.class: back\ProductBundle\Form\Type\AddSubCategoryFormType
     back_product.sub.category.form_data_class: Entity\EcommerceBundle\Entity\SubCategory
     
-    back_product.update.partenary.form.type.class: back\ProductBundle\Form\Type\UpdatePartenaryFormType
-    
     back_product.ckeditor.form.type.class: back\ProductBundle\Form\Type\CkeditorFormType
     
     #handler
     back_product.add.handler.client.class: back\ProductBundle\Form\Handler\AddProductsFormHandler
     back_product.update.handler.client.class: back\ProductBundle\Form\Handler\UpdateProductsFormHandler
     back_product.add.category.handler.client.class: back\ProductBundle\Form\Handler\AddCategoryFormHandler
+    back_product.update.category.handler.client.class: back\ProductBundle\Form\Handler\UpdateCategoryFormHandler
     back_product.add.partenary.handler.client.class: back\ProductBundle\Form\Handler\AddPartenaryFormHandler
     back_product.update.partenary.handler.client.class: back\ProductBundle\Form\Handler\UpdatePartenaryFormHandler
     back_product.add.sub.category.handler.client.class: back\ProductBundle\Form\Handler\AddSubCategoryFormHandler
+    
     
 services:
     #tags
@@ -56,10 +56,7 @@ services:
     back_product.sub.category.form.type:
         class: %back_product.sub.category.form.type.class%
         arguments: [%back_product.sub.category.form_data_class%]
-        
-    back_product.update.partenary.form.type:
-        class: %back_product.update.partenary.form.type.class%
-        arguments: [%back_product.partenary.form_data_class%]
+
            
     back_product.products.form.type:
         class: %back_product.products.form.type.class%
@@ -101,6 +98,11 @@ services:
     back_product.handler.add.category:
         class: %back_product.add.category.handler.client.class%
         arguments: ["@back_product.category.form", "@back_product.manager.category"]  
+    
+    #update category form type
+    back_product.handler.update.category:
+        class: %back_product.update.category.handler.client.class%
+        arguments: ["@back_product.category.form", "@back_product.manager.category"]  
         
     #add and update partenary
     back_product.partenary.form:
@@ -111,15 +113,6 @@ services:
             - ~
             - "@back_product.partenary.form.type"
             
-    #update partenary
-    back_product.update.partenary.form:
-        class: %back_product.update.partenary.form.type.class%
-        factory_service: form.factory
-        factory_method: createNamed
-        arguments:
-            - ~
-            - "@back_product.update.partenary.form.type"
-            - ~
             
     back_product.handler.add.partenary:
         class: %back_product.add.partenary.handler.client.class%

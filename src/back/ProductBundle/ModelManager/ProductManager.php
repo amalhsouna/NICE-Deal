@@ -51,7 +51,7 @@ class ProductManager
      */
     public function getProductsById($id)
     {
-        return $this->productRepository->findProductsById($id);
+        return $this->productRepository->findOneById($id);
     }
     
     /**
@@ -108,7 +108,7 @@ class ProductManager
      */
     public function getDetailPartenary($id)
     {
-        return $this->partenaryRepository->findPartenaryById($id);
+        return $this->partenaryRepository->findOneById($id);
     }
     
     /**
