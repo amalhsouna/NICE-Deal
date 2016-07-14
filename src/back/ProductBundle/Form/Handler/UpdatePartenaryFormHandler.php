@@ -59,15 +59,14 @@ class UpdatePartenaryFormHandler
     public function process($id, Request $request)
     {
         $partenary = $this->productManger->getDetailPartenary($id);
-        
         $this->form->setData($partenary);
-        if ('PUT' == $request->getMethod())
+        if ('POST' == $request->getMethod())
         {
             $this->form->handleRequest($request);
             if ($this->form->isValid())
             {
                  $this->productManger->saveProducts($partenary);
-                 return true;
+                  return $process = true;
                 
             }
         }

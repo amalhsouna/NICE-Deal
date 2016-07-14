@@ -201,7 +201,12 @@
                 <blockquote>
                    <p><em>{{product.partenary.additionalInformation}}</em></p>
                 </blockquote>
+                <h4>Où se situe le partenaire?</h4>
+                <div id="map">
+
+                </div>        
     </div> 
+                
                     <div class="box social" id="product-social">
                         <h4>Partagez avec vous amis</h4>
                         <p>
@@ -264,9 +269,9 @@
                             </div>
                             <!-- /.product -->
                         </div>
-
+                        
                     </div>
-
+                       
                     <div class="row">
                         <div class="col-md-3 col-sm-6">
                             <div class="box">
@@ -321,10 +326,7 @@
                             </div>
                             <!-- /.product -->
                         </div>
-
                     </div>
-                           
-                            
 
                 </div>
                 {%endfor%}<!---for product.image-->
@@ -356,7 +358,27 @@
                        size : "lg"
                  });
             });
+             function initialize() {
+                var mapOptions = {
+                    zoom: 15,
+                    center: new google.maps.LatLng({{products[0].partenary.map}}, 10.150280),
+                    mapTypeId: google.maps.MapTypeId.ROAD,
+                    scrollwheel: false
+                }
+                var map = new google.maps.Map(document.getElementById('map'),
+                    mapOptions);
+
+                var myLatLng = new google.maps.LatLng({{products[0].partenary.map}}, 10.150280);
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map
+                });
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
         </script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+     
         {% endblock %}
        
         {% block stylesheets %}

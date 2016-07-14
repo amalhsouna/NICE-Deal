@@ -203,6 +203,13 @@ body{padding-top:100px}body.no-padding{padding-top:0}a,button{-webkit-transition
     .detail-box .btn-primary i{
         font-size: 18px;
     }
+    .detail-box .oldPrice{
+        font-size: 27px;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #3cbdb1;
+        font-weight: 800;
+    }
     /***profils***/
     #my-account ul.myaccount-link-list li {
         overflow: hidden;

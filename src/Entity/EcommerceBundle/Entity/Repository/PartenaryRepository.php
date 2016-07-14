@@ -55,7 +55,7 @@ class PartenaryRepository extends EntityRepository
      */
     public function findPartenaryById($id)
     {
-        $products = $this->findById($id);
+        $products = $this->findOneById(array('id' => $id));
 
         return $products;
     }

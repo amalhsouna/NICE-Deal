@@ -37,16 +37,18 @@ class CategoryController extends Controller
      */
     public function postCategoryAction(Request $request)
     {
+       $message='';
        $form        = $this->get('back_product.category.form');
        $formHandler = $this->get('back_product.handler.add.category');
         
        $processForm = $formHandler->process($request); 
         if ($processForm === true)
         {
-            $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
+            $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message'); 
+            $message='Ajout effectuée avec succée';
         }
         
-        return $this->render('backProductBundle:Products:addCategory.html.twig' , array('form' => $form->createView()));    
+        return $this->render('backProductBundle:Products:addCategory.html.twig' , array('form' => $form->createView(), 'message' => $message));    
     }
        
     /**

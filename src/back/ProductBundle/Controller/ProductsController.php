@@ -188,6 +188,7 @@ class ProductsController extends Controller
      */
     public function updatePartenaryAdminAction($id, Request $request)
     {
+       $message = "";
        $form        = $this->get('back_product.update.partenary.form');
        $formHandler = $this->get('back_product.handler.update.partenary');
         
@@ -197,9 +198,8 @@ class ProductsController extends Controller
             $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');  
         }
         
-        return $this->render('backProductBundle:Products:editProducts.html.twig' , array(
+        return $this->render('backProductBundle:Products:edditPartenary.html.twig' , array('message' => $message,
         'form' => $form->createView(),
-         'id' => $id
         ));    
     }
     

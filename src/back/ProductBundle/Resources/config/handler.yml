@@ -35,7 +35,7 @@ services:
         tags:
             - { name: form.type, alias: ckeditor }
             
-    #add and update products
+    #add products
     back_product.products.form:
         class: %back_product.products.form.class%
         factory_service: form.factory
@@ -58,8 +58,10 @@ services:
         arguments: [%back_product.sub.category.form_data_class%]
         
     back_product.update.partenary.form.type:
-        class: %back_product.update.partenary.form.type.class%
-        arguments: [%back_product.partenary.form_data_class%]
+        class: %back_product.partenary.form.type.class%
+        arguments: 
+             - %back_product.partenary.form_data_class%
+             - "PUT"
            
     back_product.products.form.type:
         class: %back_product.products.form.type.class%

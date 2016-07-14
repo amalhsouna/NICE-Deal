@@ -44,7 +44,6 @@ class AddProductsFormHandler
     {   
         $this->form = $form;
         $this->productManager = $productManager;
-       
     }
 
     /**
@@ -67,7 +66,7 @@ class AddProductsFormHandler
             if ($this->form->isValid())
             {
                 $this->productManager->postProductsDeals($products);
-                return $process;
+                return $process = true;
             }
         }
         return $process;
