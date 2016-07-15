@@ -19,6 +19,7 @@ class UserManager
         $this->doctrine = $doctrine;
         $this->entityManagerEcommerce = $doctrine->getManager();
         $this->userRepository = $this->entityManagerEcommerce->getRepository('backAdminBundle:User');
+        $this->productRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Products');
     }
 
     /**
@@ -27,5 +28,13 @@ class UserManager
     public function getNbrUserConnect()
     {
         return  $this->userRepository->findUserByDate();
+    }
+    
+    /**
+     * return list of custmer connect.
+     */
+    public function getProductByDate()
+    {
+        return  $this->productRepository->findProductByDate();
     }
 }

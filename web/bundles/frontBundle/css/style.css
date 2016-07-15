@@ -173,6 +173,14 @@ body{padding-top:100px}body.no-padding{padding-top:0}a,button{-webkit-transition
         font-size: 70px;
         font-weight: bold;
         line-height: 70px;
+        text-align: center;
+    }
+    .detail-box .oldPrice{
+        font-size: 27px;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #3cbdb1;
+        font-weight: 800;
     }
     .detail-box #time-product{
         display: block;
@@ -196,20 +204,15 @@ body{padding-top:100px}body.no-padding{padding-top:0}a,button{-webkit-transition
         text-align: center;
         width: 270px;
     }
-    .detail-box #time-product table{
+    .detail-box #time-product table
+    {
        float:right;
        margin-top: 10px;
     }
     .detail-box .btn-primary i{
         font-size: 18px;
     }
-    .detail-box .oldPrice{
-        font-size: 27px;
-        text-align: center;
-        margin-bottom: 40px;
-        color: #3cbdb1;
-        font-weight: 800;
-    }
+    
     /***profils***/
     #my-account ul.myaccount-link-list li {
         overflow: hidden;

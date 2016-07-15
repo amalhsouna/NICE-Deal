@@ -107,7 +107,7 @@ class ProductsRepository extends EntityRepository
     }
     
     /**
-     * Finds Partenary by id.
+     * Finds product by city.
      * 
      * @param $city The city of product
      * 
@@ -118,5 +118,17 @@ class ProductsRepository extends EntityRepository
         $productsByCity = $this->findByPlace($city);
 
         return $productsByCity;
+    }
+    
+    /* Finds product by date.
+     * 
+     * @return array
+     */
+    public function findProductByDate()
+    {   
+       $query = $this->_em->createQuery('SELECT COUNT(p) FROM EntityEcommerceBundle:Products p where p.endDate > =  CURRENT_DATE()');
+       $resultsQuery = $query->getResult();
+
+       return $resultsQuery;   
     }
 }

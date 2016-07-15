@@ -51,7 +51,8 @@ class PartenaryFormType extends AbstractType
         $builder->add('name', 'text')
                 ->add('adresse', 'text')
                 ->add('telephone', 'text')
-                ->add('map', 'text')
+                ->add('mapV1', 'text')
+                ->add('mapV2', 'text')
                 ->add('additionalInformation', 'textarea');
     }
     
