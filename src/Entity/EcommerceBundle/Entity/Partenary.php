@@ -45,11 +45,18 @@ class Partenary
     private $telephone;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="map", type="string", length=255)
+     * @ORM\Column(name="mapV1", type="float")
      */
-    private $map;
+    private $mapV1;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="mapV2", type="float")
+     */
+    private $mapV2;
 
     /**
      * @var string
@@ -143,16 +150,9 @@ class Partenary
         return $this->telephone;
     }
 
-    function getMap() {
-        return $this->map;
-    }
 
     function getAdditionalInformation() {
         return $this->additionalInformation;
-    }
-
-    function setMap($map) {
-        $this->map = $map;
     }
 
     function setAdditionalInformation($additionalInformation) {
@@ -198,5 +198,53 @@ class Partenary
     public function getProduct()
     {
         return $this->product;
+    }
+
+    /**
+     * Set mapV1
+     *
+     * @param integer $mapV1
+     *
+     * @return Partenary
+     */
+    public function setMapV1($mapV1)
+    {
+        $this->mapV1 = $mapV1;
+
+        return $this;
+    }
+
+    /**
+     * Get mapV1
+     *
+     * @return integer
+     */
+    public function getMapV1()
+    {
+        return $this->mapV1;
+    }
+
+    /**
+     * Set mapV2
+     *
+     * @param integer $mapV2
+     *
+     * @return Partenary
+     */
+    public function setMapV2($mapV2)
+    {
+        $this->mapV2 = $mapV2;
+
+        return $this;
+    }
+
+    /**
+     * Get mapV2
+     *
+     * @return integer
+     */
+    public function getMapV2()
+    {
+        return $this->mapV2;
     }
 }

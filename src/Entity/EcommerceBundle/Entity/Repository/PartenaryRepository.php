@@ -29,6 +29,7 @@ class PartenaryRepository extends EntityRepository
      */
     public function savePartenary(Partenary $partenary)
     {
+        var_dump($partenary);exit;
         $entityManager = $this->getEntityManager();
         $entityManager->persist($partenary);
         $entityManager->flush();

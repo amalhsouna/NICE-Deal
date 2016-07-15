@@ -61,7 +61,6 @@ services:
         class: %back_product.partenary.form.type.class%
         arguments: 
              - %back_product.partenary.form_data_class%
-             - "PUT"
            
     back_product.products.form.type:
         class: %back_product.products.form.type.class%
@@ -71,14 +70,6 @@ services:
         class: %back_product.category.form.type.class%
         arguments: 
         - %back_product.category.form_data_class%
-        
-    back_product.handler.add.products:
-        class: %back_product.add.handler.client.class%
-        arguments: ["@back_product.products.form", "@back_product.manager.products"]
-        
-    back_product.handler.update.products:
-        class: %back_product.update.handler.client.class%
-        arguments: ["@back_product.products.form", "@back_product.manager.products"]
     
     #add and update category
     back_product.category.form:
@@ -118,7 +109,14 @@ services:
             - ~
             - "@back_product.partenary.form.type"
             
-            
+    back_product.handler.add.products:
+        class: %back_product.add.handler.client.class%
+        arguments: ["@back_product.products.form", "@back_product.manager.products"]
+        
+    back_product.handler.update.products:
+        class: %back_product.update.handler.client.class%
+        arguments: ["@back_product.products.form", "@back_product.manager.products"]
+        
     back_product.handler.add.partenary:
         class: %back_product.add.partenary.handler.client.class%
         arguments: ["@back_product.partenary.form", "@back_product.manager.products"]  

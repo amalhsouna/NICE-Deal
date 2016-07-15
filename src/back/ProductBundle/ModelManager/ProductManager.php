@@ -112,11 +112,20 @@ class ProductManager
     }
     
     /**
-     * get products by id
+     * get products by category
      * 
      */
     public function getProductsByCategory($category)
     {
         return $this->productRepository->findProductByCategory($category);
+    }
+    
+    /**
+     * get products by id
+     * 
+     */
+    public function getProductsByDate()
+    {
+        return $this->productRepository->findProductByDate();
     }
 }

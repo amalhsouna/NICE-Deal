@@ -120,13 +120,25 @@ class ProductsRepository extends EntityRepository
         return $productsByCity;
     }
     
+    /* Finds count product by date.
+     * 
+     * @return array
+     */
+    public function findCountProductByDate()
+    {   
+       $query = $this->_em->createQuery('SELECT COUNT(p) FROM EntityEcommerceBundle:Products p where p.endDate > =  CURRENT_DATE()');
+       $resultsQuery = $query->getResult();
+
+       return $resultsQuery;   
+    }
+    
     /* Finds product by date.
      * 
      * @return array
      */
     public function findProductByDate()
     {   
-       $query = $this->_em->createQuery('SELECT COUNT(p) FROM EntityEcommerceBundle:Products p where p.endDate > =  CURRENT_DATE()');
+       $query = $this->_em->createQuery('SELECT p FROM EntityEcommerceBundle:Products p where p.endDate > =  CURRENT_DATE()');
        $resultsQuery = $query->getResult();
 
        return $resultsQuery;   

@@ -79,7 +79,26 @@
             
             $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
         });
-         $("form input.date").datepicker();
+        $("form input.date").datepicker();
+        $(document).ready(function () {
+
+        (function ($) {
+
+            $('#filter').keyup(function () {
+
+                var rex = new RegExp($(this).val(), 'i');
+                $('.searchable tr').hide();
+                $('.searchable tr').filter(function () {
+                    return rex.test($(this).text());
+                }).show();
+
+            })
+
+        }(jQuery));
+    
+        $( ".pagination ul" ).addClass( "pagination" );
+
+    });
     </script>
   
 {% endblock %}

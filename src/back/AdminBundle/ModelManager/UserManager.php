@@ -35,6 +35,6 @@ class UserManager
      */
     public function getProductByDate()
     {
-        return  $this->productRepository->findProductByDate();
+        return  $this->productRepository->findCountProductByDate();
     }
 }

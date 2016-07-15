@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function indexAction()
     {
         $listProducts = $this->get('back_product.manager.products');
-        $ProductsDeals = $listProducts->getProductsDeals();
+        $ProductsDeals = $listProducts->getProductsByDate();
 
         return $this->render('frontHomeBundle:Home:index.html.twig', array('products' => $ProductsDeals));
     }

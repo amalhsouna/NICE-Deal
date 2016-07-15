@@ -4,7 +4,7 @@
     {% include '::includes/topColumn.html.twig' %}
     {% include '::includes/leftColumn.html.twig' %}
     <div class="col-md-6">
-    <h3>Formulaire de modification d'un partenaire <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h3>
+    <h3>Formulaire modification partenaire <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h3>
     <div class="box"  style="padding: 10px">
         {% if message %}
             <div class="alert alert-success">
@@ -13,7 +13,7 @@
         {% endif %}
 
       <form method="post" enctype="multipart/form-data" action="{{path('back_product_admin_update_partenary',{id:id})}}">
-            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+          {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
             {{ form_errors(form) }}
             <div class="box-body">
                 <div class="form-group">
@@ -32,9 +32,14 @@
                     {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
-                    {{ form_label(form.map,"Map") }}
-                    {{ form_errors(form.map) }}
-                    {{ form_widget(form.map, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_label(form.mapV1,"MapV1") }}
+                    {{ form_errors(form.mapV1) }}
+                    {{ form_widget(form.mapV1, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.mapV2,"MapV2") }}
+                    {{ form_errors(form.mapV2) }}
+                    {{ form_widget(form.mapV2, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.additionalInformation,"Information supplémentaire") }}

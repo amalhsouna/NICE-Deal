@@ -37,7 +37,7 @@ class HomeManager
     }
     
     /**
-     * return list of category and subCategory
+     * return list of Product by city
      * 
      */
     public function getProductByCity($city)
