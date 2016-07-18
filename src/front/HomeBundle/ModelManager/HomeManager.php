@@ -44,4 +44,13 @@ class HomeManager
     {
         return $this->productsRepository->findProductByCity($city);
     }
+    
+    /**
+     * return list of Product by city
+     * 
+     */
+    public function getLowestPriceProducts()
+    {
+        return $this->productsRepository->findLowestPriceProducts();
+    }
 }

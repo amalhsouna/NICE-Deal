@@ -17,7 +17,8 @@ class PannierController extends Controller
         if (!$session->has('front_customer_mon_pannier_page')) $session->set('front_customer_mon_pannier_page', array());
         $listProducts = $this->get('back_product.manager.products');
         $ProductsDeals = $listProducts->getProductsById(array_keys($session->get('front_customer_mon_pannier_page')));
-        return $this->render('frontHomeBundle:Home:pannierCustomer.html.twig' , array('product' => $ProductsDeals, 'panier' => $session->get('front_customer_mon_pannier_page')));
+        
+        return $this->render('frontHomeBundle:Home:pannierCustomer.html.twig' , array('products' => $ProductsDeals, 'panier' => $session->get('front_customer_mon_pannier_page')));
        
     }
     
@@ -44,7 +45,6 @@ class PannierController extends Controller
         }
            
         $session->set('front_customer_mon_pannier_page',$panier);
-        
         return $this->redirect($this->generateUrl('front_customer_mon_pannier_page'));
        
     }

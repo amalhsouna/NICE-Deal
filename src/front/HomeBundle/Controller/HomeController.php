@@ -27,6 +27,9 @@ class HomeController extends Controller
      */
     public function contactAction()
     {
+        $sendMessageCustomer = $this->get('front_home.manager.mail');
+        $message = $sendMessageCustomer->sendEmailMessage();
+        var_dump($message);exit;
         return $this->render('frontHomeBundle:Home:contact.html.twig');
     }
 
@@ -96,6 +99,8 @@ class HomeController extends Controller
     public function searchByCityAction()
     {
         $listeCategoryManager = $this->get('front_home.manager.home');
+//        $cle = $request->get('formre');
+//        $test = $cle['NomREF'];
         $dealList = $listeCategoryManager->getProductByCity('tunis');
         $form = $this->get('form.factory')->create(new SearchCityFormType());
 
@@ -103,4 +108,22 @@ class HomeController extends Controller
                     'form' => $form->createView(), 'deal' => $dealList,
         ));
     }
+    
+    /**
+     * Return a list of products by city.
+     *
+     * @param $city city of products
+     * 
+     * @return Response
+     */
+    public function lowestPriceProductsAction()
+    {
+        $lowestPriceProducts = $this->get('front_home.manager.home');
+        $priceProducts = $lowestPriceProducts->getLowestPriceProducts();
+
+        return $this->render('frontHomeBundle:Home:listDeal.html.twig', array(
+                              'deal' => $priceProducts,
+        ));
+    }
+    
 }

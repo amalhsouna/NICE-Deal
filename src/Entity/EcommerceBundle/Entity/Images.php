@@ -153,7 +153,7 @@ class Images
 
       // Le nom du fichier est son id, on doit juste stocker également son extension
       // Pour faire propre, on devrait renommer cet attribut en « extension », plutôt que « url »
-      $this->url = $this->file->getClientOriginalName();
+      $this->url = $this->id.'.'.$this->file->getClientOriginalName();
 
       // Et on génère l'attribut alt de la balise <img>, à la valeur du nom du fichier sur le PC de l'internaute
       $this->alt = $this->file->getClientOriginalName();
@@ -178,21 +178,13 @@ class Images
           }
       }
 
-//      // On déplace le fichier envoyé dans le répertoire de notre choix
+      // On déplace le fichier envoyé dans le répertoire de notre choix
       $this->file->move(
       $this->getUploadRootDir(), // Le répertoire de destination
-      $this->id.'.'.$this->url   // Le nom du fichier à créer, ici « id.extension »
+      $this->id.''.$this->url   // Le nom du fichier à créer, ici « id.extension »
        
       );
       
-//    foreach($this->files as $file)
-//    {
-//        $url = sha1(uniqid(mt_rand(), true)).'.'.$file->guessExtension();
-//        array_push ($this->url, $url);
-//        $file->move($this->getUploadRootDir(), $url);
-//
-//        unset($file);
-//    }
     }
     
     /**
@@ -200,7 +192,7 @@ class Images
      */
     public function preRemoveUpload()
     {
-        // On sauvegarde temporairement le nom du fichier, car il dépend de l'id
+      // On sauvegarde temporairement le nom du fichier, car il dépend de l'id
       $this->tempFilename = $this->getUploadRootDir().'/'.$this->id.'.'.$this->url;
     }
 
@@ -228,27 +220,4 @@ class Images
       return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
 
-//    /**
-//     * Set product
-//     *
-//     * @param \Entity\EcommerceBundle\Entity\Products $product
-//     *
-//     * @return Images
-//     */
-//    public function setProduct(\Entity\EcommerceBundle\Entity\Products $product = null)
-//    {
-//        $this->product = $product;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get product
-//     *
-//     * @return \Entity\EcommerceBundle\Entity\Products
-//     */
-//    public function getProduct()
-//    {
-//        return $this->product;
-//    }
 }

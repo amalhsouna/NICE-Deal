@@ -11,6 +11,7 @@ namespace Entity\EcommerceBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Entity\EcommerceBundle\Entity\Products;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * ProductsRepository
@@ -142,5 +143,24 @@ class ProductsRepository extends EntityRepository
        $resultsQuery = $query->getResult();
 
        return $resultsQuery;   
+    }
+    
+    /* Finds by lowest Price Products.
+     * 
+     * @param $nameCategory name of category
+     * 
+     * @return array
+     */
+    public function findLowestPriceProducts()
+    {  
+        $currDate = date('Y-m-d ');
+        $queryBuilder = $this->createQueryBuilder('p')
+                      ->where('p.endDate  = :endDate')
+                      ->setParameter('endDate', $currDate)
+                      ->orderBy('p.price')
+                      ->getQuery()
+                      ->getResult();
+        
+        return $queryBuilder;  
     }
 }

@@ -89,9 +89,7 @@
     <!-- *** SLIDER END *** -->
 
     <div id="all">
-
         <!-- *** ADVANTAGES ***-->
-
         <!-- *** ADVANTAGES END *** -->
 
         <!-- *** CONTENT ***-->
@@ -110,7 +108,7 @@
                                 <div class="image">
                                     <a href="detail.html">
                                     {% if (product.image) %}
-                                        <img src="{{ asset('uploads/img/'~product.image.url) }}" alt="" class="img-responsive image1">
+                                        <img src="{{ asset('uploads/img/'~product.image.id~product.image.url) }}" alt="" class="img-responsive image1">
                                     {% else %}
                                         <img src="http://placehold.it/360x240" alt="">
                                     {% endif %}
@@ -163,7 +161,7 @@
                                 <div class="box same-height clickable no-border text-center-xs text-center-sm">
                                     <div class="icon"><i class="fa fa-tags"></i>
                                     </div>
-                                    <h4><a href="text.html">MEILLEURS PRIX</a></h4>
+                                    <h4><a href="{{path('front_home_lowest_price_products')}}">MEILLEURS PRIX</a></h4>
                                 </div>
                             </div>
 

@@ -5,7 +5,7 @@
 {% include '::includesFront/topColumn.html.twig' %}
 <h1>Mes commande</h1>
 <p class="info-account">Bienvenue sur votre page récapitulatif de la commande.</p>
-{% if product %}
+{% if products %}
 <table class="table table-striped">
     <thead>
         <tr>
@@ -16,12 +16,11 @@
         </tr>
     </thead>
     <tbody>
-        {% for products in product %}
         <tr>
          <td>
             <div class="row">
                 <div class="col-sm-3 col-xs-6 text-center">
-                    <img src="https://www.bigdeal.tn/media/cache/thumbcommandedeal/medias/06_2016/Le Parador/B1.jpg" alt="La Goulette : Une rupture du jeûne pour 2 personnes à 39 DT Seulement au restaurant Le Parador">
+                    <img src="{{ asset('uploads/img/'~products.image.id~products.image.url) }}" alt="La Goulette : Une rupture du jeûne pour 2 personnes à 39 DT Seulement au restaurant Le Parador">
                 </div>
                 <div class="col-sm-9 col-xs-6">
                     <p>{{products.name}}</p>
@@ -40,7 +39,7 @@
          <td class="bold">{{ products.price * panier[products.id] }} <sup>DT</sup></td>
         </tr>
         {% set totalHT = totalHT + (products.price * panier[products.id]) %}
-        {% endfor %}
+        
         <tr class="hidden-xs"><td></td><td></td><td>Montant total</td><td class="bold">{{totalHT}} <sup>DT</sup></td></tr>
     </tbody></table>
      <h3>Choisissez votre méthode de paiement</h3>

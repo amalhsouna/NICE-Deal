@@ -1,7 +1,12 @@
 parameters:
     home.manager.client.class: front\HomeBundle\ModelManager\HomeManager
+    mail.manager.client.class: front\HomeBundle\ModelManager\MailManager
 
 services:
     front_home.manager.home:
         class: %home.manager.client.class%
         arguments: ["@doctrine"]
+        
+    front_home.manager.mail:
+        class: %mail.manager.client.class%
+        arguments: ["@mailer"]

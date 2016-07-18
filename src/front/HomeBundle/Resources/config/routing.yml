@@ -28,6 +28,11 @@ front_home_list_products_by_city:
     path:     /deals_region
     defaults: { _controller: frontHomeBundle:Home:searchByCity }
 
+#product with the lowest price
+front_home_lowest_price_products:
+    path:     /produits-moins-prix
+    defaults: { _controller: frontHomeBundle:Home:lowestPriceProducts }
+
     
 
     
