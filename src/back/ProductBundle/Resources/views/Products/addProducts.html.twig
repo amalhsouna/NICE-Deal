@@ -2,10 +2,37 @@
 {% block body %}
     {% include '::includes/topColumn.html.twig' %}
     {% include '::includes/leftColumn.html.twig' %}
-    
-    <div class="col-md-6">
-    <h3>Formulaire d'ajout produit <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h3>
+    <h1>Produits<small>Shop</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Accueil</a></li>
+        <li class="active">Produits</li>
+    </ol>
+    </section>
+    <section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Création du Produit</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div>
+                </div>
+    <div class="box-body">
+       <div class="table-responsive">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                          <h3 class="box-title">Informations Produit</h3>
+                          <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                          </div>
+                    </div>
+    <div class="box-body">
+   
     <div class="box"  style="padding: 10px">
+        <div class="box-body">
         {% if message %}
             <div class="alert alert-success">
                 <strong><span class="glyphicon glyphicon-thumbs-up"> Success!</span></strong> {{ message }}
@@ -14,7 +41,8 @@
       <form method="post" enctype="multipart/form-data">
             {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
             {{ form_errors(form) }}
-            <div class="box-body">
+            <div class="col-md-6">
+            
                 <div class="form-group">
                     {{ form_label(form.name,"Titre") }}
                     {{ form_errors(form.name) }}
@@ -55,17 +83,21 @@
                     {{ form_errors(form.image) }}
                     {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                
+            </div>
+             <div class="col-md-6">
+                <div class="box box-info">
                 <div class="form-group category">
                     {{ form_label(form.category,"Catégorie") }}
                     {{ form_errors(form.category) }}
                     {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                
-                <div class="form-group">
-                    {{ form_label(form.partenary) }}
+                </div>
+                <div class="box box-info">
+                <div class="form-group category">
+                    {{ form_label(form.partenary,"Partenaire") }}
                     {{ form_errors(form.partenary) }}
                     {{ form_widget(form.partenary, {'attr': {'class': 'form-control '}}) }}
+                </div>
                 </div>
                 {{ form_end(form) }}
             </div>

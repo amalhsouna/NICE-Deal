@@ -3,14 +3,20 @@
     {% include '::includes/topColumn.html.twig' %}
     {% include '::includes/leftColumn.html.twig' %}
     <div class="col-md-6">
-    <h3>Formulaire d'ajout produit</h3>
+    <h3>Formulaire modification de produit</h3>
     <div class="box"  style="padding: 10px">
+    {% if message %}
+        <div class="alert alert-success">
+           <strong><span class="glyphicon glyphicon-thumbs-up"> Success!</span></strong> {{ message }}
+        </div>
+    {% endif %}
+      
       <form method="post" enctype="multipart/form-data" action="{{path('back_product_admin_put_products',{id:id})}}">
             {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-            {{ form_errors(form) }}<p>{{ id }}</p>
-            <div class="box-body">
+            {{ form_errors(form) }}
+             <div class="box-body">
                 <div class="form-group">
-                    {{ form_label(form.name,"Nom") }}
+                    {{ form_label(form.name,"Titre") }}
                     {{ form_errors(form.name) }}
                     {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
                 </div>
@@ -20,16 +26,50 @@
                     {{ form_widget(form.price, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
+                    {{ form_label(form.oldPrice,"Ancien prix ") }}
+                    {{ form_errors(form.oldPrice) }}
+                    {{ form_widget(form.oldPrice, {'attr': {'class': 'form-control'}}) }}
+                </div>
+               <div class="form-group">
+                    {{ form_label(form.place,"Ville") }}
+                    {{ form_errors(form.place) }}
+                    {{ form_widget(form.place, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
                     {{ form_label(form.description,"Description") }}
                     {{ form_errors(form.description) }}
                     {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
                 </div>
+                <div class="form-group date">
+                    {{ form_label(form.creationDate,"Date de création") }}
+                    {{ form_errors(form.creationDate) }}
+                    {{ form_widget(form.creationDate, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group date">
+                    {{ form_label(form.endDate,"Date de fin") }}
+                    {{ form_errors(form.endDate) }}
+                    {{ form_widget(form.endDate, {'attr': {'class': 'form-control'}}) }}
+                </div>
+               <div class="form-group image">
+                    {{ form_label(form.image,"Image") }}
+                    {{ form_errors(form.image) }}
+                    {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                
+                <div class="form-group category">
+                    {{ form_label(form.category,"Catégorie") }}
+                    {{ form_errors(form.category) }}
+                    {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                
+                <div class="form-group">
+                    {{ form_label(form.partenary) }}
+                    {{ form_errors(form.partenary) }}
+                    {{ form_widget(form.partenary, {'attr': {'class': 'form-control '}}) }}
+                </div>
               
                 {{ form_end(form) }}
             </div>
-              <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
-              </div>
        </form>
     </div>
     </div>

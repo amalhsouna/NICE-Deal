@@ -9,4 +9,4 @@ services:
         
     front_home.manager.mail:
         class: %mail.manager.client.class%
-        arguments: ["@mailer"]
+        arguments: ["@mailer", "@templating"]

@@ -78,6 +78,6 @@ class PartenaryFormType extends AbstractType
      */
     public function getName()
     {
-        return "category_form";
+        return "partenary_form";
     }
 }

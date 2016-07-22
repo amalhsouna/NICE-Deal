@@ -31,7 +31,28 @@ class SearchCityFormType extends AbstractType
                     'placeholder' => 'Choix ville',
                     'empty_data'  => null ));
     }
-
+    
+    /**
+       * Sets options as model for current form type.
+       * 
+       * @param OptionsResolverInterface $resolver The resolver instance.
+       * 
+       * @return void
+       */
+      /**
+     * Sets options as model for current form type.
+     * 
+     * @param OptionsResolverInterface $resolver The resolver instance.
+     * 
+     * @return void
+     */
+//    public function setDefaultOptions(OptionsResolverInterface $resolver)
+//    {
+////        $resolver->setDefaults(
+////            'csrf_protection'    => false,
+////            'cascade_validation' => true)
+////        );
+//    }
     /**
      * Returns the name of the form type.
      * 

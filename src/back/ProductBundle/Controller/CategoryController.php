@@ -24,7 +24,7 @@ class CategoryController extends Controller
         $listeCategoryManager = $this->get('back_product.manager.category');
         $categoryList = $listeCategoryManager->getCategoryDeals();
 
-        return $this->render('backProductBundle:Products:listCategory.html.twig', array('category' => $categoryList));
+        return $this->render('backProductBundle:Categories:listCategory.html.twig', array('category' => $categoryList));
     }
 
     /**

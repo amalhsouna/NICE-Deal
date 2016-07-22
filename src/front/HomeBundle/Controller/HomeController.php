@@ -28,9 +28,9 @@ class HomeController extends Controller
     public function contactAction()
     {
         $sendMessageCustomer = $this->get('front_home.manager.mail');
-        $message = $sendMessageCustomer->sendEmailMessage();
-        var_dump($message);exit;
-        return $this->render('frontHomeBundle:Home:contact.html.twig');
+        $form = $this->get('front_product.contact.form');
+        //$sendMessageCustomer->sendEmailMessage();
+        return $this->render('frontHomeBundle:Home:contact.html.twig', array('form' => $form->createView()));
     }
 
     /**
@@ -99,11 +99,13 @@ class HomeController extends Controller
     public function searchByCityAction()
     {
         $listeCategoryManager = $this->get('front_home.manager.home');
-//        $cle = $request->get('formre');
-//        $test = $cle['NomREF'];
-        $dealList = $listeCategoryManager->getProductByCity('tunis');
+//        $test = $this->get('front_product.handler.search.products');var_dump($test);exit;
         $form = $this->get('form.factory')->create(new SearchCityFormType());
-
+        $request = $this->getRequest();
+        $cle = $request->get('search_form');
+        $city = $cle['city'];
+        $dealList = $listeCategoryManager->getProductByCity($city);
+     
         return $this->render('frontHomeBundle:Home:listDeal.html.twig', array(
                     'form' => $form->createView(), 'deal' => $dealList,
         ));

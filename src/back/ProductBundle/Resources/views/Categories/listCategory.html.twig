@@ -1,0 +1,58 @@
+{% extends "::baseAdmin.html.twig" %}
+{% block body %}
+    {% include '::includes/topColumn.html.twig' %}
+    {% include '::includes/leftColumn.html.twig' %}
+      <h1>Produits<small>Shop</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Accueil</a></li>
+        <li class="active">Produits</li>
+    </ol>
+    </section>
+    <section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Mon Stocke de Catégorie</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div>
+                </div>
+    <div class="box-body">
+       <div class="table-responsive">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                          <h3 class="box-title">Liste des Catégories</h3>
+                          <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                          </div>
+                    </div>
+        <div class="box-body">
+            <div class="col-lg-6">
+        <div class="input-group"> <span class="input-group-addon">Filter</span>
+            <input id="filter" type="text" class="form-control" placeholder="Recherche ici...">
+        </div>
+        <table class="ProdTable table table-bordered table-striped table-hover no-margin tablet no-paging footable-loaded footable">
+        <thead>
+            <tr>
+              <th>Nom de catégorie</th>
+              <th class="footable-visible footable-last-column footable-sortable footable-sorted">Outiles</th>
+            </tr>
+        </thead>
+         <tbody class="searchable">
+            {% for categories in category %}
+            <tr>
+               <td>{{categories.name}}</td>
+               <td style="width: 20%">
+                    <a href="{{path('back_category_admin_update_category',{'id': categories.id})}}" class="viewt view label label-warning" aria-hidden="true"><span class="fa fa-edit"> </span></span>
+                    <a href="#" data-href="{{path('back_category_admin_delete_category',{'id': categories.id})}}" data-toggle="modal" data-target="#confirm-delete"></a>
+                    <button class="label-danger" data-href="{{path('back_category_admin_delete_category',{'id': categories.id})}}" data-toggle="modal" data-target="#confirm-delete"><span class="fa fa-remove"></span></button>
+                </td>  
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+  {% include '::includes/footer.html.twig' %}
+{% endblock %}

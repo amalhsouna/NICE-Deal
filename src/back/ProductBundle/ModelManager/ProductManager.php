@@ -128,4 +128,21 @@ class ProductManager
     {
         return $this->productRepository->findProductByDate();
     }
+    
+    /**
+     * delete partenary.
+     *
+     * @param int $partenaryId The partenary identifier
+     *
+     * @return array
+     */
+    public function deletePartenaryById($partenaryId)
+    {
+        $partenary = $this->partenaryRepository->findOneById($partenaryId);
+        if (!$partenary) {
+            throw new NotFoundHttpException("Page not found");
+        } else {
+            return $this->partenaryRepository->delete($partenary);
+        }
+    }
 }

@@ -10,11 +10,11 @@
                         <div class="panel-body">
                             <ul class="nav nav-pills nav-stacked category-menu">
                                 <li>
-                                    <a href="category.html">Men <span class="badge pull-right">42</span></a>
+                                    <a href="category.html">Menu</a>
                                     <ul>
-                                    <li><a href="category.html">Deal</a></li>
-                                    <li><a href="category.html">Shop</a></li>
-                                    <li><a href="category.html">Formation</a></li>
+                                    <li><a href="{{path('front_home_list_products_by_category',{'category': 'Deal'})}}">Deal</a></li>
+                                    <li><a href="{{path('front_home_list_products_by_category',{'category': 'Shop'})}}">Shop</a></li>
+                                    <li><a href="{{path('front_home_list_products_by_category',{'category': 'Formation'})}}l">Formation</a></li>
                                     </ul>
                                 </li>
                                 {#<li class="active">

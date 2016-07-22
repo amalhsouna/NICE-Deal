@@ -60,4 +60,16 @@ class PartenaryRepository extends EntityRepository
 
         return $products;
     }
+    
+    /**
+     * delete Partenary.
+     *
+     * @return true.
+     */
+    public function delete(Partenary $partenary)
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->remove($partenary);
+        $entityManager->flush();
+    }
 }

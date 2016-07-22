@@ -17,3 +17,7 @@
     font-size: 14px;
     margin-left: 5px;
 }
+/********top***/
+.navbar-custom-menu a.dropdown-toggle{
+    height: 50px; 
+}

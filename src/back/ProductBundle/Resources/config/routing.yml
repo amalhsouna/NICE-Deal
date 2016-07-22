@@ -6,6 +6,10 @@ category:
   resource: "@backProductBundle/Resources/config/category.yml"
   prefix: /espace-admin
   
+partenary:
+  resource: "@backProductBundle/Resources/config/partenary.yml"
+  prefix: /espace-admin
+  
 #delete products
 back_product_admin_end_date_products:
     path:     /dealspasses

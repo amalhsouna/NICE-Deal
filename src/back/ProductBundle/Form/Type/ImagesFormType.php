@@ -12,6 +12,7 @@ namespace back\ProductBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Products form type.
@@ -48,7 +49,7 @@ class ImagesFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('file', 'file');
+        $builder->add('file', 'file', array('data_class' => null));
     }
 
     /**

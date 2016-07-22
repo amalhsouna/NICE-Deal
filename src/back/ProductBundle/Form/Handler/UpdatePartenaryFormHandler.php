@@ -55,13 +55,11 @@ class UpdatePartenaryFormHandler
         $process = false;
 
         $partenary = $this->productManger->getDetailPartenary($id);
-
-        $this->form->setData($partenary);
-
-        if ('POST' == $request->getMethod()) {
+         if ('POST' == $request->getMethod()) {
             $this->form->handleRequest($request);
             if ($this->form->isValid()) {
-                $this->productManager->postPartenaryDeals($partenary);
+                 $this->productManager->postPartenaryDeals($partenary);
+
                 return $process = true;
             }
         }

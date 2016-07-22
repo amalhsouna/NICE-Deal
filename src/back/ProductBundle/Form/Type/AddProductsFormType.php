@@ -100,7 +100,7 @@ class AddProductsFormType extends AbstractType
                 ->add('image',  $this->imagesFormType)
                 ->add('category', 'entity', array('class' => 'Entity\EcommerceBundle\Entity\Category', 'property' => 'name'  ))
                 ->add('partenary', 'entity', array('class' => 'Entity\EcommerceBundle\Entity\Partenary', 'property' => 'name'  ))
-                ->add('save', 'submit', array('label' => 'Ajouter', 'attr' => array('class' => 'btn btn-primary')));
+                ->add('save', 'submit', array('label' => 'Ajouter', 'attr' => array('class' => 'save btn btn-success btn-block')));
     }
    
     /**

@@ -131,7 +131,7 @@ class ProductsController extends Controller
             $message = 'Ajout effectuée avec succée';
         }
 
-        return $this->render('backProductBundle:Products:addPartenary.html.twig', array('form' => $form->createView(), 'message' => $message));
+        return $this->render('backProductBundle:Partenary:addPartenary.html.twig', array('form' => $form->createView(), 'message' => $message));
     }
 
     /**
@@ -152,7 +152,7 @@ class ProductsController extends Controller
             10/*limit per page*/
         );
 
-        return $this->render('backProductBundle:Products:listPartenary.html.twig', array('partenary' => $partenaryList, 'paging' => $paging));
+        return $this->render('backProductBundle:Partenary:listPartenary.html.twig', array('partenary' => $partenaryList, 'paging' => $paging));
     }
 
     /**
@@ -178,7 +178,7 @@ class ProductsController extends Controller
         $listPartenary = $this->get('back_product.manager.products');
         $partenaryDeals = $listPartenary->getDetailPartenary($id);
 
-        return $this->render('backProductBundle:Products:detailsPartenary.html.twig', array('partenary' => $partenaryDeals));
+        return $this->render('backProductBundle:Partenary:detailsPartenary.html.twig', array('partenary' => $partenaryDeals));
     }
 
     /**
@@ -199,10 +199,26 @@ class ProductsController extends Controller
             $this->get('session')->getFlashBag()->add('success', 'account.update_password.success.message');
         }
 
-        return $this->render('backProductBundle:Products:editPartenary.html.twig', array(
+        return $this->render('backProductBundle:Partenary:editPartenary.html.twig', array(
         'form' => $form->createView(),
          'id' => $id,
          'message' => $message,
         ));
     }
+    
+    /**
+     * delete product.
+     * 
+     * @param  $id The product identifier.
+     * 
+     * @return true
+     */
+    public function deletePartenaryAction($id)
+    {
+        $products = $this->get('back_product.manager.products');
+        $products->deletePartenaryById($id);
+
+        return $this->redirect($this->generateUrl('back_product_admin_list_partenary'));
+    }
+    
 }

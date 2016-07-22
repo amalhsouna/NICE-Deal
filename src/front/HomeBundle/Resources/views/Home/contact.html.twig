@@ -2,6 +2,7 @@
 {% block body %}
     
  {% include '::includesFront/topColumn.html.twig' %}
+ 
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
@@ -48,15 +49,15 @@
                     <div class="clearfix"></div>
        <div class="box text-center">
 
-                        <div class="row">
-                            <div class="col-sm-10 col-sm-offset-1">
-                                <h1>Contact</h1>
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <h1>Contact</h1>
 
-                                <p class="lead">Vous voulez savoir quelque chose? Avez-vous une sorte de problème avec nos produits?</p>
-                                <p>Sentir S'il vous plaît à nous contacter, notre centre de service à la clientèle travaille pour vous 24/7.</p>
+                    <p class="lead">Vous voulez savoir quelque chose? Avez-vous une sorte de problème avec nos produits?</p>
+                    <p>Sentir S'il vous plaît à nous contacter, notre centre de service à la clientèle travaille pour vous 24/7.</p>
 
-                            </div>
-                        </div>
+               </div>
+            </div>
         </div>
 
         <div class="box" id="contact">
@@ -99,49 +100,58 @@
 
                         <hr>
                         <h2 class='text-center'>Formulaire de contact</h2>
-
-                        <form>
-                            <div class="row">
-                                <div class="col-sm-10 col-sm-offset-1">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="firstname">Firstname</label>
-                                            <input type="text" class="form-control" id="firstname">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="lastname">Lastname</label>
-                                            <input type="text" class="form-control" id="lastname">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="text" class="form-control" id="email">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="subject">Subject</label>
-                                            <input type="text" class="form-control" id="subject">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="message">Message</label>
-                                            <textarea id="message" class="form-control"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send message</button>
-
-                                    </div>
-                                </div>
+       
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                    {{ form_errors(form) }}
+                       <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ form_label(form.firstName,"Prénom") }}
+                                {{ form_errors(form.firstName) }}
+                                {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
                             </div>
-                            <!-- /.row -->
-                        </form>
+                       </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ form_label(form.lastName,"Nom") }}
+                                {{ form_errors(form.lastName) }}
+                                {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ form_label(form.email,"E-mail") }}
+                                {{ form_errors(form.email) }}
+                                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ form_label(form.subject,"Sujet") }}
+                                {{ form_errors(form.subject) }}
+                                {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ form_label(form.message,"Message") }}
+                                {{ form_errors(form.message) }}
+                                {{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-sm-12 text-center"> 
+                            <button type="submit" class="btn btn-primary"> <i class="fa fa-envelope-o"></i> Envoyer Votre message</button>
+                        </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+             </div>
+                    </div>
+                        </div> 
+       </form>
+                        
 
 
         </div>

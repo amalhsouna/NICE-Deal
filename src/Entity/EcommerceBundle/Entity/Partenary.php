@@ -64,12 +64,7 @@ class Partenary
      * @ORM\Column(name="additionalInformation", type="string", length=255)
      */
     private $additionalInformation;
-    
-    /**
-     * 
-     * @ORM\OneToMany(targetEntity="Products", mappedBy="partenary", cascade={"persist"})
-     */
-    private $product;
+   
     
     /**
      * Get id

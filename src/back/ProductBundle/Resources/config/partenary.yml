@@ -1,0 +1,6 @@
+#delete partenary
+back_product_admin_delete_partenary:
+    path:     /{id}/delete-partenaire
+    defaults: { _controller: backProductBundle:Products:deletePartenary }
+    
+    

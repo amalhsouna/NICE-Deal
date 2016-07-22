@@ -1,0 +1,43 @@
+parameters:
+    
+    front_product.products.form.class: Symfony\Component\Form\Form
+    
+    front_product.contact.form.type.class: front\HomeBundle\Form\Type\ContactFormType
+    front_product.contact.form_data_class:  Entity\EcommerceBundle\Entity\Contact
+    
+    front_product.search.form.type.class: front\HomeBundle\Form\Type\SearchCityFormType
+    
+    front_product.handler.client.class: front\HomeBundle\Form\Handler\TestFormHandler
+    
+services:
+    
+    front_product.search.product.form.type:
+        class: %front_product.search.form.type.class%
+        
+    #search products
+    front_product.products.form:
+        class: %front_product.products.form.class%
+        factory_service: form.factory
+        factory_method: createNamed
+        arguments:
+            - ~
+            - "@front_product.search.product.form.type"
+            
+    front_product.contact.customer.form.type:
+        class: %front_product.contact.form.type.class%
+        arguement: [%front_product.contact.form_data_class%]
+    
+     #search products
+    front_product.contact.form:
+        class: %front_product.products.form.class%
+        factory_service: form.factory
+        factory_method: createNamed
+        arguments:
+            - ~
+            - "@front_product.contact.customer.form.type"
+            
+    front_product.handler.search.products:
+        class: %front_product.handler.client.class%
+        argument: ["@back_product.partenary.form", "@back_product.manager.products"]
+        
+        
