@@ -850,4 +850,11 @@ a.navbar-brand.home img {
 }
 .navbar-collapse.collapse.left{
     margin-top: 20px;
-}   
+}  
+
+/******* feedbackModal *****/
+#feedbackModal p {
+    margin-bottom: 22px;
+    font-size: 1em;
+    line-height: 20px;
+}

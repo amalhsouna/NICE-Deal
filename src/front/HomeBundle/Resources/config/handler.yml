@@ -7,7 +7,7 @@ parameters:
     
     front_product.search.form.type.class: front\HomeBundle\Form\Type\SearchCityFormType
     
-    front_product.handler.client.class: front\HomeBundle\Form\Handler\TestFormHandler
+    front_product.contact.handler.client.class: front\HomeBundle\Form\Handler\ContactFormHandler
     
 services:
     
@@ -36,8 +36,8 @@ services:
             - ~
             - "@front_product.contact.customer.form.type"
             
-    front_product.handler.search.products:
-        class: %front_product.handler.client.class%
-        argument: ["@back_product.partenary.form", "@back_product.manager.products"]
+    front_product.handler.contact.products:
+        class: %front_product.contact.handler.client.class%
+        argument: ["@front_product.contact.form", "@front_home.manager.mail"]
         
         

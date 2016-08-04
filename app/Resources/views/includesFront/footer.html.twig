@@ -104,6 +104,55 @@ _________________________________________________________ -->
 
         <!-- *** COPYRIGHT END *** -->
 
-        
+    <div id="feedback_tab" data-toggle="modal" data-target="#feedbackModal">
+        <span><img class="feedback-icon" src="https://bowntycdn.net/img/frontend/desktop/feedback-icon.png?v=5183" alt="feedback" width="22" height="20" data-toggle="modal" data-target="#myModal">Feedback</span>
     </div>
-<div id="feedback_tab"><span><img class="feedback-icon" src="https://bowntycdn.net/img/frontend/desktop/feedback-icon.png?v=5183" alt="feedback" width="22" height="20">Feedback</span></div>
+        
+<!-- Modal -->
+<div id="feedbackModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+     <div class="modal-header">
+	<h3 id="feedbackLabel">Aidez-nous à améliorer votre expérience!</h3>
+	<span class="modal-close" data-dismiss="modal"></span>
+     </div>
+	<div class="modal-body">
+		<p>Nous sommes toujours intéréssés par vos commentaires. Nous les lisons avec attention, mais veuillez noter que nous ne pouvons pas toujours y répondre directement.</p>
+		<p>NB: cette page sert uniquement aux commentaires. Si vous cherchez de l'aide, visitez '<a href="/help">Help Page</a>'</p>
+		<form action="/feedbacks" novalidate="novalidate" id="FeedbackThemedForm" method="post" accept-charset="utf-8"><div id="feedbackFormWrapper">
+		        <div style="display:none;">
+				<input type="hidden" name="_method" value="POST">
+			</div>
+			<fieldset>
+				<div class="control-group">
+                                    <label for="SiteFeedbackMessage" class="control-label">Commentaires: *</label>
+				    <div class="controls">
+					<textarea name="message" rows="5" required="required" title="Required" id="SiteFeedbackMessage"></textarea>
+				    </div>
+				</div>
+				<div class="control-group">
+                                    <label for="SiteFeedbackName" class="control-label">Nom:</label>
+				    <div class="controls">
+					<input name="name" type="text" id="SiteFeedbackName" value=" ">
+				    </div>
+				</div>
+				<div class="control-group">
+					<label for="SiteFeedbackEmail" class="control-label">Email:</label>
+					<div class="controls">
+					 <input name="email" type="email" id="SiteFeedbackEmail" value="">
+					</div>
+				</div>
+				<input type="hidden" name="type" value="site-feedback" id="SiteFeedbackType">
+			</fieldset>
+							<div class="control-group">
+								<button type="submit" class="btn turquoise-full" data-theme="reset">Envoyer les commentaires</button>
+							</div>
+						</div></form>
+					</div>
+    </div>
+
+  </div>
+</div>
+    </div>
+

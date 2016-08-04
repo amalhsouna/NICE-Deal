@@ -12,7 +12,7 @@ namespace front\HomeBundle\Form\Handler;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormInterface;
 
-use back\ProductBundle\ModelManager\ProductManager;
+use front\HomeBundle\ModelManager\MailManager;
 
 /**
  * Add Products form handler.
@@ -20,7 +20,7 @@ use back\ProductBundle\ModelManager\ProductManager;
  * @package backProductBundle
  * @author  Amal Hsouna
  */
-class TestFormHandler
+class ContactFormHandler
 {
 
     /**
@@ -29,20 +29,19 @@ class TestFormHandler
     protected $form;
     
     /**
-     * @var ProductManager
+     * @var MailManager
      */
-    protected $productManager;
+    protected $mailManager;
 
     /**
      * Constructor class.
      * 
-     * @param ProductManager $productManager  The Product Manager.
+     * @param MailManager $mailManager  The mail Manager.
      */
-    public function __construct(FormInterface $form, ProductManager $productManager)
+    public function __construct(FormInterface $form, MailManager $mailManager)
     {   
         $this->form = $form;
-        $this->productManager = $productManager;
-       
+        $this->mailManager = $mailManager;
     }
 
     /**
@@ -61,7 +60,7 @@ class TestFormHandler
             $this->form->handleRequest($request);
             if ($this->form->isValid())
             {
-                $test = $this->form->getData();
+                $test = $this->mailManager->sendEmailMessage();
                 var_dump($test);exit;
                 
             }

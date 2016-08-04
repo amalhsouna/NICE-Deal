@@ -56,6 +56,7 @@ class MailManager
                     ), 'text/html');
         
             $process = $this->mailer->send($message);
+            
         }
         
         return $process;
