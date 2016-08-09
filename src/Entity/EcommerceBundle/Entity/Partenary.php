@@ -64,6 +64,13 @@ class Partenary
      * @ORM\Column(name="additionalInformation", type="string", length=255)
      */
     private $additionalInformation;
+    
+    /** 
+     * 
+     * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Images", cascade={"persist"})
+     * @ORM\JoinTable(name="img_id",name="id")
+     */
+    private $image;
    
     
     /**

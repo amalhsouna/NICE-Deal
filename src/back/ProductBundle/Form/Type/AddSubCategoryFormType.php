@@ -49,7 +49,7 @@ class AddSubCategoryFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', 'text')
+        $builder->add('subName', 'text')
                 ->add('category', 'entity', array('class' => 'Entity\EcommerceBundle\Entity\Category', 'property' => 'name'  ));
     }
     

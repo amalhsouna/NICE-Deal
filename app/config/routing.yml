@@ -1,3 +1,8 @@
+back_home:
+    resource: "@backHomeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 front_customer:
     resource: "@frontCustomerBundle/Resources/config/routing.yml"
     prefix:   /
@@ -12,6 +17,10 @@ back_product:
 
 front_home:
     resource: "@frontHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+back_home:
+    resource: "@backHomeBundle/Resources/config/routing.yml"
     prefix:   /
 
 fos_user:

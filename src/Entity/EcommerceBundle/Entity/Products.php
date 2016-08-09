@@ -287,14 +287,6 @@ class Products
     {
         return $this->partenary;
     }
-//    /**
-//     * Constructor
-//     */
-//    public function __construct()
-//    {
-//        $this->image = new ArrayCollection();
-//    }
-
 
     /**
      * Set endDate

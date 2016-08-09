@@ -46,13 +46,6 @@ class Images
      */
     private $file;
     
-//    /**
-//     *  @ORM\OneToOne(targetEntity="Products",inversedBy="image", cascade={"remove", "persist"})
-//     *
-//     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-//     */
-//    private $product;
-
     /**
      * Get id.
      *
