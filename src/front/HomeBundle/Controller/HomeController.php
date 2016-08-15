@@ -59,8 +59,6 @@ class HomeController extends Controller
      */
     public function menuHomePageAction()
     {
-        //       $listCategory = $this->get('front_home.manager.home');
-//       $categoryDeals = $listCategory->getCategory();
        return $this->render('::includesFront/menuColumn.html.twig');
     }
 
@@ -103,7 +101,6 @@ class HomeController extends Controller
     public function searchByCityAction()
     {
         $listeCategoryManager = $this->get('front_home.manager.home');
-//        $test = $this->get('front_product.handler.search.products');var_dump($test);exit;
         $form = $this->get('form.factory')->create(new SearchCityFormType());
         $request = $this->getRequest();
         $cle = $request->get('search_form');
@@ -116,7 +113,7 @@ class HomeController extends Controller
     }
     
     /**
-     * Return a list of products by city.
+     * Return a list of products by lowest Price.
      *
      * @param $city city of products
      * 
@@ -130,6 +127,26 @@ class HomeController extends Controller
         return $this->render('frontHomeBundle:Home:listDeal.html.twig', array(
                               'deal' => $priceProducts,
         ));
+    }
+    
+    /**
+     * Return a list of products by lowest Price.
+     *
+     * @param $city city of products
+     * 
+     * @return Response
+     */
+    public function testAction()
+    {
+    $this->get('knp_snappy.pdf')->generateFromHtml(
+    $this->renderView(
+        'MyBundle:Foo:bar.html.twig',
+        array(
+            'some'  => $vars
+        )
+    ),
+    '/path/to/the/file.pdf'
+    );
     }
     
 }

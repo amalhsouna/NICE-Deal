@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new front\CustomerBundle\frontCustomerBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new back\HomeBundle\backHomeBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

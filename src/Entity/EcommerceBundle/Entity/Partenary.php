@@ -64,6 +64,24 @@ class Partenary
      * @ORM\Column(name="additionalInformation", type="string", length=255)
      */
     private $additionalInformation;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rc", type="string", length=255)
+     */
+    private $rc;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matricule", type="string", length=200)
+     */
+    private $matricule;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=50)
+     */
+    private $mail;
     
     /** 
      * 
@@ -248,5 +266,101 @@ class Partenary
     public function getMapV2()
     {
         return $this->mapV2;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Entity\EcommerceBundle\Entity\Images $image
+     *
+     * @return Partenary
+     */
+    public function setImage(\Entity\EcommerceBundle\Entity\Images $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Entity\EcommerceBundle\Entity\Images
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set rc
+     *
+     * @param string $rc
+     *
+     * @return Partenary
+     */
+    public function setRc($rc)
+    {
+        $this->rc = $rc;
+
+        return $this;
+    }
+
+    /**
+     * Get rc
+     *
+     * @return string
+     */
+    public function getRc()
+    {
+        return $this->rc;
+    }
+
+    /**
+     * Set matricule
+     *
+     * @param string $matricule
+     *
+     * @return Partenary
+     */
+    public function setMatricule($matricule)
+    {
+        $this->matricule = $matricule;
+
+        return $this;
+    }
+
+    /**
+     * Get matricule
+     *
+     * @return string
+     */
+    public function getMatricule()
+    {
+        return $this->matricule;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return Partenary
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
     }
 }

@@ -26,16 +26,24 @@ class PartenaryFormType extends AbstractType
      * @var string
      */
     protected $class;
+    
+    /**
+     * @var ImagesFormType
+     */
+    protected $imagesFormType;
    
     /**
      * Constructor class.
      * 
      * @param string $class  The model for handle form type.
+     * @param ImagesFormType $imagesFormType    The Images Form Type.
      * 
      */
-    public function __construct($class)
+    public function __construct($class, ImagesFormType $imagesFormType)
     {
         $this->class  = $class;
+        $this->imagesFormType  =   $imagesFormType;
+        
     }
 
     /**
@@ -53,7 +61,11 @@ class PartenaryFormType extends AbstractType
                 ->add('telephone', 'text')
                 ->add('mapV1', 'text')
                 ->add('mapV2', 'text')
-                ->add('additionalInformation', 'textarea');
+                ->add('additionalInformation', 'textarea')
+                ->add('rc', 'text')
+                ->add('matricule', 'text')
+                ->add('mail', 'text')
+                ->add('image',  $this->imagesFormType, array('label' => 'tttt'));
     }
     
     /**

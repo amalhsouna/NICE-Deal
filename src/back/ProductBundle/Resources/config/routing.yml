@@ -15,29 +15,6 @@ back_product_admin_end_date_products:
     path:     /dealspasses
     defaults: { _controller: backProductBundle:Products:getProductsByEndDate }
     
-#category routing 
-#list of category
-back_category_list_category:
-    path:     /liste-categorie
-    defaults: { _controller: backProductBundle:Category:getListCategory }
-    requirements:
-       _method: GET
-    
-#Add category by admin
-back_category_admin_add_category:
-    path:     /ajouter-category
-    defaults: { _controller: backProductBundle:Category:postCategory }
-    
-#Update category by admin
-back_category_admin_update_category:
-    path:     /modifier-category/{id}
-    defaults: { _controller: backProductBundle:Category:putCategory }
-    
-#delete category by admin
-back_category_admin_delete_category:
-    path:     /espace-admin/{id}/category
-    defaults: { _controller: backProductBundle:Category:deleteProducts }
-
 ##partenary
 #Add partenary
 back_product_admin_add_partenary:

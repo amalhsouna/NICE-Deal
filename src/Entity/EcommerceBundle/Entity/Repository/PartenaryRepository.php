@@ -29,7 +29,6 @@ class PartenaryRepository extends EntityRepository
      */
     public function savePartenary(Partenary $partenary)
     {
-        var_dump($partenary);exit;
         $entityManager = $this->getEntityManager();
         $entityManager->persist($partenary);
         $entityManager->flush();
@@ -71,5 +70,17 @@ class PartenaryRepository extends EntityRepository
         $entityManager = $this->getEntityManager();
         $entityManager->remove($partenary);
         $entityManager->flush();
+    }
+    
+    /* Finds count Partenary.
+     * 
+     * @return result
+     */
+    public function findCountPartenary()
+    {
+        return $this->createQueryBuilder('prt')
+                    ->select('COUNT(prt)')
+                    ->getQuery()
+                    ->getSingleScalarResult();
     }
 }

@@ -25,6 +25,9 @@ class HomeManager
         $this->entityManagerEcommerce = $doctrine->getManager();
         $this->subCategoryRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:SubCategory');
         $this->productsRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Products');
+        $this->partenaryRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Partenary');
+        $this->categoryRepository = $this->entityManagerEcommerce->getRepository('EntityEcommerceBundle:Category');
+        $this->userRepository = $this->entityManagerEcommerce->getRepository('backAdminBundle:User');
     }
     
     /**
@@ -52,5 +55,18 @@ class HomeManager
     public function getLowestPriceProducts()
     {
         return $this->productsRepository->findLowestPriceProducts();
+    }
+    
+    /**
+     * return nbr of Product
+     * 
+     */
+    public function getCountProducts()
+    {
+        $nbrProducts = $this->productsRepository->findCountProduct();
+        $nbrPartenary = $this->partenaryRepository->findCountPartenary();
+        $nbrCategory = $this->categoryRepository->findCountCategory();
+        $nbrUser = $this->userRepository->findCountUser();
+        return array('nbrProduct' => $nbrProducts, 'nbrPartenary' => $nbrPartenary, 'nbrCategory' => $nbrCategory, 'nbrUser' => $nbrUser);
     }
 }

@@ -22,8 +22,11 @@ class HomeController extends Controller
      * 
      * @return Response
      */
-    public function indexAction()
+    public function menuLeftColumnAction()
     {
-        return $this->render('backHomeBundle:Home:index.html.twig');
+        $listProducts = $this->get('front_home.manager.home');
+        $countDivers = $listProducts->getCountProducts();
+        return $this->render('::includes/menuLeftColumn.html.twig' , 
+                            array('countDivers' => $countDivers));
     }
 }

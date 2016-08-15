@@ -1,7 +1,4 @@
-#page acceuil
-back_home_homepage:
-    path:     /test
-    defaults: { _controller: backHomeBundle:Home:index }
+
 
     
 

@@ -61,4 +61,16 @@ class CategoryRepository extends EntityRepository
         $entityManager->flush();
     }
     
+    /* Finds count product.
+     * 
+     * @return result
+     */
+    public function findCountCategory()
+    {
+        return $this->createQueryBuilder('c')
+                    ->select('COUNT(c)')
+                    ->getQuery()
+                    ->getSingleScalarResult();
+    }
+    
 }

@@ -51,7 +51,7 @@ services:
         
     back_product.partenary.form.type:
         class: %back_product.partenary.form.type.class%
-        arguments: [%back_product.partenary.form_data_class%]
+        arguments: [%back_product.partenary.form_data_class%, "@back_product.images.form.type"]
     
     back_product.sub.category.form.type:
         class: %back_product.sub.category.form.type.class%
@@ -108,6 +108,7 @@ services:
         arguments:
             - ~
             - "@back_product.partenary.form.type"
+            
             
     back_product.handler.add.products:
         class: %back_product.add.handler.client.class%
