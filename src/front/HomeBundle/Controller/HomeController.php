@@ -29,11 +29,11 @@ class HomeController extends Controller
     {
        
         $form = $this->get('front_product.contact.form');
-        $sendMessageCustomer = $this->get('front_product.handler.contact.products');
-        // Launch the message flash
-//         $this->get('session')->setFlash('notice', 'Merci de nous avoir contacté, nous répondrons à vos questions dans les plus brefs délais.');
-        
-        //$sendMessageCustomer->sendEmailMessage();
+//        $sendMessageCustomer = $this->get('front_product.handler.contact.products');
+//        // Launch the message flash
+////         $this->get('session')->setFlash('notice', 'Merci de nous avoir contacté, nous répondrons à vos questions dans les plus brefs délais.');
+//        
+//        //$sendMessageCustomer->sendEmailMessage();
         return $this->render('frontHomeBundle:Home:contact.html.twig', array('form' => $form->createView()));
     }
 

@@ -32,8 +32,11 @@ front_home_list_products_by_city:
 front_home_lowest_price_products:
     path:     /produits-moins-prix
     defaults: { _controller: frontHomeBundle:Home:lowestPriceProducts }
-
     
+#cash payment product
+front_home_cash_payment_products:
+    path:     /payment
+    defaults: { _controller: frontHomeBundle:Money:cachPaymentProduct }
 
     
 

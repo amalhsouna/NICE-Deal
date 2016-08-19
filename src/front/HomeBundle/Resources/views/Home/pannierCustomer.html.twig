@@ -9,7 +9,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Description du deal</th>
+           <th>Produit</th>
            <th>Prix unitaire</th>
            <th>Quantité</th>
            <th>Sous-total</th>
@@ -20,7 +20,7 @@
          <td>
             <div class="row">
                 <div class="col-sm-3 col-xs-6 text-center">
-                    <img src="{{ asset('uploads/img/'~products.image.id~products.image.url) }}" alt="La Goulette : Une rupture du jeûne pour 2 personnes à 39 DT Seulement au restaurant Le Parador">
+                    <img src="{{ asset('uploads/img/'~products.image.id~products.image.url) }}" alt="La Goulette : Une rupture du jeûne pour 2 personnes à 39 DT Seulement au restaurant Le Parador" style="width:100%">
                 </div>
                 <div class="col-sm-9 col-xs-6">
                     <p>{{products.name}}</p>
@@ -39,8 +39,7 @@
          <td class="bold">{{ products.price * panier[products.id] }} <sup>DT</sup></td>
         </tr>
         {% set totalHT = totalHT + (products.price * panier[products.id]) %}
-        
-        <tr class="hidden-xs"><td></td><td></td><td>Montant total</td><td class="bold">{{totalHT}} <sup>DT</sup></td></tr>
+    <tr class="hidden-xs"><td></td><td></td><td>Montant total</td><td class="bold">{{totalHT}} <sup>DT</sup></td></tr>
     </tbody></table>
      <h3>Choisissez votre méthode de paiement</h3>
     <div id="HOOK_PAYMENT">
@@ -54,7 +53,7 @@
         <a class="space" href="#" title="Paiement en Espèces">Mandat postal<span class="glyphicon glyphicon-chevron-right"></span> </a>
       </p>
       <p>
-        <a class="cheque" href="#" title="Paiement en Espèces">Paiement en Espèces <span class="glyphicon glyphicon-chevron-right"></span> </a>
+        <a class="cheque" href="{{path('front_home_cash_payment_products')}}" title="Paiement en Espèces">Paiement en Espèces <span class="glyphicon glyphicon-chevron-right"></span> </a>
       </p>
     </div>
      

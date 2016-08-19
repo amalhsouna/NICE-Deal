@@ -2,5 +2,24 @@
 back_product_admin_delete_partenary:
     path:     /{id}/delete-partenaire
     defaults: { _controller: backProductBundle:Products:deletePartenary }
+#Add partenary
+back_product_admin_add_partenary:
+    path:     /ajouter-partenaire
+    defaults: { _controller: backProductBundle:Products:postPartenary }
+    
+#list partenary
+back_product_admin_list_partenary:
+    path:     /list-partenaire
+    defaults: { _controller: backProductBundle:Products:getListPartenary }
+    
+#detail partenary
+back_product_admin_detail_partenary:
+    path:     /{id}/detail-partenaire
+    defaults: { _controller: backProductBundle:Products:getDetailPartenaryAdmin }
+    
+#update partenary
+back_product_admin_update_partenary:
+    path:     /{id}/modifier-partenaire
+    defaults: { _controller: backProductBundle:Products:updatePartenaryAdmin }
     
     

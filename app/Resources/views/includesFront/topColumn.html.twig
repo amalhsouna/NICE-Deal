@@ -40,14 +40,13 @@
         <div class="telephone-horaire">   
             <div id="teleph"><i class="glyphicon glyphicon-earphone"></i><span>31 131 111</span></div>
              <i class="glyphicon glyphicon-dashboard"></i><span>7J/7 de 09H30 à 20H30</span>
-        </div><!----fin-telephone-->
+        </div>
+        <!----fin-telephone-->
         <div id="search-panier">
-             {# {% render(controller('frontHomeBundle:Pannier:pannierCustomer')) %}#}
             <div class="navbar-collapse collapse right" id="basket-overview" style="padding:0">
                 {% render(controller('frontHomeBundle:Pannier:topPannier')) %}
             </div>
         <!--/.nav-collapse -->
- 
             <div class="navbar-collapse collapse left">
             <!--block search--->
                 {% render(controller('frontHomeBundle:Home:search')) %}

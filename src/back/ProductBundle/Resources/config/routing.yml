@@ -16,22 +16,3 @@ back_product_admin_end_date_products:
     defaults: { _controller: backProductBundle:Products:getProductsByEndDate }
     
 ##partenary
-#Add partenary
-back_product_admin_add_partenary:
-    path:     /espace-admin/ajouter-partenaire
-    defaults: { _controller: backProductBundle:Products:postPartenary }
-    
-#list partenary
-back_product_admin_list_partenary:
-    path:     /espace-admin/list-partenaire
-    defaults: { _controller: backProductBundle:Products:getListPartenary }
-    
-#detail partenary
-back_product_admin_detail_partenary:
-    path:     /espace-admin/{id}/detail-partenaire
-    defaults: { _controller: backProductBundle:Products:getDetailPartenaryAdmin }
-    
-#update partenary
-back_product_admin_update_partenary:
-    path:     /espace-admin/{id}/modifier-partenaire
-    defaults: { _controller: backProductBundle:Products:updatePartenaryAdmin }

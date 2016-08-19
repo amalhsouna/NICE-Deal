@@ -54,14 +54,14 @@ class Products
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="creation_date", type="date")
+     * @ORM\Column(name="creation_date", type="datetime")
      */
     private $creationDate;
     
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="end_date", type="date")
+     * @ORM\Column(name="end_date", type="datetime")
      */
     private $endDate;
 

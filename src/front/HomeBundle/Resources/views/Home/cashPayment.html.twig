@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+{% set totalHT = 0 %}
+
+{% block body %}
+{% include '::includesFront/topColumn.html.twig' %}
+<h1>Récapitulatif de commande</h1>
+<form action="#validation" method="post">
+    <div class="box cheque-box"><h3 class="page-subheading">Paiement en Espèces</h3>
+        <p class="cheque-indent"> 
+            <strong class="dark">Cher dealer, vous venez de choisir le paiement en espèces pour bénéficier du Deal, </strong></p><p> - Le montant de votre commande est : <span id="amount" class="price"><strong style="color:#ec136a">25,000DT</strong></span></p><p style="color:#ec136a; font-weight: bold"> - Vous devez payer votre commande avant la fin du deal chez <strong class="dark"><a style="color:#ec136a; font-weight: bold" target="_blank" href="https://happydeal.tn/PayPoint-HappyDeal">les Points de Paiement (PayPoint) HappyDeal</a> </strong></p><p></p><p> - Merci de Valider votre commande en cliquant sur : Valider votre commande. <br> - Vous êtes le bienvenue chez <a href="https://www.happydeal.tn/" target="_blank">HappyDeal.tn</a> nous sommes Happy de votre visite.</p></div><p class="cart_navigation clearfix" id="cart_navigation"> 
+            <button style="background: #ea1c6f;border-color: #ea1c6f;" type="submit" class="btn btn-default button button-small"> <span>Valider votre commande<i class="icon-chevron-right right"></i></span> </button> 
+            <a href="#" class="button-exclusive btn btn-default pull-right"> <i class="glyphicon glyphicon-chevron-left"></i>Autres moyens de paiement </a>
+        </p>
+</form>
+    {% include '::includesFront/footer.html.twig' %}
+
+        </div>
+        <!-- /#content -->
+ {% endblock %}     

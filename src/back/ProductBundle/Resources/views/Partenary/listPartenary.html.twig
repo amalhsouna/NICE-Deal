@@ -22,20 +22,51 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <h3>Liste des partenaires</h3>
-        <div class="input-group"> <span class="input-group-addon">Filter</span>
-            <input id="filter" type="text" class="form-control" placeholder="Recherche ici...">
-        </div>
-        <table class="table table-bordered">
+    <h1>Produits<small>Shop</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Accueil</a></li>
+        <li class="active">Produits</li>
+    </ol>
+    </section>
+    <section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Mon Stocke de partenaires</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  </div>
+                </div>
+    <div class="box-body">
+       <div class="table-responsive">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                          <h3 class="box-title">Liste des partenaires</h3>
+                          <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                          </div>
+                    </div>
+        <div class="box-body">
+            <div class="col-lg-3">
+            <div class="input-group"> <span class="input-group-addon">Filter</span>
+                <input id="filter" type="text" class="form-control" placeholder="Recherche ici...">
+            </div>
+            </div>
+    <div class="input-group pull-right">
+                <a title="" data-toggle="tooltip" data-placement="bottom" href="{{path('back_product_admin_add_partenary')}}" class="btn btn-success pull-right" data-original-title="Créer un nouveau Produit"><span></span><i class="glyphicon glyphicon-plus"></i></a>
+            </div>
+           
+            <table class="ProdTable table table-bordered table-striped table-hover no-margin tablet no-paging footable-loaded footable">
+            <thead>
         <thead>
             <tr>
-              <th>Nom de partenaire</th>
-              <th>Adresse</th>
-              <th>Téléphone</th>
-              <th>Détail</th>
-              <th>Modifier</th>
-              <th>Supprimer</th>
+              <th class="footable-visible footable-first-column footable-sortable">Nom de partenaire</th>
+              <th class="footable-visible footable-first-column footable-sortable">Adresse</th>
+              <th class="footable-visible footable-first-column footable-sortable">Téléphone</th>
+              <th class="footable-visible footable-last-column footable-sortable footable-sorted">Outiles</th>
             </tr>
         </thead>
          <tbody class="searchable">
@@ -44,15 +75,12 @@
                 <td>{{partenary.name}}</td>
                 <td>{{partenary.adresse}}</td>
                 <td>{{partenary.telephone}}</td>
-                <td>
-                    <a href="{{path('back_product_admin_detail_partenary',{'id': partenary.id})}}" class="glyphicon glyphicon-zoom-out"></a>
-                <td>
-                    <a href="{{path('back_product_admin_update_partenary',{'id': partenary.id})}}" class="glyphicon glyphicon-pencil" ></a><br>
-                </td>
-                <td>
-                    <a href="#" data-href="{{path('back_product_admin_delete_partenary',{'id': partenary.id})}}" data-toggle="modal" data-target="#confirm-delete"></a><br>
-                    <button class="glyphicon glyphicon-remove" data-href="{{path('back_product_admin_delete_partenary',{'id': partenary.id})}}" data-toggle="modal" data-target="#confirm-delete"></button>
-                </td>
+                 <td class="footable-visible footable-last-column" style="width: 10%">
+                    <a href="{{path('back_product_admin_detail_partenary',{'id': partenary.id})}}" class="viewt view label label-info" aria-hidden="true"><span class="fa fa-eye"> </span></span>
+                    <a href="{{path('back_product_admin_update_partenary',{'id': partenary.id})}}" class="viewt view label label-warning" aria-hidden="true"><span class="fa fa-edit"> </span></span>
+                    <a href="#" data-href="{{path('back_product_admin_delete_partenary',{'id': partenary.id})}}" data-toggle="modal" data-target="#confirm-delete"></a>
+                    <button class="label-danger" data-href="{{path('back_product_admin_delete_partenary',{'id': partenary.id})}}" data-toggle="modal" data-target="#confirm-delete"><span class="fa fa-remove"></span></button>    
+            </td>
             </tr>
             {% endfor %}
         </table>
