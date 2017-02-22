@@ -2,7 +2,7 @@
 
 /**
  * ProductsRepository
- * 
+ *
  * @package EntityEcommerceBundle
  * @author Amal Hsouna
  */
@@ -20,26 +20,25 @@ use Entity\EcommerceBundle\Entity\Category;
  * @package EntityEcommerceBundle
  * @author  Amal Hsouna
  */
- 
 class CategoryRepository extends EntityRepository
 {
     /**
      * Finds all category.
-     * 
+     *
      * @return array
      */
     public function findAllCategory()
     {
         $category = $this->findAll();
-        
+
         return $category;
     }
-    
+
     /**
      * Persists category.
-     * 
+     *
      * @param Utilisateur $category The category model.
-     * 
+     *
      * @return void
      */
     public function saveCategory(Category $category)
@@ -48,7 +47,7 @@ class CategoryRepository extends EntityRepository
         $entityManager->persist($category);
         $entityManager->flush();
     }
-    
+
     /**
      * delete category.
      *
@@ -60,7 +59,7 @@ class CategoryRepository extends EntityRepository
         $entityManager->remove($category);
         $entityManager->flush();
     }
-    
+
     /* Finds count product.
      * 
      * @return result
@@ -68,9 +67,9 @@ class CategoryRepository extends EntityRepository
     public function findCountCategory()
     {
         return $this->createQueryBuilder('c')
-                    ->select('COUNT(c)')
-                    ->getQuery()
-                    ->getSingleScalarResult();
+            ->select('COUNT(c)')
+            ->getQuery()
+            ->getSingleScalarResult();
     }
-    
+
 }

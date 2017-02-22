@@ -2,7 +2,7 @@
 
 /**
  * ProductsRepository.
- * 
+ *
  * @author Amal Hsouna
  */
 
@@ -23,7 +23,7 @@ class ProductsRepository extends EntityRepository
 {
     /**
      * Finds all Products.
-     * 
+     *
      * @return array
      */
     public function findAllProducts()
@@ -35,7 +35,7 @@ class ProductsRepository extends EntityRepository
 
     /**
      * Persists Product.
-     * 
+     *
      * @param Products $products The products model.
      */
     public function saveProducts(Products $products)
@@ -47,7 +47,7 @@ class ProductsRepository extends EntityRepository
 
     /**
      * Finds Product by id.
-     * 
+     *
      * @return array
      */
     public function findProductsById($id)
@@ -71,7 +71,7 @@ class ProductsRepository extends EntityRepository
 
     /**
      * Finds Products with the date has passed.
-     * 
+     *
      * @return array
      */
     public function findProductsByEndDate()
@@ -91,21 +91,21 @@ class ProductsRepository extends EntityRepository
     public function findProductByCategory($nameCategory)
     {
         $queryBuilder = $this->createQueryBuilder('p')
-                      ->leftJoin('p.category', 'c')
-                      ->where('p.category = c.id')
-                      ->andWhere('c.name  = :category')
-                      ->setParameter('category', $nameCategory)
-                      ->getQuery()
-                      ->getResult();
+            ->leftJoin('p.category', 'c')
+            ->where('p.category = c.id')
+            ->andWhere('c.name  = :category')
+            ->setParameter('category', $nameCategory)
+            ->getQuery()
+            ->getResult();
 
         return $queryBuilder;
     }
 
     /**
      * Finds product by city.
-     * 
+     *
      * @param $city The city of product
-     * 
+     *
      * @return array
      */
     public function findProductByCity($city)
@@ -149,11 +149,11 @@ class ProductsRepository extends EntityRepository
     {
         $currDate = date('Y-m-d ');
         $queryBuilder = $this->createQueryBuilder('p')
-                      ->where('p.endDate  = :endDate')
-                      ->setParameter('endDate', $currDate)
-                      ->orderBy('p.price')
-                      ->getQuery()
-                      ->getResult();
+            ->where('p.endDate  = :endDate')
+            ->setParameter('endDate', $currDate)
+            ->orderBy('p.price')
+            ->getQuery()
+            ->getResult();
 
         return $queryBuilder;
     }
@@ -165,8 +165,8 @@ class ProductsRepository extends EntityRepository
     public function findCountProduct()
     {
         return $this->createQueryBuilder('l')
-                    ->select('COUNT(l)')
-                    ->getQuery()
-                    ->getSingleScalarResult();
+            ->select('COUNT(l)')
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 }

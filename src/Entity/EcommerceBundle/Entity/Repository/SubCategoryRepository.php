@@ -14,27 +14,27 @@ class SubCategoryRepository extends \Doctrine\ORM\EntityRepository
 {
     /**
      * Finds Products with the date has passed.
-     * 
+     *
      * @return array
      */
     public function findCategory()
-    {     
-         $queryBuilder = $this->createQueryBuilder('c')
-                        ->select("c.subName, s.name")
-                        ->leftJoin('c.category', 's')
-                        ->where('c.category = s.id')
-                        ->getQuery()
-                        ->getResult();
+    {
+        $queryBuilder = $this->createQueryBuilder('c')
+            ->select("c.subName, s.name")
+            ->leftJoin('c.category', 's')
+            ->where('c.category = s.id')
+            ->getQuery()
+            ->getResult();
 
-        return $queryBuilder;   
-  
+        return $queryBuilder;
+
     }
-    
+
     /**
      * Persists subCategory.
-     * 
+     *
      * @param subCategory $subCategory The sub category model.
-     * 
+     *
      * @return void
      */
     public function saveSubCategory(SubCategory $subCategory)

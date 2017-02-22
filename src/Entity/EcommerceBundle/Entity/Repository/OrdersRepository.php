@@ -1,7 +1,7 @@
 <?php
 /**
  * OrdersRepository
- * 
+ *
  * @package EntityEcommerceBundle
  * @author Amal Hsouna
  */
@@ -18,7 +18,7 @@ class OrdersRepository extends \Doctrine\ORM\EntityRepository
 {
     /**
      * Finds all Products.
-     * 
+     *
      * @return array
      */
     public function findByCustomer($customer)

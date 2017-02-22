@@ -2,7 +2,7 @@
 
 /**
  * PartenaryRepository
- * 
+ *
  * @package EntityEcommerceBundle
  * @author Amal Hsouna
  */
@@ -22,9 +22,9 @@ class PartenaryRepository extends EntityRepository
 {
     /**
      * Persists Partenary.
-     * 
+     *
      * @param Products $partenary The partenary model.
-     * 
+     *
      * @return void
      */
     public function savePartenary(Partenary $partenary)
@@ -33,24 +33,24 @@ class PartenaryRepository extends EntityRepository
         $entityManager->persist($partenary);
         $entityManager->flush();
     }
-    
+
     /**
      * Finds all Partenary.
-     * 
+     *
      * @return array
      */
     public function findAllPartenary()
     {
         $listPartenary = $this->findAll();
-        
+
         return $listPartenary;
     }
-    
+
     /**
      * Finds Partenary by id.
-     * 
+     *
      * @param id $id The identifier partenary.
-     * 
+     *
      * @return array
      */
     public function findPartenaryById($id)
@@ -59,7 +59,7 @@ class PartenaryRepository extends EntityRepository
 
         return $products;
     }
-    
+
     /**
      * delete Partenary.
      *
@@ -71,7 +71,7 @@ class PartenaryRepository extends EntityRepository
         $entityManager->remove($partenary);
         $entityManager->flush();
     }
-    
+
     /* Finds count Partenary.
      * 
      * @return result
@@ -79,8 +79,8 @@ class PartenaryRepository extends EntityRepository
     public function findCountPartenary()
     {
         return $this->createQueryBuilder('prt')
-                    ->select('COUNT(prt)')
-                    ->getQuery()
-                    ->getSingleScalarResult();
+            ->select('COUNT(prt)')
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 }

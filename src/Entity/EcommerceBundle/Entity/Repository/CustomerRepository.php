@@ -2,7 +2,7 @@
 
 /**
  * CustomerRepository
- * 
+ *
  * @package EntityEcommerceBundle
  * @author Amal Hsouna
  */
@@ -20,26 +20,25 @@ use Entity\EcommerceBundle\Entity\Customer;
  * @package EntityEcommerceBundle
  * @author  Amal Hsouna
  */
- 
 class CustomerRepository extends EntityRepository
 {
     /**
      * Finds all Products.
-     * 
+     *
      * @return array
      */
     public function findAllProducts()
     {
         $customer = $this->findAll();
-        
+
         return $customer;
     }
-       
+
     /**
      * Persists Customer.
-     * 
+     *
      * @param Customer $customer The customer model.
-     * 
+     *
      * @return void
      */
     public function save(Customer $customer)
@@ -48,10 +47,10 @@ class CustomerRepository extends EntityRepository
         $entityManager->persist($customer);
         $entityManager->flush();
     }
-    
+
     /**
      * Finds info customer.
-     * 
+     *
      * @return array
      */
     public function findByCustomerId($customerId)
