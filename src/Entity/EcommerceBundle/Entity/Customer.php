@@ -21,53 +21,53 @@ class Customer
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=10)
      */
     private $title;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=150)
      */
     private $lastName;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=150)
      */
     private $name;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=100)
      */
     private $address;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="telephone", type="integer")
      */
     private $telephone;
-    
+
     /**
      * @ORM\OneToOne(targetEntity="back\AdminBundle\Entity\User", cascade={"persist"})
      */
     protected $user;
-    
+
     /**
-     * 
+     *
      * @ORM\OneToMany(targetEntity="Entity\EcommerceBundle\Entity\Orders", mappedBy="customer", cascade={"persist"})
      */
     private $orders;
-  
+
     // Vos autres attributs…
 
     public function setUser(User $user = null)
@@ -75,8 +75,7 @@ class Customer
         $this->user = $user;
     }
 
- 
-    
+
     /**
      * Constructor
      */

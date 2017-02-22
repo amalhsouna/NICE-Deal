@@ -27,10 +27,10 @@ class Category
      * @ORM\Column(name="name", type="string", length=100)
      */
     private $name;
-    
+
     /**
-     * @var 
-     * 
+     * @var
+     *
      * @ORM\OneToMany(targetEntity="Entity\EcommerceBundle\Entity\Category", mappedBy="category", cascade={"persist"})
      */
     private $subCategory;
@@ -38,7 +38,7 @@ class Category
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -61,12 +61,13 @@ class Category
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
         return $this->name;
     }
+
     /**
      * Constructor
      */

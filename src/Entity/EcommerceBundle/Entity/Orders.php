@@ -57,26 +57,27 @@ class Orders
      * @ORM\Column(name="status", type="integer")
      */
     private $status;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Customer", inversedBy="orders", cascade={"remove"})
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
-    */
+     */
     private $customer;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Products", inversedBy="orders", cascade={"remove"})
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-    */
+     */
     private $products;
-    
+
     /*
      * construct
      */
-    public function __construct(){
-    $this->orderDate = new \DateTime('now');
+    public function __construct()
+    {
+        $this->orderDate = new \DateTime('now');
     }
-    
+
     /**
      * Get id
      *

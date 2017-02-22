@@ -57,7 +57,7 @@ class Products
      * @ORM\Column(name="creation_date", type="datetime")
      */
     private $creationDate;
-    
+
     /**
      * @var \DateTime
      *
@@ -71,20 +71,20 @@ class Products
      * @ORM\Column(name="place", type="string", length=50)
      */
     private $place;
-    
-    /** 
-     * 
+
+    /**
+     *
      * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Images", cascade={"persist"})
      * @ORM\JoinTable(name="img_id",name="id")
      */
     private $image;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Category", cascade={"persist"})
      * @ORM\JoinTable(name="categ_id",name="id")
      */
     private $category;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Entity\EcommerceBundle\Entity\Partenary", inversedBy="product", cascade={"persist", "merge", "remove"})
      * @ORM\JoinColumn(name="partenary_id", referencedColumnName="id")
@@ -216,7 +216,7 @@ class Products
     {
         $this->place = $place;
     }
-  
+
     /**
      * Get image.
      *
@@ -226,7 +226,7 @@ class Products
     {
         return $this->image;
     }
-    
+
     /**
      * Add image.
      *
@@ -275,7 +275,7 @@ class Products
     {
         $this->oldPrice = $oldPrice;
     }
-    
+
     // Vos autres attributs…
 
     public function setPartenary(Partenary $partenary = null)

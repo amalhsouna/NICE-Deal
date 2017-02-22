@@ -28,12 +28,12 @@ class SubCategory
      */
     private $subName;
 
-     /**
+    /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="SubCategory", cascade={"remove"})
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-    */
+     */
     private $category;
-    
+
     /**
      * Get id
      *
@@ -44,7 +44,6 @@ class SubCategory
         return $this->id;
     }
 
-    
 
     /**
      * Set category

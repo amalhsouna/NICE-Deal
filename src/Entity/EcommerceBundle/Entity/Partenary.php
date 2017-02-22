@@ -50,7 +50,7 @@ class Partenary
      * @ORM\Column(name="mapV1", type="float")
      */
     private $mapV1;
-    
+
     /**
      * @var integer
      *
@@ -82,19 +82,19 @@ class Partenary
      * @ORM\Column(name="mail", type="string", length=50)
      */
     private $mail;
-    
-    /** 
-     * 
+
+    /**
+     *
      * @ORM\OneToOne(targetEntity="Entity\EcommerceBundle\Entity\Images", cascade={"persist"})
      * @ORM\JoinTable(name="img_id",name="id")
      */
     private $image;
-   
-    
+
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -117,7 +117,7 @@ class Partenary
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -140,7 +140,7 @@ class Partenary
     /**
      * Get adresse
      *
-     * @return string 
+     * @return string
      */
     public function getAdresse()
     {
@@ -163,7 +163,7 @@ class Partenary
     /**
      * Get telephone
      *
-     * @return integer 
+     * @return integer
      */
     public function getTelephone()
     {
@@ -171,13 +171,16 @@ class Partenary
     }
 
 
-    function getAdditionalInformation() {
+    function getAdditionalInformation()
+    {
         return $this->additionalInformation;
     }
 
-    function setAdditionalInformation($additionalInformation) {
+    function setAdditionalInformation($additionalInformation)
+    {
         $this->additionalInformation = $additionalInformation;
     }
+
     /**
      * Constructor
      */
