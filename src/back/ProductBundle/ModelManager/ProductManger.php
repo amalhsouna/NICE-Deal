@@ -3,7 +3,7 @@
 /**
  * Manager of Product.
  *
- * @package ProductBundle
+ * @package ProductManger
  * @author  Amal Hsouna
  */
 
@@ -14,15 +14,20 @@ use Doctrine\Bundle\DoctrineBundle\Registry;
 
 class ProductManger
 {
+    /**
+     * ProductManger constructor.
+     * @param Registry $doctrine
+     */
     public function __construct(Registry $doctrine)
     {
-        $this->doctrine             = $doctrine;
+        $this->doctrine = $doctrine;
         $this->entityManagerEcommerce = $doctrine->getManager();
     }
-    
+
     /**
-     * return list of products
-     * @throws \Exception
+     * Return list of products
+     *
+     * @return mixed
      */
     public function getProductsDeals()
     {
