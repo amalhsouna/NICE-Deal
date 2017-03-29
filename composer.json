@@ -1,7 +1,8 @@
 {
-    "name": "hsouna/my_project",
+    "name": "hsouna/NICE-Deal",
     "license": "proprietary",
     "type": "project",
+    "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-4": {
             "": "src/"
